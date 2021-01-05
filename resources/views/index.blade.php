@@ -256,7 +256,7 @@
                 <div class="col-12 mb-3">
                     <a href="{{asset("storage/files/ihracat_files/$value->pdf")}}" class="card p-3 text-decoration-none rounded-lg">
                         <h3 class="text-dark text-decoration-none">&nbsp;</h3>
-                        <h5 class="text-secondary text-decoration-none">{{$sektor->baslik}} <br /> İhracat Raporu</h5>
+                        <h5 class="text-secondary text-decoration-none">{{$value->baslik}} <br /> İhracat Raporu</h5>
                     </a>
                 </div>
                 @endforeach
