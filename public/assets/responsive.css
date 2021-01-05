@@ -1,0 +1,132 @@
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {     
+	
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {     
+	
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {  
+	
+	.notice-left {
+		margin-left:-45px;
+	}
+	.notice-right {
+		margin-right:-45px;
+	}
+	.news-left {
+		margin-left:-45px;
+	}
+	.news-right {
+		margin-right:-45px;
+	}
+	.service-left {
+		margin-left:-45px;
+	}
+	.service-right {
+		margin-right:-45px;
+	}
+	.three-left {
+		margin-left:-45px;
+	}
+	.three-right {
+		margin-right:-45px;
+	}
+	.innovation-left {
+		margin-left:-45px;
+	}
+	.innovation-right {
+		margin-right:-45px;
+	}
+
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+	.notice-left {
+		margin-left:-65px;
+	}
+	.notice-right {
+		margin-right:-65px;
+	}
+	.news-left {
+		margin-left:-65px;
+	}
+	.news-right {
+		margin-right:-65px;
+	}
+	.service-left {
+		margin-left:-65px;
+	}
+	.service-right {
+		margin-right:-65px;
+	}
+	.three-left {
+		margin-left:-65px;
+	}
+	.three-right {
+		margin-right:-65px;
+	}
+	.innovation-left {
+		margin-left:-65px;
+	}
+	.innovation-right {
+		margin-right:-65px;
+	}
+}
+
+@media (min-width:1480px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {     
+	
+	
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {  
+	.three-right,
+	.three-left,
+	.notice-left,
+	.notice-right ,
+	.news-left,
+	.news-right,
+	.service-left,
+	.service-right,
+	.innovation-left,
+	.innovation-right
+	{
+		display:none;
+	}
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {   }
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {   
+	.bread h1 {
+		font-size:18px;
+		margin-bottom: 0;
+	}
+	.navbar-brand img {
+		max-width:200px;
+	}
+	
+}	
