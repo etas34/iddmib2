@@ -67,8 +67,8 @@
                     <a href="#"><img src="{{asset("storage/images/sektor_resim/$sektor->sektor_resim")}}" alt="..." class="img-fluid" /></a>
                     <a href="#" class="text-decoration-none text-light d-flex justify-content-between bg-red position-absolute p-3 text-light w-100" style="bottom:0;">
                         <div class="d-flex  align-items-center">
-                            <h4 class="m-0">Turkish 365 Aliminyum <br />
-                                {{$sektor->sektor_aciklama}}
+                            <h4 class="m-0">{{$sektor->sektor_link_baslik}} <br />
+                                {{$sektor->sektor_link_altbaslik}}
                             </h4>
                         </div>
                         <img src="{{asset('/assets/images/arrow-right-light.svg')}}" width="46" alt="..." />
@@ -144,6 +144,7 @@
                                     <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="#">{{$value->baslik}}</a></h5>
                                     <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h6>
                                 </div>
+
                             @endforeach
 
                         </div>
@@ -207,16 +208,16 @@
                 <div class="col-12">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
+                            @foreach($haber as $key=>$value)
+
                             <div class="swiper-slide">
-                                <a href="#"><img class="img-fluid mb-3" src="{{asset('/assets/images/news1.svg')}}" alt="..." /></a>
+                                <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
                                 <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">08 Eylül 2020</a></h5>
                                 <h5><a class="text-dark text-decoration-none" href="#">Yunanistan Tarafından Uygulanan Uluslararası Seyahat Kısıtlamaları</a></h5>
                             </div>
-                            <div class="swiper-slide">
-                                <a href="#"><img class="img-fluid mb-3" src="{{asset('/assets/images/news2.svg')}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">08 Eylül 2020</a></h5>
-                                <h5><a class="text-dark text-decoration-none" href="#">Yunanistan Tarafından Uygulanan Uluslararası Seyahat Kısıtlamaları</a></h5>
-                            </div>
+
+                      @endforeach
+
 
                         </div>
 
@@ -247,6 +248,7 @@
             <div class="col-12 col-md-12">
                 <div class="row">
                     <div class="col-12 col-sm-6 mb-3 mb-sm-0">
+
                         <div class="card py-5 px-2">
                             <h4 class="text-dark font-weight-bold"> Aliminyum   <br />
                                 GTİP Listesi
@@ -289,7 +291,8 @@
                     <a href="#"><img class="img-fluid mb-3" src="{{asset('/assets/images/profile4.svg')}}" alt="..." /></a>
                     <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Ebru Kutlualp</a></h4>
                     <p><a class="text-secondary text-decoration-none" href="#">Metaller Sektör Şubesi <br />
-                            Şube Müdür <div class="w-100"></div>
+                            Şube Müdür
+                    <div class="w-100"></div>
                     +90 212 454 0991 <br />
                     ebru.kutlualp@immib.org.tr
                     </a></p>
