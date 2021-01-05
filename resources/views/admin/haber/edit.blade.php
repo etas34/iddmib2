@@ -37,6 +37,10 @@
                             </div>
                         @endif
                         <div class="form-group">
+                            <label for="">Tarih</label>
+                            <input type="text" name="tarih" value="{{$haber->tarih}}" placeholder="05 05 2021" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputFile">Başlık Resmi (1920 X 900 )</label>
                             <div class="input-group">
                                 <div class="custom-file">

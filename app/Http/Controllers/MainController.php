@@ -56,7 +56,7 @@ class MainController extends Controller
             ->get();
         $ihracat = Ihracat::where('sektor_id', $sektor->id)
             ->get();
-        $haber = Haber::where('sektor_id',$sektor->id)
+        $haber = Haber::where('sektor_id', $sektor->id)
             ->get();
 
         return view('frontend.sektordetail', compact(
@@ -67,5 +67,12 @@ class MainController extends Controller
             'ihracat',
             'haber'
         ));
+    }
+
+    public function hakkimizda()
+    {
+        $sektor = Sektor::where('durum',1)
+            ->get();
+        return view('frontend.hakkimizda',compact('sektor'));
     }
 }

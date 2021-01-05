@@ -58,6 +58,7 @@ class HaberController extends Controller
 
         }
         $haber->sektor_id = $request->sektor_id;
+        $haber->tarih = $request->tarih;
         $haber->baslik = $request->baslik;
         $haber->aciklama = $request->aciklama;
         $saved = $haber->save();
@@ -120,6 +121,7 @@ class HaberController extends Controller
 
         }
         $haber->sektor_id = $request->sektor_id;
+        $haber->tarih = $request->tarih;
         $haber->baslik = $request->baslik;
         $haber->aciklama = $request->aciklama;
         $saved = $haber->save();

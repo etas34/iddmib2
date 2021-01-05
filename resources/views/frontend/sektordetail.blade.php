@@ -64,8 +64,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="position-relative">
-                    <a href="#"><img src="{{asset("storage/images/sektor_resim/$sektor->sektor_resim")}}" alt="..." class="img-fluid" /></a>
-                    <a href="#" class="text-decoration-none text-light d-flex justify-content-between bg-red position-absolute p-3 text-light w-100" style="bottom:0;">
+                    <a href="{{$sektor->sektor_link}}"><img src="{{asset("storage/images/sektor_resim/$sektor->sektor_resim")}}" alt="..." class="img-fluid" /></a>
+                    <a href="{{$sektor->sektor_link}}" class="text-decoration-none text-light d-flex justify-content-between bg-red position-absolute p-3 text-light w-100" style="bottom:0;">
                         <div class="d-flex  align-items-center">
                             <h4 class="m-0">{{$sektor->sektor_link_baslik}} <br />
                                 {{$sektor->sektor_link_altbaslik}}
@@ -212,8 +212,8 @@
 
                             <div class="swiper-slide">
                                 <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">08 Eylül 2020</a></h5>
-                                <h5><a class="text-dark text-decoration-none" href="#">Yunanistan Tarafından Uygulanan Uluslararası Seyahat Kısıtlamaları</a></h5>
+                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">{{$haber->tarih}}</a></h5>
+                                <h5><a class="text-dark text-decoration-none" href="#">{{$value->baslik}}</a></h5>
                             </div>
 
                       @endforeach
@@ -250,18 +250,18 @@
                     <div class="col-12 col-sm-6 mb-3 mb-sm-0">
 
                         <div class="card py-5 px-2">
-                            <h4 class="text-dark font-weight-bold"> Aliminyum   <br />
+                            <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}}   <br />
                                 GTİP Listesi
                             </h4>
-                            <h5><a class="text-dark text-decoration-none" href="#">Pdf İndir (8 Mb)</a></h5>
+                            <h5><a class="text-dark text-decoration-none"   href="{{asset("storage/files/gtip_pdf/$sektor->gtip_pdf")}}">Pdf İndir (8 Mb)</a></h5>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 mb-3 mb-sm-0">
                         <div class="card py-5 px-2">
-                            <h4 class="text-dark font-weight-bold"> Aliminyum   <br />
+                            <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}   <br />
                                 Tanıtım Broşürü
                             </h4>
-                            <h5><a class="text-dark text-decoration-none" href="#">Pdf İndir (8 Mb)</a></h5>
+                            <h5><a class="text-dark text-decoration-none" href="{{asset("storage/files/tanitim_pdf/$sektor->tanitim_pdf")}}"></a></h5>
                         </div>
                     </div>
                 </div>

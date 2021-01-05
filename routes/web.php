@@ -41,6 +41,7 @@ Route::group(['middleware' => 'setlocale'], function() {
 
     Route::get('/', [MainController::class, 'index'])->name('home');
     Route::get('/sektor-detail/{sektor}',[MainController::class,'sektordetail'])->name('sektordetail');
+    Route::get('/hakkimizda', [MainController::class, 'hakkimizda'])->name('hakkimizda');
 
     Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'auth'],function (){
 

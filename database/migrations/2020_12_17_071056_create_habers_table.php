@@ -18,6 +18,7 @@ class CreateHabersTable extends Migration
             $table->integer('sektor_id');
             $table->text('baslik');
             $table->text('aciklama');
+            $table->text('tarih');
             $table->string('image');
 
             $table->timestamps();
