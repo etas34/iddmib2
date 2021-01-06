@@ -147,6 +147,7 @@ Route::group(['middleware' => 'setlocale'], function() {
 
         Route::group(['prefix'=>'page','as'=>'sayfalar.','middleware'=>'auth'],function (){
             Route::get('/hakkimizda', [SayfalarController::class, 'hakkimizda'])->name('hakkimizda');
+            Route::post('/hakkimizda/{hakkimizda}', [SayfalarController::class, 'hakkimizda_update'])->name('hakkimizda.update');
 
         });
 //        Route::group(['prefix'=>'model','as'=>'model.','middleware'=>'auth'],function (){
