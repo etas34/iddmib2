@@ -21,7 +21,8 @@
                             <th>Resim</th>
                             <th>Faaliyet</th>
                             <th>Sektör</th>
-{{--                            <th>Açıklama</th>--}}
+                            <th>Kategori</th>
+                            {{--                            <th>Açıklama</th>--}}
                             <th>Düzenle</th>
                             <th>Sil</th>
 
@@ -34,7 +35,9 @@
 
                             <td><img src="{{asset("storage/images/faliyet_images/$value->image")}}" height="60px" width="60px"></td>
                             <td>{{$value->baslik}}</td>
+
                             <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</td>
+                            <td>{{config('constants.kategori.'.$value->kategori_id)}}</td>
                             <td><a href="{{route('admin.faliyet.edit',$value)}}"><span class="badge bg-warning p-2">Düzenle</span></a></td>
                             <td><a href="{{route('admin.faliyet.destroy',$value)}}" onclick="return confirm('Kaydı silmek istediğinize emin misiniz?')"><span class="badge bg-danger p-2">Sil</span></a></td>
 

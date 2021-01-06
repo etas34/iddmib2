@@ -20,7 +20,7 @@
 
                         <div class="row">
 
-                                <div class= "form-group col-md-12">
+                                <div class= "form-group col-md-6">
 
                                     <label>Sektör Seçiniz</label>
                                     <select name="sektor_id" id="" class="form-control" required>
@@ -32,6 +32,17 @@
                                     </select>
 
                                 </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Kategori</label>
+                                <select name="kategori_id" class="form-control">
+                                    @foreach(config('constants.kategori') as $key=>$value)
+                                        <option @if($etkinlik->kategori_id == $key) selected
+                                                @endif value="{{$key}}">{{$value}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group col-md-4">
                                 <label>Gün </label>
 

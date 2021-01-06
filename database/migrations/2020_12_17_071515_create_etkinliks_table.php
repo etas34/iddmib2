@@ -15,6 +15,7 @@ class CreateEtkinliksTable extends Migration
     {
         Schema::create('etkinliks', function (Blueprint $table) {
             $table->id();
+            $table->integer('kategori_id');
             $table->integer('sektor_id');
             $table->text('baslik');
             $table->text('alt_baslik');

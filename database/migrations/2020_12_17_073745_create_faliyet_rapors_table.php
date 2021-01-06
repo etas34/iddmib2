@@ -15,6 +15,7 @@ class CreateFaliyetRaporsTable extends Migration
     {
         Schema::create('faliyet_rapors', function (Blueprint $table) {
             $table->id();
+            $table->integer('kategori_id');
             $table->string('rapor');
             $table->text('aciklama');
             $table->timestamps();
