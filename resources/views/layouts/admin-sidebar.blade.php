@@ -39,9 +39,19 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('admin.sayfalar.hakkimizda')}}"
-                               class="nav-link @if(request()->routeIs('sayfalar.hakkimizda')) active @endif ">
+                               class="nav-link @if(request()->routeIs('admin.sayfalar.hakkimizda')) active @endif ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Hakkımızda  </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.sayfalar.kadro_index')}}"
+                               class="nav-link @if(request()->routeIs('admin.sayfalar.kadro_index')) active @endif ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>İdari Kadro ve Yönetim</p>
                             </a>
                         </li>
 
