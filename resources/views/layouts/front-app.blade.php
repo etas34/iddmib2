@@ -83,15 +83,15 @@
                 <div class="row text-center">
                     <div class="col-12">
                         <a href="{{route('hakkimizda')}}" class="btn btn-outline-secondary mb-2 mr-2">Hakkımızda</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Yönetim ve Denetim Kurulu</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İdari Kadro</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Raporlar</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Sununlar</a>
+                        <a href="{{route('yonetimkurulu')}}" class="btn btn-outline-secondary mb-2 mr-2">Yönetim ve Denetim Kurulu</a>
+                        <a href="{{route('idarikadro')}}" class="btn btn-outline-secondary mb-2 mr-2">İdari Kadro</a>
+                        <a href="{{route('raporlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Raporlar</a>
+                        <a href="{{route('sunumlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Sunumlar</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Üyelik</a> <br />
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracat Rotası</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Devlet Destekleri</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracat Raporları</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Faydalı Linkler</a> <br />
+                        <a href="{{route('ihracatrota')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Rotası</a>
+                        <a href="{{route('devletdestek')}}" class="btn btn-outline-secondary mb-2 mr-2">Devlet Destekleri</a>
+                        <a href="{{route('ihracatrapor')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Raporları</a>
+                        <a href="{{route('faydalilinkler')}}" class="btn btn-outline-secondary mb-2 mr-2">Faydalı Linkler</a> <br />
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Aliminyum</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Bakır</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Döküm</a>
@@ -100,13 +100,13 @@
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Metal Hırdavat</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Metal Ambalaj</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Yapı Malzemeleri</a>  <br />
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Etkinlik Takvimi</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Fuarlar</a>
+                        <a href="{{route('etkinlik')}}" class="btn btn-outline-secondary mb-2 mr-2">Etkinlik Takvimi</a>
+                        <a href="{{route('fuar')}}" class="btn btn-outline-secondary mb-2 mr-2">Fuarlar</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Heyetler</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Çalıştaylar</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracat Ödül Töreni</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">ARGE Proje Pazarı</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Endüstriyel Tasarım Yarışması</a>
+                        <a href="{{route('yarisma')}}" class="btn btn-outline-secondary mb-2 mr-2">Endüstriyel Tasarım Yarışması</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Birlikte Tasarlaylım</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracatçı-Öğrenci Buluşmaları</a>  <br />
                         <a href="{{route('iletisim')}}" class="btn btn-outline-secondary mb-2 mr-2">İletişim</a>

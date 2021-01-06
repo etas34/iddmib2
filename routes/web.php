@@ -44,6 +44,17 @@ Route::group(['middleware' => 'setlocale'], function() {
     Route::get('/sektor-detail/{sektor}',[MainController::class,'sektordetail'])->name('sektordetail');
     Route::get('/hakkimizda',[MainController::class,'hakkimizda'])->name('hakkimizda');
     Route::get('/iletisim',[MainController::class,'iletisim'])->name('iletisim');
+    Route::get('/yonetim-kurulu',[MainController::class,'yonetimkurulu'])->name('yonetimkurulu');
+    Route::get('/idari-kadro',[MainController::class,'idarikadro'])->name('idarikadro');
+    Route::get('/raporlar',[MainController::class,'raporlar'])->name('raporlar');
+    Route::get('/sunumlar',[MainController::class,'sunumlar'])->name('sunumlar');
+    Route::get('/ihracat-rotasi',[MainController::class,'ihracatrota'])->name('ihracatrota');
+    Route::get('/devlet-destegi',[MainController::class,'devletdestek'])->name('devletdestek');
+    Route::get('/ihracat-raporlari',[MainController::class,'ihracatrapor'])->name('ihracatrapor');
+    Route::get('/faydali-linkler',[MainController::class,'faydalilinkler'])->name('faydalilinkler');
+    Route::get('/etkinlikler',[MainController::class,'etkinlik'])->name('etkinlik');
+    Route::get('/fuarlar',[MainController::class,'fuar'])->name('fuar');
+    Route::get('/yarismalar',[MainController::class,'yarisma'])->name('yarisma');
 
     Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'auth'],function (){
 
