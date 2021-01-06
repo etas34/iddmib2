@@ -40,6 +40,7 @@ class EtkinlikController extends Controller
     public function store(Request $request)
     {
         $etkinlik = new Etkinlik();
+        $etkinlik->kategori_id = $request->kategori_id;
         $etkinlik->tarih = $request->yil . "-" . $request->ay ."-". $request->gun;
         $etkinlik->baslik = $request->baslik;
         $etkinlik->sektor_id = $request->sektor_id ;
@@ -49,7 +50,7 @@ class EtkinlikController extends Controller
             toastr()->success('Kayıt Başarılı');
         else
             toastr()->error('Bir Şeyler Ters Gitti');
-        return back();
+        return redirect()->route('admin.etkinlik.index');
     }
 
     /**
@@ -86,6 +87,7 @@ class EtkinlikController extends Controller
      */
     public function update(Request $request, Etkinlik $etkinlik)
     {
+        $etkinlik->kategori_id = $request->kategori_id;
         $etkinlik->tarih = $request->yil . "-" . $request->ay ."-". $request->gun;
         $etkinlik->baslik = $request->baslik;
         $etkinlik->sektor_id = $request->sektor_id ;
