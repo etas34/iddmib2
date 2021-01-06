@@ -65,13 +65,13 @@
                                                         <div class="col-md-6">
                                                         <label for="cat_name">Sektor Başlığı ({{$value}})</label>
                                                         <input  type="text" name="baslik[{{$key}}]"
-                                                               value=" @if (array_key_exists($key,$sektor->getTranslations('baslik'))) {{$sektor->getTranslations('baslik')[$key]}} @endif"      class="form-control" id="cat_name">
+                                                                @if($key == 'tr') required @endif       value=" @if (array_key_exists($key,$sektor->getTranslations('baslik'))) {{$sektor->getTranslations('baslik')[$key]}} @endif"      class="form-control" id="cat_name">
                                                         </div>
 
 
                                                         <div class="col-md-6">
                                                         <label>Sektor Alt Başlık ({{$value}})</label>
-                                                        <input  name="alt_baslik[{{$key}}]" class="form-control" value=" @if (array_key_exists($key,$sektor->getTranslations('alt_baslik'))) {{$sektor->getTranslations('alt_baslik')[$key]}} @endif"
+                                                        <input @if($key == 'tr') required @endif name="alt_baslik[{{$key}}]" class="form-control" value=" @if (array_key_exists($key,$sektor->getTranslations('alt_baslik'))) {{$sektor->getTranslations('alt_baslik')[$key]}} @endif"
                                                         >
 
                                                         </div>
@@ -79,25 +79,25 @@
                                                         <div class="col-md-12 form-group">
                                                         <label for="cat_name">Sektor Metin Başlığı ({{$value}})</label>
                                                         <input  type="text" name="metin_baslik[{{$key}}]"
-                                                               value=" @if (array_key_exists($key,$sektor->getTranslations('metin_baslik'))) {{$sektor->getTranslations('metin_baslik')[$key]}} @endif"      class="form-control" id="cat_name">
+                                                                @if($key == 'tr') required @endif      value=" @if (array_key_exists($key,$sektor->getTranslations('metin_baslik'))) {{$sektor->getTranslations('metin_baslik')[$key]}} @endif"      class="form-control" id="cat_name">
                                                         </div>
                                                         <div class="col-md-12 form-group">
 
                                                         <label>Sektor İçeriği ({{$value}})</label>
-                                                        <textarea id="summernote_{{$key}}" name="aciklama[{{$key}}]"
+                                                        <textarea id="summernote_{{$key}}" @if($key == 'tr') required @endif name="aciklama[{{$key}}]"
                                                         >  @if (array_key_exists($key,$sektor->getTranslations('aciklama'))) {{$sektor->getTranslations('aciklama')[$key]}} @endif</textarea>
 
                                                     </div>
                                                         <div class="col-md-6">
                                                             <label>Sektor Link Başlık({{$value}})</label>
-                                                            <input required name="sektor_link_baslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif name="sektor_link_baslik[{{$key}}]"
                                                                    class="form-control"
                                                                    value=" @if (array_key_exists($key,$sektor->getTranslations('sektor_link_baslik'))) {{$sektor->getTranslations('sektor_link_baslik')[$key]}} @endif"
                                                             >
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Sektor Link Alt Başlık({{$value}})</label>
-                                                            <input required name="sektor_link_altbaslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif name="sektor_link_altbaslik[{{$key}}]"
                                                                    class="form-control"
                                                                    value=" @if (array_key_exists($key,$sektor->getTranslations('sektor_link_altbaslik'))) {{$sektor->getTranslations('sektor_link_altbaslik')[$key]}} @endif"
 

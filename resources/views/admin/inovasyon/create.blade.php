@@ -58,7 +58,7 @@
                                                     <div class="form-group">
 
                                                         <label for="cat_name">inovasyon Başlığı ({{$value}})</label>
-                                                        <input required type="text" name="baslik[{{$key}}]"
+                                                        <input @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                                >
                                                     </div>
@@ -67,7 +67,7 @@
 
                                                     <div class="form-group">
                                                         <label>inovasyon İçeriği ({{$value}})</label>
-                                                        <input name="alt_baslik[{{$key}}]" class="form-control"
+                                                        <input @if($key == 'tr') required @endif  name="alt_baslik[{{$key}}]" class="form-control"
                                                         >
 
                                                     </div>

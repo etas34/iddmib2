@@ -65,7 +65,7 @@
                                                         <div class="form-group">
 
                                                             <label for="cat_name">Rapor Adı ({{$value}})</label>
-                                                            <input required type="text" name="baslik[{{$key}}]"
+                                                            <input  @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                    class="form-control" id="cat_name" placeholder="Ağustos 2020"
                                                             >
                                                         </div>
@@ -102,6 +102,7 @@
 
     @push('scripts')
         <script>
+
             var _URL2 = window.URL || window.webkitURL;
             $("#foto").change(function (e) {
                 var file, img;

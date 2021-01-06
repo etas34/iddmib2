@@ -64,7 +64,7 @@
                                                         <div class="form-group">
 
                                                             <label for="cat_name">inovasyon Başlığı ({{$value}})</label>
-                                                            <input required type="text" name="baslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                    class="form-control" id="cat_name"  value=" @if (array_key_exists($key,$inovasyon->getTranslations('baslik'))) {{$inovasyon->getTranslations('baslik')[$key]}} @endif"
                                                             >
                                                         </div>
@@ -73,7 +73,7 @@
 
                                                         <div class="form-group">
                                                             <label>inovasyon İçeriği ({{$value}})</label>
-                                                            <input class="form-control" name="alt_baslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif class="form-control" name="alt_baslik[{{$key}}]"
                                                             >
                                                         </div>
                                                     </div>

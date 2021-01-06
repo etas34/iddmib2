@@ -68,15 +68,15 @@
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Faliyet Başlığı ({{$value}})</label>
-                                                        <input required type="text" name="baslik[{{$key}}]"
+                                                        <input  @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                                >
                                                     </div>
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Faliyet Alt Başlığı ({{$value}})</label>
-                                                        <input required type="text" name="alt_baslik[{{$key}}]"
-                                                        <input required type="text" name="alt_baslik[{{$key}}]"
+                                                        <input  @if($key == 'tr') required @endif type="text" name="alt_baslik[{{$key}}]"
+                                                        <input  @if($key == 'tr') required @endif type="text" name="alt_baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                         >
                                                     </div>

@@ -74,14 +74,14 @@
                                                         <div class="form-group">
 
                                                             <label for="cat_name">faliyet Başlığı ({{$value}})</label>
-                                                            <input required type="text" name="baslik[{{$key}}]"
+                                                            <input  @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                    class="form-control" id="cat_name"  value=" @if (array_key_exists($key,$faliyet->getTranslations('baslik'))) {{$faliyet->getTranslations('baslik')[$key]}} @endif"
                                                             >
                                                         </div>
                                                         <div class="form-group">
 
                                                             <label for="cat_name">Faliyet Alt Başlığı ({{$value}})</label>
-                                                            <input required type="text" name="alt_baslik[{{$key}}]"
+                                                            <input  @if($key == 'tr') required @endif type="text" name="alt_baslik[{{$key}}]"
                                                                    class="form-control" id="cat_name"  value=" @if (array_key_exists($key,$faliyet->getTranslations('alt_baslik'))) {{$faliyet->getTranslations('alt_baslik')[$key]}} @endif"
                                                             >
                                                         </div>

@@ -23,7 +23,8 @@
                         @if($slider->image)
                             <div class="form-group">
                                 <label for="file">Seçili resim:</label>
-                                <div id="file"> <img src="{{asset("storage/images/slider_images/$slider->image")}}" width="300"  alt="..."></div>
+                                <div id="file"><img src="{{asset("storage/images/slider_images/$slider->image")}}"
+                                                    width="300" alt="..."></div>
                             </div>
                         @endif
                         <div class="form-group">
@@ -64,24 +65,32 @@
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Başlık ({{$value}})</label>
-                                                        <input   value=" @if (array_key_exists($key,$slider->getTranslations('baslik'))) {{$slider->getTranslations('baslik')[$key]}} @endif"
-                                                                 required type="text" name="baslik[{{$key}}]"
-                                                               class="form-control" id="cat_name"
-                                                               >
+                                                        <input
+                                                            value=" @if (array_key_exists($key,$slider->getTranslations('baslik'))) {{$slider->getTranslations('baslik')[$key]}} @endif"
+                                                            @if($key == 'tr') required @endif type="text"
+                                                            name="baslik[{{$key}}]"
+                                                            class="form-control" id="cat_name"
+                                                        >
                                                     </div>
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Alt Başlık ({{$value}})</label>
-                                                        <input value="@if (array_key_exists($key,$slider->getTranslations('alt_baslik'))) {{$slider->getTranslations('alt_baslik')[$key]}} @endif" required type="text" name="alt_baslik[{{$key}}]"
-                                                               class="form-control" id="cat_name"
-                                                               >
+                                                        <input
+                                                            value="@if (array_key_exists($key,$slider->getTranslations('alt_baslik'))) {{$slider->getTranslations('alt_baslik')[$key]}} @endif"
+                                                            @if($key == 'tr') required @endif type="text"
+                                                            name="alt_baslik[{{$key}}]"
+                                                            class="form-control" id="cat_name"
+                                                        >
                                                     </div>
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Açıklama ({{$value}})</label>
-                                                        <input value="@if (array_key_exists($key,$slider->getTranslations('aciklama'))) {{$slider->getTranslations('aciklama')[$key]}} @endif" required type="text" name="aciklama[{{$key}}]"
-                                                               class="form-control" id="cat_name"
-                                                               >
+                                                        <input
+                                                            value="@if (array_key_exists($key,$slider->getTranslations('aciklama'))) {{$slider->getTranslations('aciklama')[$key]}} @endif"
+                                                            @if($key == 'tr') required @endif type="text"
+                                                            name="aciklama[{{$key}}]"
+                                                            class="form-control" id="cat_name"
+                                                        >
                                                     </div>
 
 
@@ -103,7 +112,6 @@
                             <!-- /.col -->
                         </div>
                         <!-- /.row -->
-
 
 
                     </div>

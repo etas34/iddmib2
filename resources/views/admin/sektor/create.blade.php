@@ -58,7 +58,7 @@
                                                     <div class="row form-group">
                                                         <div class="col-md-6">
                                                             <label for="cat_name">Sektor Başlığı ({{$value}})</label>
-                                                            <input required type="text" name="baslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                    class="form-control" id="cat_name">
 
                                                         </div>
@@ -66,13 +66,13 @@
 
 
                                                             <label>Sektor Alt Başlık ({{$value}})</label>
-                                                            <input required name="alt_baslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif name="alt_baslik[{{$key}}]"
                                                                    class="form-control"
                                                             >
                                                         </div>
                                                         <div class="col-md-12">
                                                             <label>Sektor Metin Başlığı({{$value}})</label>
-                                                            <input required name="metin_baslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif name="metin_baslik[{{$key}}]"
                                                                    class="form-control">
                                                         </div>
 
@@ -84,13 +84,13 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Sektor Link Başlık({{$value}})</label>
-                                                            <input required name="sektor_link_baslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif name="sektor_link_baslik[{{$key}}]"
                                                                    class="form-control"
                                                             >
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Sektor Link Alt Başlık({{$value}})</label>
-                                                            <input required name="sektor_link_altbaslik[{{$key}}]"
+                                                            <input @if($key == 'tr') required @endif name="sektor_link_altbaslik[{{$key}}]"
                                                                    class="form-control"
                                                             >
                                                         </div>
