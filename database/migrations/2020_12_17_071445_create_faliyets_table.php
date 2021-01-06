@@ -16,6 +16,7 @@ class CreateFaliyetsTable extends Migration
         Schema::create('faliyets', function (Blueprint $table) {
             $table->id();
             $table->integer('sektor_id');
+            $table->integer('kategori_id');
             $table->text('baslik');
             $table->text('alt_baslik');
             $table->text('aciklama');
