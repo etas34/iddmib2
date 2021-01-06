@@ -72,4 +72,10 @@ class MainController extends Controller
     {
         return view('frontend.hakkimizda');
     }
+
+
+    public function iletisim()
+    {
+        return view('frontend.iletisim');
+    }
 }

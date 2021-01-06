@@ -109,9 +109,9 @@
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Endüstriyel Tasarım Yarışması</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Birlikte Tasarlaylım</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracatçı-Öğrenci Buluşmaları</a>  <br />
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İletişim</a>
+                        <a href="{{route('iletisim')}}" class="btn btn-outline-secondary mb-2 mr-2">İletişim</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İDDMİB Basın Kiti</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Sıkça Sorulan Sorular</a>
+                        <a href="{{route('iletisim')}}#sss" class="btn btn-outline-secondary mb-2 mr-2">Sıkça Sorulan Sorular</a>
                     </div>
                 </div>
             </div>
