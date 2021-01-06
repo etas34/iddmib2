@@ -68,4 +68,8 @@ class MainController extends Controller
             'haber'
         ));
     }
+    public function hakkimizda()
+    {
+        return view('frontend.hakkimizda');
+    }
 }
