@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\IhracatController;
 use App\Http\Controllers\Admin\IhracatRakamController;
 use App\Http\Controllers\Admin\InovasyonController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SayfalarController;
 use App\Http\Controllers\Admin\SektorController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypeController;
@@ -128,6 +129,12 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::get('/destroy/{faliyetRapor}', [FaliyetRaporController::class, 'destroy'])->name('destroy');
             Route::post('/edit/{faliyetRapor}', [FaliyetRaporController::class, 'update'])->name('update');
             Route::post('/create', [FaliyetRaporController::class, 'store'])->name('store');
+        });
+
+
+        Route::group(['prefix'=>'page','as'=>'sayfalar.','middleware'=>'auth'],function (){
+            Route::get('/hakkimizda', [SayfalarController::class, 'hakkimizda'])->name('hakkimizda');
+
         });
 //        Route::group(['prefix'=>'model','as'=>'model.','middleware'=>'auth'],function (){
 //            Route::get('/', [TypeController::class, 'index'])->name('index');

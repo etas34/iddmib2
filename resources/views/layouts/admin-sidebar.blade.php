@@ -28,7 +28,25 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
+                <li class="nav-item @if(request()->routeIs('admin.sayfalar.*')) menu-open @endif">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>
+                            Sayfalar
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.sayfalar.hakkimizda')}}"
+                               class="nav-link @if(request()->routeIs('sayfalar.hakkimizda')) active @endif ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Hakkımızda  </p>
+                            </a>
+                        </li>
 
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="{{route('admin.slider.index')}}" class="nav-link">
                         <i class="nav-icon fa fa-hashtag"></i>
@@ -111,24 +129,6 @@
                     </a>
                 </li>
 
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.model.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-th-list"></i>--}}
-{{--                        <p>--}}
-{{--                          Models--}}
-{{--                            <span class="right badge badge-danger">New</span>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.product.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-cart-plus"></i>--}}
-{{--                        <p>--}}
-{{--                          Products--}}
-{{--                            <span class="right badge badge-danger">New</span>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
