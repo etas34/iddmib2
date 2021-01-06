@@ -57,7 +57,7 @@
                                                 <div class="tab-pane @if($key == 'tr') active @endif" id="{{$key}}">
                                                     <div class="form-group">
 
-                                                        <label for="cat_name">inovasyon Başlığı ({{$value}})</label>
+                                                        <label for="cat_name">Başlık ({{$value}})</label>
                                                         <input @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                                >
@@ -66,11 +66,24 @@
 
 
                                                     <div class="form-group">
-                                                        <label>inovasyon İçeriği ({{$value}})</label>
+                                                        <label>Alt Başlık ({{$value}})</label>
                                                         <input @if($key == 'tr') required @endif  name="alt_baslik[{{$key}}]" class="form-control"
                                                         >
 
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label>Metin Başlığı  ({{$value}})</label>
+                                                        <input @if($key == 'tr') required @endif  name="metin_baslik[{{$key}}]" class="form-control"
+                                                        >
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Metin İçeriği ({{$value}})</label>
+                                                        <textarea  @if($key == 'tr') required @endif  id="summernote_{{$key}}" name="metin[{{$key}}]"
+                                                        ></textarea>
+
+                                                    </div>
+
                                                 </div>
                                             @endforeach
 
@@ -102,34 +115,34 @@
 
     @push('scripts')
         <script>
-            var _URL2 = window.URL || window.webkitURL;
-            $("#foto").change(function (e) {
-                var file, img;
-                if ((file = this.files[0])) {
-                    img = new Image();
-                    var objectUrl = _URL2.createObjectURL(file);
-                    img.onload = function () {
-
-                        if (this.width != 570 && this.height != 380) {
-
-                            $('#error_foto').html('<label class="text-danger">Lütfen 570 X 380 boyutlarında yükleyiniz</label>');
-                            $('#foto').addClass('has-error');
-                            $('#edit').attr('disabled', true);
-                        } else {
-
-                            $('#error_foto').html('<label class="text-success"></label>');
-                            $('#foto').removeClass('has-error');
-                            $('#edit').attr('disabled', false);
-
-                        }
-
-
-                        _URL2.revokeObjectURL(objectUrl);
-                    };
-                    img.src = objectUrl;
-                }
-
-            })
+            // var _URL2 = window.URL || window.webkitURL;
+            // $("#foto").change(function (e) {
+            //     var file, img;
+            //     if ((file = this.files[0])) {
+            //         img = new Image();
+            //         var objectUrl = _URL2.createObjectURL(file);
+            //         img.onload = function () {
+            //
+            //             if (this.width != 570 && this.height != 380) {
+            //
+            //                 $('#error_foto').html('<label class="text-danger">Lütfen 570 X 380 boyutlarında yükleyiniz</label>');
+            //                 $('#foto').addClass('has-error');
+            //                 $('#edit').attr('disabled', true);
+            //             } else {
+            //
+            //                 $('#error_foto').html('<label class="text-success"></label>');
+            //                 $('#foto').removeClass('has-error');
+            //                 $('#edit').attr('disabled', false);
+            //
+            //             }
+            //
+            //
+            //             _URL2.revokeObjectURL(objectUrl);
+            //         };
+            //         img.src = objectUrl;
+            //     }
+            //
+            // })
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({

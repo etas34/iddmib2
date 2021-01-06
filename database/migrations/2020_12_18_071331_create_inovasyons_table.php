@@ -17,7 +17,12 @@ class CreateInovasyonsTable extends Migration
             $table->id();
             $table->text('baslik');
             $table->text('alt_baslik');
+            $table->text('metin_baslik');
+            $table->text('metin');
             $table->string('image');
+            $table->string('link');
+            $table->text('link_baslik');
+            $table->text('link_altbaslik');
             $table->timestamps();
         });
     }

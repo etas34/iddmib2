@@ -374,7 +374,7 @@
                         <div class="swiper-wrapper">
                             @foreach($inovasyon as $key=>$value)
                                 <div class="swiper-slide">
-                                    <a href="#"><img class="img-fluid mb-3 d-block mx-auto" src="{{asset("storage/images/inovasyon_images/$value->image")}}" alt="..." /></a>
+                                    <a href="{{route('inovasyon',$value)}}"><img class="img-fluid mb-3 d-block mx-auto" src="{{asset("storage/images/inovasyon_images/$value->image")}}" alt="..." /></a>
                                     <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="#">{{$value->baslik}}</a></h5>
                                     <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h6>
                                 </div>

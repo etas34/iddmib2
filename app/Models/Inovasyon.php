@@ -10,5 +10,5 @@ class Inovasyon extends Model
 {
     use HasFactory;
     use HasTranslations;
-    public $translatable = ['baslik','alt_baslik'];
+    public $translatable = ['baslik','alt_baslik','metin_baslik','metin','link_altbaslik','link_baslik'];
 }

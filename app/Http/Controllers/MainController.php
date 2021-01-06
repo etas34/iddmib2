@@ -123,4 +123,12 @@ class MainController extends Controller
     {
         return view('frontend.yarisma');
     }
+    public function inovasyon(Inovasyon $inovasyon)
+    {
+        return view('frontend.inovasyon',compact('inovasyon'));
+    }
+    public function faaliyet(Faliyet $faliyet)
+    {
+        return view('frontend.faliyet',compact('faliyet'));
+    }
 }
