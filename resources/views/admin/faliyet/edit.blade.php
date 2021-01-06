@@ -20,7 +20,7 @@
                     {{csrf_field()}}
                     <div class="card-body">
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                                 <label>Sektör Seçiniz</label>
                                 <select name="sektor_id" id="" class="form-control" required>
                                     @foreach($sektor as $key=>$value)
@@ -31,15 +31,15 @@
                                 </select>
 
                             </div>
-                            <div class="form-group col-md-6">
-                                <label>Kategori</label>
-                                <select name="kategori_id" class="form-control">
-                                    @foreach(config('constants.kategori') as $key=>$value)
-                                        <option @if($faliyet->kategori_id == $key) selected
-                                                @endif value="{{$key}}">{{$value}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+{{--                            <div class="form-group col-md-6">--}}
+{{--                                <label>Kategori</label>--}}
+{{--                                <select name="kategori_id" class="form-control">--}}
+{{--                                    @foreach(config('constants.kategori') as $key=>$value)--}}
+{{--                                        <option @if($faliyet->kategori_id == $key) selected--}}
+{{--                                                @endif value="{{$key}}">{{$value}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
                         </div>
 
@@ -86,7 +86,7 @@
                                                 <div class="tab-pane @if($key == 'tr') active @endif" id="{{$key}}">
                                                     <div class="form-group">
 
-                                                        <label for="cat_name">faliyet Başlığı ({{$value}})</label>
+                                                        <label for="cat_name">Başlık ({{$value}})</label>
                                                         <input @if($key == 'tr') required @endif type="text"
                                                                name="baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
@@ -95,7 +95,7 @@
                                                     </div>
                                                     <div class="form-group">
 
-                                                        <label for="cat_name">Faliyet Alt Başlığı ({{$value}})</label>
+                                                        <label for="cat_name">Alt Başlık ({{$value}})</label>
                                                         <input @if($key == 'tr') required @endif type="text"
                                                                name="alt_baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
@@ -103,9 +103,19 @@
                                                         >
                                                     </div>
 
+                                                    <div class="form-group">
+
+                                                        <label for="cat_name">Metin Başlık ({{$value}})</label>
+                                                        <input @if($key == 'tr') required @endif type="text"
+                                                               name="metin_baslik[{{$key}}]"
+                                                               class="form-control" id="cat_name"
+                                                               value=" @if (array_key_exists($key,$faliyet->getTranslations('metin_baslik'))) {{$faliyet->getTranslations('metin_baslik')[$key]}} @endif"
+                                                        >
+                                                    </div>
+
 
                                                     <div class="form-group">
-                                                        <label>Faliyet İçeriği ({{$value}})</label>
+                                                        <label>Metin ({{$value}})</label>
                                                         <textarea id="summernote_{{$key}}" name="aciklama[{{$key}}]"
                                                         > @if (array_key_exists($key,$faliyet->getTranslations('aciklama'))) {{$faliyet->getTranslations('aciklama')[$key]}} @endif</textarea>
 

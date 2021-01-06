@@ -29,14 +29,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //cache temizleme
-Route::get('/reset', function(){
+Route::get('/reset', function () {
     Artisan::call('config:cache');
 
     Artisan::call('cache:clear');
 
 });
 Route::get('lang/{locale}', [HomeController::class, 'setlocale'])->name('setlocale');
-Route::group(['middleware' => 'setlocale'], function() {
+Route::group(['middleware' => 'setlocale'], function () {
 
 
     Route::get('/', [MainController::class, 'index'])->name('home');
@@ -57,14 +57,14 @@ Route::group(['middleware' => 'setlocale'], function() {
     Route::get('/inovasyon/{inovasyon}', [MainController::class, 'inovasyon'])->name('inovasyon');
     Route::get('/faaliyet/{faaliyet}', [MainController::class, 'faaliyet'])->name('inovasyon');
 
-    Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'auth'],function (){
+    Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
 
         Route::get('/', [HomeController::class, 'index'])->name('dashboard');
         Route::get('/form/create', [HomeController::class, 'form_create'])->name('form.create');
         Route::get('/form', [HomeController::class, 'form_index'])->name('form.index');
 
 
-        Route::group(['prefix'=>'slider','as'=>'slider.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'slider', 'as' => 'slider.', 'middleware' => 'auth'], function () {
             Route::get('/', [SliderController::class, 'index'])->name('index');
             Route::get('/create', [SliderController::class, 'create'])->name('create');
             Route::get('/edit/{slider}', [SliderController::class, 'edit'])->name('edit');
@@ -72,7 +72,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{slider}', [SliderController::class, 'update'])->name('update');
             Route::post('/create', [SliderController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'duyuru','as'=>'duyuru.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'duyuru', 'as' => 'duyuru.', 'middleware' => 'auth'], function () {
             Route::get('/', [DuyuruController::class, 'index'])->name('index');
             Route::get('/create', [DuyuruController::class, 'create'])->name('create');
             Route::get('/edit/{duyuru}', [DuyuruController::class, 'edit'])->name('edit');
@@ -80,7 +80,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{duyuru}', [DuyuruController::class, 'update'])->name('update');
             Route::post('/create', [DuyuruController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'haber','as'=>'haber.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'haber', 'as' => 'haber.', 'middleware' => 'auth'], function () {
             Route::get('/', [HaberController::class, 'index'])->name('index');
             Route::get('/create', [HaberController::class, 'create'])->name('create');
             Route::get('/edit/{haber}', [HaberController::class, 'edit'])->name('edit');
@@ -88,7 +88,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{haber}', [HaberController::class, 'update'])->name('update');
             Route::post('/create', [HaberController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'ihracatrakam','as'=>'ihracatrakam.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'ihracatrakam', 'as' => 'ihracatrakam.', 'middleware' => 'auth'], function () {
             Route::get('/', [IhracatRakamController::class, 'index'])->name('index');
             Route::get('/create', [IhracatRakamController::class, 'create'])->name('create');
             Route::get('/edit/{ihracatRakam}', [IhracatRakamController::class, 'edit'])->name('edit');
@@ -96,7 +96,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{ihracatRakam}', [IhracatRakamController::class, 'update'])->name('update');
             Route::post('/create', [IhracatRakamController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'sektor','as'=>'sektor.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'sektor', 'as' => 'sektor.', 'middleware' => 'auth'], function () {
             Route::get('/', [SektorController::class, 'index'])->name('index');
             Route::get('/create', [SektorController::class, 'create'])->name('create');
             Route::get('/edit/{sektor}', [SektorController::class, 'edit'])->name('edit');
@@ -104,7 +104,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{sektor}', [SektorController::class, 'update'])->name('update');
             Route::post('/create', [SektorController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'ihracat','as'=>'ihracat.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'ihracat', 'as' => 'ihracat.', 'middleware' => 'auth'], function () {
             Route::get('/', [IhracatController::class, 'index'])->name('index');
             Route::get('/create', [IhracatController::class, 'create'])->name('create');
             Route::get('/edit/{ihracat}', [IhracatController::class, 'edit'])->name('edit');
@@ -112,7 +112,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{ihracat}', [IhracatController::class, 'update'])->name('update');
             Route::post('/create', [IhracatController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'faliyet','as'=>'faliyet.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'faliyet', 'as' => 'faliyet.', 'middleware' => 'auth'], function () {
             Route::get('/', [FaliyetController::class, 'index'])->name('index');
             Route::get('/create', [FaliyetController::class, 'create'])->name('create');
             Route::get('/edit/{faliyet}', [FaliyetController::class, 'edit'])->name('edit');
@@ -120,7 +120,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{faliyet}', [FaliyetController::class, 'update'])->name('update');
             Route::post('/create', [FaliyetController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'etkinlik','as'=>'etkinlik.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'etkinlik', 'as' => 'etkinlik.', 'middleware' => 'auth'], function () {
             Route::get('/', [EtkinlikController::class, 'index'])->name('index');
             Route::get('/create', [EtkinlikController::class, 'create'])->name('create');
             Route::get('/edit/{etkinlik}', [EtkinlikController::class, 'edit'])->name('edit');
@@ -128,7 +128,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{etkinlik}', [EtkinlikController::class, 'update'])->name('update');
             Route::post('/create', [EtkinlikController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'inovasyon','as'=>'inovasyon.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'inovasyon', 'as' => 'inovasyon.', 'middleware' => 'auth'], function () {
             Route::get('/', [InovasyonController::class, 'index'])->name('index');
             Route::get('/create', [InovasyonController::class, 'create'])->name('create');
             Route::get('/edit/{inovasyon}', [InovasyonController::class, 'edit'])->name('edit');
@@ -136,7 +136,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{inovasyon}', [InovasyonController::class, 'update'])->name('update');
             Route::post('/create', [InovasyonController::class, 'store'])->name('store');
         });
-        Route::group(['prefix'=>'faliyetrapor','as'=>'faliyetrapor.','middleware'=>'auth'],function (){
+        Route::group(['prefix' => 'faliyetrapor', 'as' => 'faliyetrapor.', 'middleware' => 'auth'], function () {
             Route::get('/', [FaliyetRaporController::class, 'index'])->name('index');
             Route::get('/create', [FaliyetRaporController::class, 'create'])->name('create');
             Route::get('/edit/{faliyetRapor}', [FaliyetRaporController::class, 'edit'])->name('edit');
@@ -163,11 +163,6 @@ Route::group(['middleware' => 'setlocale'], function() {
             });
 
 
-
-
-
-
-
         });
 //        Route::group(['prefix'=>'model','as'=>'model.','middleware'=>'auth'],function (){
 //            Route::get('/', [TypeController::class, 'index'])->name('index');
@@ -192,4 +187,4 @@ Route::group(['middleware' => 'setlocale'], function() {
 });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

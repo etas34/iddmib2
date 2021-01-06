@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Faliyetler</h3>
-                   <a href="{{route('admin.faliyet.create')}}" class="btn btn-primary active" style="float: right !important;">Yeni Faliyet Ekle</a>
+{{--                   <a href="{{route('admin.faliyet.create')}}" class="btn btn-primary active" style="float: right !important;">Yeni Faliyet Ekle</a>--}}
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

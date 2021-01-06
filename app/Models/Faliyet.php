@@ -10,5 +10,5 @@ class Faliyet extends Model
 {
     use HasFactory;
     use HasTranslations;
-    public $translatable = ['baslik','alt_baslik','aciklama'];
+    public $translatable = ['baslik','alt_baslik','aciklama','metin_baslik'];
 }
