@@ -83,7 +83,7 @@
 
                                                             <label>1.Alan</label>
 
-                                                            <input @if($key == 'tr') placeholder="01.31 Ağustos 2020"
+                                                            <input @if($key == 'tr') required placeholder="01.31 Ağustos 2020"
                                                                    @else placeholder="01.31 August 2020" @endif
                                                                    type="text" class="form-control"
                                                                    name="o_birinci[{{$key}}]"/>
@@ -100,7 +100,7 @@
                                                         <div class="form-group col-md-4">
                                                             <label>3.Alan</label>
 
-                                                            <input @if($key == 'tr')placeholder="Milyon USD "
+                                                            <input @if($key == 'tr') required placeholder="Milyon USD "
                                                                    @else placeholder="Million USD" @endif  type="text"
                                                                    class="form-control" name="o_ucuncu[{{$key}}]"/>
 
@@ -121,7 +121,7 @@
                                                             <label>1.Alan</label>
 
                                                             <input
-                                                                @if($key == 'tr')placeholder="1 Eylül 2019 / 31 Ağustos 2020"
+                                                                @if($key == 'tr') required placeholder="1 Eylül 2019 / 31 Ağustos 2020"
                                                                 @else placeholder="1 September 2019/31 August 2020"
                                                                 @endif  type="text" class="form-control"
                                                                 name="s_birinci[{{$key}}]"/>
@@ -138,7 +138,7 @@
                                                         <div class="form-group col-md-4">
                                                             <label>3.Alan</label>
 
-                                                            <input @if($key == 'tr')placeholder="Milyon USD "
+                                                            <input @if($key == 'tr') required placeholder="Milyon USD "
                                                                    @else placeholder="Million USD" @endif type="text"
                                                                    class="form-control" name="s_ucuncu[{{$key}}]"/>
 

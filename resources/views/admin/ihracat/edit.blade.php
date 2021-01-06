@@ -75,7 +75,7 @@
                                                         <div class="form-group">
 
                                                             <label for="cat_name">Rapor Adı  ({{$value}})</label>
-                                                            <input required type="text" name="baslik[{{$key}}]"
+                                                            <input  @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                    value=" @if (array_key_exists($key,$ihracat->getTranslations('baslik'))) {{$ihracat->getTranslations('baslik')[$key]}} @endif"
                                                                    class="form-control" id="cat_name">
                                                         </div>

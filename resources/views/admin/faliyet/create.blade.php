@@ -19,17 +19,29 @@
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
+                        <div class="row">
 
-                        <div class="form-group">
-                            <label>Sektör Seçiniz</label>
-                            <select name="sektor_id" id="" class="form-control" required>
-                                @foreach($sektor as $key=>$value)
-                                    <option value="{{$value->id}}">{{$value->baslik}}</option>
-                                @endforeach
+                            <div class="form-group col-md-6">
+                                <label>Sektör Seçiniz</label>
+                                <select name="sektor_id" id="" class="form-control" required>
+                                    @foreach($sektor as $key=>$value)
+                                        <option value="{{$value->id}}">{{$value->baslik}}</option>
+                                    @endforeach
 
-                            </select>
+                                </select>
+
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Kategori</label>
+                                <select name="kategori_id" class="form-control">
+                                    @foreach(config('constants.kategori') as $key=>$value)
+                                        <option value="{{$key}}">{{$value}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                         </div>
+
 
                         <div class="form-group">
                             <label for="exampleInputFile">Faliyet Resmi (540 X 230 )</label>
@@ -68,15 +80,16 @@
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Faliyet Başlığı ({{$value}})</label>
-                                                        <input required type="text" name="baslik[{{$key}}]"
+                                                        <input @if($key == 'tr') required @endif type="text"
+                                                               name="baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
-                                                               >
+                                                        >
                                                     </div>
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Faliyet Alt Başlığı ({{$value}})</label>
-                                                        <input required type="text" name="alt_baslik[{{$key}}]"
-                                                        <input required type="text" name="alt_baslik[{{$key}}]"
+                                                        <input @if($key == 'tr') required @endif type="text"
+                                                               name="alt_baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                         >
                                                     </div>
@@ -102,7 +115,6 @@
                         <!-- /.row -->
 
 
-
                     </div>
                     <!-- /.card-body -->
 
@@ -119,34 +131,7 @@
 
     @push('scripts')
         <script>
-            var _URL2 = window.URL || window.webkitURL;
-            $("#foto").change(function (e) {
-                var file, img;
-                if ((file = this.files[0])) {
-                    img = new Image();
-                    var objectUrl = _URL2.createObjectURL(file);
-                    img.onload = function () {
 
-                        if (this.width != 540 && this.height != 230) {
-
-                            $('#error_foto').html('<label class="text-danger">Lütfen 540 X 230 boyutlarında yükleyiniz</label>');
-                            $('#foto').addClass('has-error');
-                            $('#edit').attr('disabled', true);
-                        } else {
-
-                            $('#error_foto').html('<label class="text-success"></label>');
-                            $('#foto').removeClass('has-error');
-                            $('#edit').attr('disabled', false);
-
-                        }
-
-
-                        _URL2.revokeObjectURL(objectUrl);
-                    };
-                    img.src = objectUrl;
-                }
-
-            })
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({

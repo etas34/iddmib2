@@ -82,36 +82,36 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col-12">
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Hakkımızda</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Yönetim ve Denetim Kurulu</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">İdari Kadro</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Raporlar</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Sununlar</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Üyelik</button> <br />
-                        <button class="btn btn-outline-secondary mb-2 mr-2">İhracat Rotası</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Devlet Destekleri</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">İhracat Raporları</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Faydalı Linkler</button> <br />
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Aliminyum</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Bakır</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Döküm</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Ev ve Mutfak</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Kaynak</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Metal Hırdavat</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Metal Ambalaj</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Yapı Malzemeleri</button>  <br />
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Etkinlik Takvimi</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Fuarlar</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Heyetler</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Çalıştaylar</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">İhracat Ödül Töreni</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">ARGE Proje Pazarı</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Endüstriyel Tasarım Yarışması</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Birlikte Tasarlaylım</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">İhracatçı-Öğrenci Buluşmaları</button>  <br />
-                        <button class="btn btn-outline-secondary mb-2 mr-2">İletişim</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">İDDMİB Basın Kiti</button>
-                        <button class="btn btn-outline-secondary mb-2 mr-2">Sıkça Sorulan Sorular</button>
+                        <a href="{{route('hakkimizda')}}" class="btn btn-outline-secondary mb-2 mr-2">Hakkımızda</a>
+                        <a href="{{route('yonetimkurulu')}}" class="btn btn-outline-secondary mb-2 mr-2">Yönetim ve Denetim Kurulu</a>
+                        <a href="{{route('idarikadro')}}" class="btn btn-outline-secondary mb-2 mr-2">İdari Kadro</a>
+                        <a href="{{route('raporlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Raporlar</a>
+                        <a href="{{route('sunumlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Sunumlar</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Üyelik</a> <br />
+                        <a href="{{route('ihracatrota')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Rotası</a>
+                        <a href="{{route('devletdestek')}}" class="btn btn-outline-secondary mb-2 mr-2">Devlet Destekleri</a>
+                        <a href="{{route('ihracatrapor')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Raporları</a>
+                        <a href="{{route('faydalilinkler')}}" class="btn btn-outline-secondary mb-2 mr-2">Faydalı Linkler</a> <br />
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Aliminyum</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Bakır</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Döküm</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Ev ve Mutfak</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Kaynak</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Metal Hırdavat</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Metal Ambalaj</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Yapı Malzemeleri</a>  <br />
+                        <a href="{{route('etkinlik')}}" class="btn btn-outline-secondary mb-2 mr-2">Etkinlik Takvimi</a>
+                        <a href="{{route('fuar')}}" class="btn btn-outline-secondary mb-2 mr-2">Fuarlar</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Heyetler</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Çalıştaylar</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracat Ödül Töreni</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">ARGE Proje Pazarı</a>
+                        <a href="{{route('yarisma')}}" class="btn btn-outline-secondary mb-2 mr-2">Endüstriyel Tasarım Yarışması</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Birlikte Tasarlaylım</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracatçı-Öğrenci Buluşmaları</a>  <br />
+                        <a href="{{route('iletisim')}}" class="btn btn-outline-secondary mb-2 mr-2">İletişim</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İDDMİB Basın Kiti</a>
+                        <a href="{{route('iletisim')}}#sss" class="btn btn-outline-secondary mb-2 mr-2">Sıkça Sorulan Sorular</a>
                     </div>
                 </div>
             </div>

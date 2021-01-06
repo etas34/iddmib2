@@ -23,7 +23,8 @@
                         @if($inovasyon->image)
                             <div class="form-group">
                                 <label for="file">Seçili resim:</label>
-                                <div id="file"> <img src="{{asset("storage/images/inovasyon_images/$inovasyon->image")}}" width="300"  alt="..."></div>
+                                <div id="file"><img src="{{asset("storage/images/inovasyon_images/$inovasyon->image")}}"
+                                                    width="300" alt="..."></div>
                             </div>
                         @endif
                         <div class="form-group">
@@ -40,54 +41,95 @@
                         </div>
 
 
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Custom Tabs -->
+                                <div class="card">
+                                    <div class="card-header d-flex p-0">
+                                        <h3 class="card-title p-3">Translate</h3>
+                                        <ul class="nav nav-pills ml-auto p-2">
+                                            @foreach($langs as $key=>$value)
+                                                <li class="nav-item"><a class="nav-link @if($key == 'tr') active @endif"
+                                                                        href="#{{$key}}"
+                                                                        data-toggle="tab">{{$value}}</a></li>
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Custom Tabs -->
-                                    <div class="card">
-                                        <div class="card-header d-flex p-0">
-                                            <h3 class="card-title p-3">Translate</h3>
-                                            <ul class="nav nav-pills ml-auto p-2">
-                                                @foreach($langs as $key=>$value)
-                                                    <li class="nav-item"><a class="nav-link @if($key == 'tr') active @endif"
-                                                                            href="#{{$key}}"
-                                                                            data-toggle="tab">{{$value}}</a></li>
+                                            @endforeach
 
-                                                @endforeach
+                                        </ul>
+                                    </div><!-- /.card-header -->
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            @foreach($langs as $key=>$value)
+                                                <div class="tab-pane @if($key == 'tr') active @endif" id="{{$key}}">
+                                                    <div class="form-group">
 
-                                            </ul>
-                                        </div><!-- /.card-header -->
-                                        <div class="card-body">
-                                            <div class="tab-content">
-                                                @foreach($langs as $key=>$value)
-                                                    <div class="tab-pane @if($key == 'tr') active @endif" id="{{$key}}">
-                                                        <div class="form-group">
+                                                        <label for="cat_name">Başlık ({{$value}})</label>
+                                                        <input @if($key == 'tr') required @endif type="text"
+                                                               name="baslik[{{$key}}]"
+                                                               class="form-control" id="cat_name"
+                                                               value=" {{$inovasyon->getTranslations('baslik')[$key] ?? ''}} "
+                                                        >
+                                                    </div>
 
-                                                            <label for="cat_name">inovasyon Başlığı ({{$value}})</label>
-                                                            <input required type="text" name="baslik[{{$key}}]"
-                                                                   class="form-control" id="cat_name"  value=" @if (array_key_exists($key,$inovasyon->getTranslations('baslik'))) {{$inovasyon->getTranslations('baslik')[$key]}} @endif"
+                                                    <div class="form-group">
+
+                                                        <label for="cat_name">Alt Başlık ({{$value}})</label>
+                                                        <input @if($key == 'tr') required @endif type="text"
+                                                               name="alt_baslik[{{$key}}]"
+                                                               class="form-control" id="cat_name"
+                                                               value=" {{$inovasyon->getTranslations('alt_baslik')[$key] ?? ''}} "
+                                                        >
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <label>Metin Başlığı ({{$value}})</label>
+                                                        <input @if($key == 'tr') required
+                                                               @endif value="{{$inovasyon->getTranslations('metin_baslik')[$key] ?? ''}}"
+                                                               class="form-control"
+                                                               name="metin_baslik[{{$key}}]"
+                                                        >
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Metin İçeriği ({{$value}})</label>
+                                                        <textarea @if($key == 'tr') required
+                                                                  @endif  id="summernote_{{$key}}"
+                                                                  name="metin[{{$key}}]"
+                                                        >{{$inovasyon->getTranslations('metin')[$key] ?? ''}}</textarea>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6">
+                                                            <label>İnovasyon Website Başlığı ({{$value}})</label>
+                                                            <input value="{{$inovasyon->getTranslations('link_baslik')[$key] ?? ''}}"
+                                                                   class="form-control"
+                                                                   name="link_baslik[{{$key}}]"
                                                             >
                                                         </div>
-
-
-
-                                                        <div class="form-group">
-                                                            <label>inovasyon İçeriği ({{$value}})</label>
-                                                            <input class="form-control" name="alt_baslik[{{$key}}]"
+                                                        <div class="form-group col-md-6">
+                                                            <label>İnovasyon Website Alt Başlığı ({{$value}})</label>
+                                                            <input value="{{$inovasyon->getTranslations('link_altbaslik')[$key] ?? ''}}"
+                                                                   class="form-control"
+                                                                   name="link_altbaslik[{{$key}}]"
                                                             >
                                                         </div>
                                                     </div>
-                                                @endforeach
+                                                </div>
+                                            @endforeach
 
-                                            </div>
-                                            <!-- /.tab-content -->
-                                        </div><!-- /.card-body -->
-                                    </div>
-                                    <!-- ./card -->
+                                        </div>
+                                        <!-- /.tab-content -->
+                                    </div><!-- /.card-body -->
                                 </div>
-                                <!-- /.col -->
+                                <div class="form-group">
+                                    <label>İnovasyon Websitesi</label>
+                                    <input type="text" value="{{$inovasyon->link}}" name="link" class="form-control">
+                                </div>
+                                <!-- ./card -->
                             </div>
-                            <!-- /.row -->
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
 
 
                     </div>

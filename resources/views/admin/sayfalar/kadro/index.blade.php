@@ -10,8 +10,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Faliyetler</h3>
-                   <a href="{{route('admin.faliyet.create')}}" class="btn btn-primary active" style="float: right !important;">Yeni Faliyet Ekle</a>
+                    <h3 class="card-title">Kadrolar</h3>
+                    <a href="{{route('admin.sayfalar.kadro_create')}}" class="btn btn-primary active"
+                       style="float: right !important;">Yeni Kadro Ekle</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -19,9 +20,13 @@
                         <thead>
                         <tr>
                             <th>Resim</th>
-                            <th>Faaliyet</th>
+                            <th>Kadro</th>
                             <th>Sektör</th>
-                            <th>Kategori</th>
+                            <th>Ünvan</th>
+                            <th>Ad Soyad</th>
+                            <th>Telefon Numarası</th>
+                            <th>E-Mail</th>
+
                             {{--                            <th>Açıklama</th>--}}
                             <th>Düzenle</th>
                             <th>Sil</th>
@@ -30,18 +35,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $faliyet as $key=>$value)
-                        <tr>
+                        @foreach( $kadro as $key=>$value)
+                            <tr>
 
-                            <td><img src="{{asset("storage/images/faliyet_images/$value->image")}}" height="60px" width="60px"></td>
-                            <td>{{$value->baslik}}</td>
+                                <td><img src="{{asset("storage/images/kadro_images/$value->resim")}}" height="60px"
+                                         width="60px"></td>
+                                <td> {{$value->kadro}}</td>
+                                <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik ?? ''}}</td>
+                                <td> {{$value->unvan}}</td>
+                                <td> {{$value->ad_soyad}}</td>
+                                <td> {{$value->tel}}</td>
+                                <td> {{$value->email}}</td>
 
-                            <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</td>
-                            <td>{{config('constants.kategori.'.$value->kategori_id)}}</td>
-                            <td><a href="{{route('admin.faliyet.edit',$value)}}"><span class="badge bg-warning p-2">Düzenle</span></a></td>
-                            <td><a href="{{route('admin.faliyet.destroy',$value)}}" onclick="return confirm('Kaydı silmek istediğinize emin misiniz?')"><span class="badge bg-danger p-2">Sil</span></a></td>
+                                <td><a href="{{route('admin.sayfalar.kadro_edit',$value)}}"><span class="badge bg-warning p-2">Düzenle</span></a>
+                                </td>
+                                <td><a href="{{route('admin.sayfalar.kadro_destroy',$value)}}"
+                                       onclick="return confirm('Kaydı silmek istediğinize emin misiniz?')"><span
+                                            class="badge bg-danger p-2">Sil</span></a></td>
 
-                        </tr>
+                            </tr>
                         @endforeach
 
 

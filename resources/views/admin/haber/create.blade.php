@@ -73,7 +73,7 @@
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Haber Başlığı ({{$value}})</label>
-                                                        <input required type="text" name="baslik[{{$key}}]"
+                                                        <input  @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                                >
                                                     </div>

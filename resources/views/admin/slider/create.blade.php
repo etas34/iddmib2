@@ -58,21 +58,21 @@
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Başlık ({{$value}})</label>
-                                                        <input required type="text" name="baslik[{{$key}}]"
+                                                        <input @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                                >
                                                     </div>
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Alt Başlık ({{$value}})</label>
-                                                        <input required type="text" name="alt_baslik[{{$key}}]"
+                                                        <input @if($key == 'tr') required @endif type="text" name="alt_baslik[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                                >
                                                     </div>
                                                     <div class="form-group">
 
                                                         <label for="cat_name">Açıklama ({{$value}})</label>
-                                                        <input required type="text" name="aciklama[{{$key}}]"
+                                                        <input @if($key == 'tr') required @endif type="text" name="aciklama[{{$key}}]"
                                                                class="form-control" id="cat_name"
                                                                >
                                                     </div>

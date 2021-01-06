@@ -61,7 +61,7 @@ class SektorController extends Controller
         if ($request->file('sektor_resim')) {
             $request->validate([
 
-                'sektor_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'sektor_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
             ]);
 

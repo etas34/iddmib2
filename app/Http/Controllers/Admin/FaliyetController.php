@@ -56,6 +56,7 @@ class FaliyetController extends Controller
             $faliyet->image = $imageName;
 
         }
+        $faliyet->kategori_id = $request->kategori_id;
         $faliyet->sektor_id = $request->sektor_id;
         $faliyet->baslik = $request->baslik;
         $faliyet->alt_baslik = $request->alt_baslik;
@@ -119,7 +120,7 @@ class FaliyetController extends Controller
             $faliyet->image = $imageName;
 
         }
-
+        $faliyet->kategori_id = $request->kategori_id;
         $faliyet->sektor_id = $request->sektor_id;
         $faliyet->baslik = $request->baslik;
         $faliyet->alt_baslik = $request->alt_baslik;

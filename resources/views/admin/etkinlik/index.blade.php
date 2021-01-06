@@ -19,9 +19,9 @@
                         <thead>
                         <tr>
                             <th>Etkinlik Adı</th>
+                            <th>Kategori</th>
                             <th>Sektor Adı</th>
                             <th>Tarih</th>
-
                             <th>Düzenle</th>
                             <th>Sil</th>
 
@@ -33,6 +33,7 @@
                         <tr>
 
                             <td>{{$value->baslik}}</td>
+                            <td>{{config('constants.kategori.'.$value->kategori_id)}}</td>
                             <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</td>
                             <td>{{$value->tarih}}</td>
 

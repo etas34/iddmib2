@@ -16,7 +16,7 @@ class InovasyonController extends Controller
     public function index()
     {
         $inovasyon = Inovasyon::all();
-        return view('admin.inovasyon.index',compact('inovasyon'));
+        return view('admin.inovasyon.index', compact('inovasyon'));
     }
 
     /**
@@ -53,15 +53,17 @@ class InovasyonController extends Controller
             $request->image->storeAs('/public/images/inovasyon_images', $imageName);
             $inovasyon->image = $imageName;
         }
-            $inovasyon->baslik = $request->baslik;
-            $inovasyon->alt_baslik = $request->alt_baslik;
-            $saved = $inovasyon->save();
-            if ($saved)
-                toastr()->success('Kayıt Başarılı');
-            else
-                toastr()->error('Bir Şeyler Ters Gitti');
+        $inovasyon->baslik = $request->baslik;
+        $inovasyon->alt_baslik = $request->alt_baslik;
+        $inovasyon->metin_baslik = $request->metin_baslik;
+        $inovasyon->metin = $request->metin;
+        $saved = $inovasyon->save();
+        if ($saved)
+            toastr()->success('Kayıt Başarılı');
+        else
+            toastr()->error('Bir Şeyler Ters Gitti');
 
-            return redirect()->route('admin.inovasyon.index');
+        return redirect()->route('admin.inovasyon.index');
 
 
     }
@@ -85,7 +87,7 @@ class InovasyonController extends Controller
      */
     public function edit(Inovasyon $inovasyon)
     {
-        return view('admin.inovasyon.edit',compact('inovasyon'));
+        return view('admin.inovasyon.edit', compact('inovasyon'));
     }
 
     /**
@@ -113,15 +115,21 @@ class InovasyonController extends Controller
             $request->image->storeAs('/public/images/inovasyon_images', $imageName);
             $inovasyon->image = $imageName;
         }
-            $inovasyon->baslik = $request->baslik;
-            $inovasyon->alt_baslik = $request->alt_baslik;
-            $saved = $inovasyon->save();
-            if ($saved)
-                toastr()->success('Kayıt Başarılı');
-            else
-                toastr()->error('Bir Şeyler Ters Gitti');
+        $inovasyon->baslik = $request->baslik;
+        $inovasyon->alt_baslik = $request->alt_baslik;
+        $inovasyon->metin_baslik = $request->metin_baslik;
+        $inovasyon->metin = $request->metin;
+        $inovasyon->link_baslik = $request->link_baslik;
+        $inovasyon->link_altbaslik = $request->link_altbaslik;
+        $inovasyon->link = $request->link;
 
-            return redirect()->route('admin.inovasyon.index');
+        $saved = $inovasyon->save();
+        if ($saved)
+            toastr()->success('Kayıt Başarılı');
+        else
+            toastr()->error('Bir Şeyler Ters Gitti');
+
+        return back();
 
     }
 

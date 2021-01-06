@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">inovasyonlar</h3>
-                   <a href="{{route('admin.inovasyon.create')}}" class="btn btn-primary active" style="float: right !important;">Yeni inovasyon Ekle</a>
+{{--                   <a href="{{route('admin.inovasyon.create')}}" class="btn btn-primary active" style="float: right !important;">Yeni inovasyon Ekle</a>--}}
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -20,9 +20,8 @@
                         <tr>
                             <th>Resim</th>
                             <th>Başlık</th>
-{{--                            <th>Açıklama</th>--}}
                             <th>Düzenle</th>
-                            <th>Sil</th>
+{{--                            <th>Sil</th>--}}
 
 
                         </tr>
@@ -37,7 +36,7 @@
 
 
                             <td><a href="{{route('admin.inovasyon.edit',$value)}}"><span class="badge bg-warning p-2">Düzenle</span></a></td>
-                            <td><a href="{{route('admin.inovasyon.destroy',$value)}}" onclick="return confirm('Kaydı silmek istediğinize emin misiniz?')"><span class="badge bg-danger p-2">Sil</span></a></td>
+{{--                            <td><a href="{{route('admin.inovasyon.destroy',$value)}}" onclick="return confirm('Kaydı silmek istediğinize emin misiniz?')"><span class="badge bg-danger p-2">Sil</span></a></td>--}}
 
                         </tr>
                         @endforeach

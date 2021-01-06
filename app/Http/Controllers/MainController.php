@@ -56,7 +56,7 @@ class MainController extends Controller
             ->get();
         $ihracat = Ihracat::where('sektor_id', $sektor->id)
             ->get();
-        $haber = Haber::where('sektor_id', $sektor->id)
+        $haber = Haber::where('sektor_id',$sektor->id)
             ->get();
 
         return view('frontend.sektordetail', compact(
@@ -69,10 +69,68 @@ class MainController extends Controller
         ));
     }
 
+
     public function hakkimizda()
     {
-        $sektor = Sektor::where('durum',1)
-            ->get();
-        return view('frontend.hakkimizda',compact('sektor'));
+        return view('frontend.hakkimizda');
+    }
+
+
+    public function iletisim()
+    {
+        return view('frontend.iletisim');
+    }
+
+    public function yonetimkurulu()
+    {
+        return view('frontend.yonetimkurulu');
+    }
+    public function idarikadro()
+    {
+        return view('frontend.idarikadro');
+    }
+    public function raporlar()
+    {
+        return view('frontend.raporlar');
+    }
+    public function sunumlar()
+    {
+        return view('frontend.sunumlar');
+    }
+    public function ihracatrota()
+    {
+        return view('frontend.ihracatrota');
+    }
+    public function devletdestek()
+    {
+        return view('frontend.devletdestek');
+    }
+    public function ihracatrapor()
+    {
+        return view('frontend.ihracatrapor');
+    }
+    public function faydalilinkler()
+    {
+        return view('frontend.faydalilink');
+    }
+    public function etkinlik()
+    {
+        return view('frontend.etkinlik');
+    }
+    public function fuar()
+    {
+        return view('frontend.fuar');
+    }
+    public function yarisma()
+    {
+        return view('frontend.yarisma');
+    }
+    public function inovasyon(Inovasyon $inovasyon)
+    {
+        return view('frontend.inovasyon',compact('inovasyon'));
+    }
+    public function faaliyet(Faliyet $faliyet)
+    {
+        return view('frontend.faliyet',compact('faliyet'));
     }
 }
