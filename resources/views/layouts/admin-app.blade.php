@@ -68,28 +68,28 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown user-menu">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{asset('adminlte/dist/img/user2-160x160.jpg')}}"
+                    <img src="{{asset('adminlte/dist/img/user.png')}}"
                          class="user-image img-circle elevation-2" alt="User Image">
-                    <span class="d-none d-md-inline">Alexander Pierce</span>
+                    <span class="d-none d-md-inline">Yönetim</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- User image -->
                     <li class="user-header bg-primary">
-                        <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
+                        <img src="{{ asset('adminlte/dist/img/user.png')}}" class="img-circle elevation-2"
                              alt="User Image">
 
                         <p>
-                            Alexander Pierce - Web Developer
-                            <small>Member since Nov. 2012</small>
+                            İDDMİB YÖNETİM
+                            {{--                            <small>{{ Carbon\Carbon::parse(Auth::user()->created_at)->format('d M Y') }} Tarihi'nden Beri Üye </small>--}}
                         </p>
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        {{--                        <a href="#" class="btn btn-default btn-flat">Profile</a>--}}
 
-                        <a href="{{route('logout')}}" class="btn btn-default btn-flat float-right"
-                               onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">Sign out</a>
+                        <a href="{{route('logout')}}" class="btn btn-block btn-flat "
+                           onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">Çıkış Yap</a>
                         <form id="logout-form" method="POST" action="{{ route('logout') }}">
                             @csrf
 
