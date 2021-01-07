@@ -125,8 +125,8 @@
                         @foreach($haber as $key=>$value)
                             <div class="swiper-slide">
                                 <a href="{{route('haber',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">{{$value->tarih}}</a></h5>
-                                <h5><a class="text-dark text-decoration-none" href="#">{{$value->baslik}}</a></h5>
+                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="{{route('haber',$value)}}">{{$value->tarih}}</a></h5>
+                                <h5><a class="text-dark text-decoration-none" href="{{route('haber',$value)}}">{{$value->baslik}}</a></h5>
                             </div>
                             @endforeach
 
@@ -288,8 +288,8 @@
 
                             <div class="swiper-slide">
                                 <a href="{{route('faaliyet',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->image")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="#">{{$value->baslik}}</a></h5>
-                                <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h6>
+                                <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="{{route('faaliyet',$value)}}">{{$value->baslik}}</a></h5>
+                                <h6><span class="text-secondary text-decoration-none">{{$value->alt_baslik}}</span></h6>
                             </div>
                             @endforeach
 
