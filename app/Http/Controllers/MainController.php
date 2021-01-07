@@ -157,6 +157,12 @@ class MainController extends Controller
 
     public function faaliyet(Faliyet $faaliyet)
     {
-        return view('frontend.faaliyet', compact('faaliyet'));
+        $k_ids = explode(',',$faaliyet->kategori_id);
+
+        $etkinlik = Etkinlik::whereIn('kategori_id',  $k_ids)
+        ->get();
+        $compact = compact('faaliyet','etkinlik');
+
+        return view('frontend.faaliyet', $compact);
     }
 }

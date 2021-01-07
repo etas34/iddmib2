@@ -52,6 +52,8 @@
         </div>
 @if(!in_array('0',explode(',',$faaliyet->kategori_id)))
 
+
+
         <!-- threeslide start -->
         <div class="threeslide mb-5">
             <div class="container">
@@ -59,39 +61,20 @@
                     <div class="col-12">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
+                             @foreach($etkinlik as $key=>$value)
                                 <div class="swiper-slide">
                                     <div class="card">
-                                        <div class="card-header text-danger bg-transparent">01 Eylül 2020</div>
+                                        <div class="card-header text-danger bg-transparent">{{$value->tarih}}</div>
                                         <div class="card-body">
-                                            <h5>Özbekistan <br /> Milli Katılım <br /> Organizasyonu</h5>
+                                            {{$value->baslik}}
                                         </div>
                                         <div class="card-footer bg-transparent border-top-0">
-                                            Aliminyum
+                                            {{$value->alt_baslik}}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <div class="card-header text-danger bg-transparent">01 Eylül 2020</div>
-                                        <div class="card-body">
-                                            <h5>Özbekistan <br /> Milli Katılım <br /> Organizasyonu</h5>
-                                        </div>
-                                        <div class="card-footer bg-transparent border-top-0">
-                                            Aliminyum
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <div class="card-header text-danger bg-transparent">01 Eylül 2020</div>
-                                        <div class="card-body">
-                                            <h5>Özbekistan <br /> Milli Katılım <br /> Organizasyonu</h5>
-                                        </div>
-                                        <div class="card-footer bg-transparent border-top-0">
-                                            Aliminyum
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
 
 
                             </div>
