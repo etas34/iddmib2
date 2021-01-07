@@ -45,6 +45,7 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::get('/idari-kadro', [MainController::class, 'idarikadro'])->name('idarikadro');
     Route::get('/raporlar', [MainController::class, 'raporlar'])->name('raporlar');
     Route::get('/sunumlar', [MainController::class, 'sunumlar'])->name('sunumlar');
+    Route::get('/ihracat', [MainController::class, 'ihracat'])->name('ihracat');
     Route::get('/ihracat-rotasi', [MainController::class, 'ihracatrota'])->name('ihracatrota');
     Route::get('/devlet-destegi', [MainController::class, 'devletdestek'])->name('devletdestek');
     Route::get('/ihracat-raporlari', [MainController::class, 'ihracatrapor'])->name('ihracatrapor');

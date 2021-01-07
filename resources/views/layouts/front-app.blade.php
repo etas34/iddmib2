@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="mynav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="#">Kurumsal</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">İhracat</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('ihracat')}}">İhracat</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Üyelik</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Sektörler</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Faliyetler</a></li>

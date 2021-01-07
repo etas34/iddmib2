@@ -97,6 +97,10 @@ class MainController extends Controller
     {
         return view('frontend.sunumlar');
     }
+    public function ihracat()
+    {
+        return view('frontend.ihracat');
+    }
     public function ihracatrota()
     {
         return view('frontend.ihracatrota');
