@@ -125,7 +125,7 @@
                         @foreach($haber as $key=>$value)
                             <div class="swiper-slide">
                                 <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">@if($value->tarih){{$value->tarih->format('m/d/Y') ?? ''}}@endif</a></h5>
+                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">{{$value->tarih->format('m/d/Y')}}</a></h5>
                                 <h5><a class="text-dark text-decoration-none" href="#">{{$value->baslik}}</a></h5>
                             </div>
                             @endforeach

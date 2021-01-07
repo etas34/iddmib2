@@ -126,7 +126,7 @@
                                                 <label for="exampleInputFile">Sektör Resmi (1920 X 1080 )</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input  type="file" name="sektor_resim" class="custom-file-input" id="foto2" required>
+                                                        <input  type="file" name="sektor_resim" class="custom-file-input" id="foto2" >
                                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                                     </div>
 

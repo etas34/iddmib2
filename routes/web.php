@@ -35,6 +35,8 @@ Route::get('/reset', function () {
     Artisan::call('cache:clear');
 
 });
+
+
 Route::get('lang/{locale}', [HomeController::class, 'setlocale'])->name('setlocale');
 Route::group(['middleware' => 'setlocale'], function () {
 

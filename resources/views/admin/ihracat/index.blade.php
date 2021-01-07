@@ -32,7 +32,7 @@
                         <tr>
 
                             <td><a target="_blank" href="{{asset("storage/files/ihracat_files/$value->pdf")}}"> Rapor PDF <i class="nav-icon fa fa-file-pdf"></i></a></td>
-                            <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</td>
+                            <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik }}</td>
                             <td>{{$value->baslik}}</td>
 
 
