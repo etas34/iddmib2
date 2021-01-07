@@ -33,7 +33,7 @@
 
 
                         <div class="form-group">
-                            <label for="exampleInputFile">Faliyet Resmi (540 X 230 )</label>
+                            <label for="exampleInputFile">Faliyet Resmi (1200 X 700 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" class="custom-file-input" id="foto">

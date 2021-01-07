@@ -28,7 +28,7 @@
                             </div>
                         @endif
                         <div class="form-group">
-                            <label for="exampleInputFile">Faliyet Resmi (650 X 350 )</label>
+                            <label for="exampleInputFile">Faliyet Resmi (1200 X 700 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" class="custom-file-input" id="foto">
@@ -164,34 +164,34 @@
 
     @push('scripts')
         <script>
-            var _URL2 = window.URL || window.webkitURL;
-            $("#foto").change(function (e) {
-                var file, img;
-                if ((file = this.files[0])) {
-                    img = new Image();
-                    var objectUrl = _URL2.createObjectURL(file);
-                    img.onload = function () {
-
-                        if (this.width != 650 && this.height != 350) {
-
-                            $('#error_foto').html('<label class="text-danger">Lütfen 650 X 350 boyutlarında yükleyiniz</label>');
-                            $('#foto').addClass('has-error');
-                            $('#edit').attr('disabled', true);
-                        } else {
-
-                            $('#error_foto').html('<label class="text-success"></label>');
-                            $('#foto').removeClass('has-error');
-                            $('#edit').attr('disabled', false);
-
-                        }
-
-
-                        _URL2.revokeObjectURL(objectUrl);
-                    };
-                    img.src = objectUrl;
-                }
-
-            })
+            // var _URL2 = window.URL || window.webkitURL;
+            // $("#foto").change(function (e) {
+            //     var file, img;
+            //     if ((file = this.files[0])) {
+            //         img = new Image();
+            //         var objectUrl = _URL2.createObjectURL(file);
+            //         img.onload = function () {
+            //
+            //             if (this.width != 650 && this.height != 350) {
+            //
+            //                 $('#error_foto').html('<label class="text-danger">Lütfen 650 X 350 boyutlarında yükleyiniz</label>');
+            //                 $('#foto').addClass('has-error');
+            //                 $('#edit').attr('disabled', true);
+            //             } else {
+            //
+            //                 $('#error_foto').html('<label class="text-success"></label>');
+            //                 $('#foto').removeClass('has-error');
+            //                 $('#edit').attr('disabled', false);
+            //
+            //             }
+            //
+            //
+            //             _URL2.revokeObjectURL(objectUrl);
+            //         };
+            //         img.src = objectUrl;
+            //     }
+            //
+            // })
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({
