@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DuyuruController;
 use App\Http\Controllers\Admin\EtkinlikController;
 use App\Http\Controllers\Admin\FaliyetController;
@@ -10,10 +9,9 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\IhracatController;
 use App\Http\Controllers\Admin\IhracatRakamController;
 use App\Http\Controllers\Admin\InovasyonController;
-use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SayfalarController;
 use App\Http\Controllers\Admin\SektorController;
 use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -162,6 +160,10 @@ Route::group(['middleware' => 'setlocale'], function () {
                 Route::post('/create', [SayfalarController::class, 'kadro_store'])->name('kadro_store');
             });
 
+            Route::group(['prefix' => 'ihracat'], function () {
+                Route::get('/', [SayfalarController::class, 'ihracatPage'])->name('ihracatPage');
+                Route::post('/{ihracatPage}', [SayfalarController::class, 'ihracatPage_update'])->name('ihracatPage.update');
+            });
 
         });
 //        Route::group(['prefix'=>'model','as'=>'model.','middleware'=>'auth'],function (){
