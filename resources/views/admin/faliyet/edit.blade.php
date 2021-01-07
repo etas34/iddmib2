@@ -31,15 +31,15 @@
                                 </select>
 
                             </div>
-{{--                            <div class="form-group col-md-6">--}}
-{{--                                <label>Kategori</label>--}}
-{{--                                <select name="kategori_id" class="form-control">--}}
-{{--                                    @foreach(config('constants.kategori') as $key=>$value)--}}
-{{--                                        <option @if($faliyet->kategori_id == $key) selected--}}
-{{--                                                @endif value="{{$key}}">{{$value}}</option>--}}
-{{--                                    @endforeach--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="form-group col-md-6">--}}
+                            {{--                                <label>Kategori</label>--}}
+                            {{--                                <select name="kategori_id" class="form-control">--}}
+                            {{--                                    @foreach(config('constants.kategori') as $key=>$value)--}}
+                            {{--                                        <option @if($faliyet->kategori_id == $key) selected--}}
+                            {{--                                                @endif value="{{$key}}">{{$value}}</option>--}}
+                            {{--                                    @endforeach--}}
+                            {{--                                </select>--}}
+                            {{--                            </div>--}}
 
                         </div>
 
@@ -126,6 +126,41 @@
                                         </div>
                                         <!-- /.tab-content -->
                                     </div><!-- /.card-body -->
+                                </div>
+                                <div class="card card-light ">
+                                    <div class="card-header">
+                                        <h4>Linkler</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            @for($i = 1 ; $i<= 8 ; $i++)
+                                                <div class="col-md-12"><h4>Link Grup #{{$i}}</h4>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Link Başlık</label>
+                                                    <input value="{{unserialize($faliyet->link_baslik)[$i]}}"
+                                                           class="form-control"
+                                                           name="link_baslik[{{$i}}]"
+                                                    >
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Link Alt Başlığı</label>
+                                                    <input value="{{unserialize($faliyet->link_altbaslik)[$i]}}"
+                                                           class="form-control"
+                                                           name="link_altbaslik[{{$i}}]"
+                                                    >
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label>Link </label>
+                                                    <input value="{{unserialize($faliyet->link)[$i]}}"
+                                                           class="form-control"
+                                                           name="link[{{$i}}]"
+                                                    >
+                                                </div>
+                                            @endfor
+
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- ./card -->
                             </div>

@@ -275,7 +275,7 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12">
-                    <h3 class="text-danger font-weight-bold">Faliyetler</h3>
+                    <h3 class="text-danger font-weight-bold">Faaliyetler</h3>
                     <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
                 </div>
             </div>
@@ -287,7 +287,7 @@
                             @foreach($faliyet as $key=>$value)
 
                             <div class="swiper-slide">
-                                <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->image")}}" alt="..." /></a>
+                                <a href="{{route('faaliyet',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->image")}}" alt="..." /></a>
                                 <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="#">{{$value->baslik}}</a></h5>
                                 <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h6>
                             </div>
@@ -304,7 +304,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm faliyetleri göster</a>
+                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm faaliyetleri göster</a>
                 </div>
             </div>
         </div>
@@ -350,7 +350,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm faliyetleri göster</a>
+                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm etkinlikleri göster</a>
                 </div>
             </div>
         </div>
@@ -391,7 +391,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm faliyetleri göster</a>
+                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm inovasyonları göster</a>
                 </div>
             </div>
         </div>

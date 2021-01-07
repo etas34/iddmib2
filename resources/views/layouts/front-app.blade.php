@@ -101,7 +101,7 @@
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Metal Ambalaj</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Yapı Malzemeleri</a>  <br />
                         <a href="{{route('etkinlik')}}" class="btn btn-outline-secondary mb-2 mr-2">Etkinlik Takvimi</a>
-                        <a href="{{route('fuar')}}" class="btn btn-outline-secondary mb-2 mr-2">Fuarlar</a>
+                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Fuarlar</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Heyetler</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Çalıştaylar</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracat Ödül Töreni</a>

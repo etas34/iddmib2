@@ -121,10 +121,6 @@ class MainController extends Controller
     {
         return view('frontend.etkinlik');
     }
-    public function fuar()
-    {
-        return view('frontend.fuar');
-    }
     public function yarisma()
     {
         return view('frontend.yarisma');
@@ -133,8 +129,8 @@ class MainController extends Controller
     {
         return view('frontend.inovasyon',compact('inovasyon'));
     }
-    public function faaliyet(Faliyet $faliyet)
+    public function faaliyet(Faliyet $faaliyet)
     {
-        return view('frontend.faliyet',compact('faliyet'));
+        return view('frontend.faaliyet',compact('faaliyet'));
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DuyuruController;
 use App\Http\Controllers\Admin\EtkinlikController;
 use App\Http\Controllers\Admin\FaliyetController;
@@ -54,7 +55,6 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::get('/fuarlar', [MainController::class, 'fuar'])->name('fuar');
     Route::get('/yarismalar', [MainController::class, 'yarisma'])->name('yarisma');
     Route::get('/inovasyon/{inovasyon}', [MainController::class, 'inovasyon'])->name('inovasyon');
-    Route::get('/faaliyet/{faaliyet}', [MainController::class, 'faaliyet'])->name('inovasyon');
 
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
 

@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Faliyetler</h3>
+                    <h3 class="card-title">Faaliyetler</h3>
 {{--                   <a href="{{route('admin.faliyet.create')}}" class="btn btn-primary active" style="float: right !important;">Yeni Faliyet Ekle</a>--}}
                 </div>
                 <!-- /.card-header -->
@@ -21,10 +21,10 @@
                             <th>Resim</th>
                             <th>Faaliyet</th>
                             <th>Sektör</th>
-                            <th>Kategori</th>
+{{--                            <th>Kategori</th>--}}
                             {{--                            <th>Açıklama</th>--}}
                             <th>Düzenle</th>
-                            <th>Sil</th>
+{{--                            <th>Sil</th>--}}
 
 
                         </tr>
@@ -37,9 +37,9 @@
                             <td>{{$value->baslik}}</td>
 
                             <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</td>
-                            <td>{{config('constants.kategori.'.$value->kategori_id)}}</td>
+{{--                            <td>{{config('constants.kategori.'.$value->kategori_id)}}</td>--}}
                             <td><a href="{{route('admin.faliyet.edit',$value)}}"><span class="badge bg-warning p-2">Düzenle</span></a></td>
-                            <td><a href="{{route('admin.faliyet.destroy',$value)}}" onclick="return confirm('Kaydı silmek istediğinize emin misiniz?')"><span class="badge bg-danger p-2">Sil</span></a></td>
+{{--                            <td><a href="{{route('admin.faliyet.destroy',$value)}}" onclick="return confirm('Kaydı silmek istediğinize emin misiniz?')"><span class="badge bg-danger p-2">Sil</span></a></td>--}}
 
                         </tr>
                         @endforeach

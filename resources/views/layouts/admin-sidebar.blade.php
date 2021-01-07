@@ -120,7 +120,7 @@
                     <a href="{{route('admin.faliyet.index')}}" class="nav-link">
                         <i class="nav-icon fa fa-pen"></i>
                         <p>
-                            Faliyetler
+                            Faaliyetler
                         </p>
                     </a>
                 </li>

@@ -56,6 +56,7 @@ class FaliyetController extends Controller
             $faliyet->image = $imageName;
 
         }
+        $faliyet->metin_baslik = '';
         $faliyet->kategori_id = $request->kategori_id;
         $faliyet->sektor_id = $request->sektor_id;
         $faliyet->baslik = $request->baslik;
@@ -126,6 +127,10 @@ class FaliyetController extends Controller
         $faliyet->baslik = $request->baslik;
         $faliyet->alt_baslik = $request->alt_baslik;
         $faliyet->aciklama = $request->aciklama;
+//        dd($request->link_baslik);
+        $faliyet->link_baslik = serialize($request->link_baslik);
+        $faliyet->link_altbaslik = serialize($request->link_altbaslik);
+        $faliyet->link = serialize($request->link);
         $saved = $faliyet->save();
 
         if ($saved)

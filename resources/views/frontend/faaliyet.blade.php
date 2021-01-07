@@ -5,17 +5,17 @@
         <div class="position-relative mb-4">
             <img src="{{asset('assets/images/aboutBg.png')}}" alt="" class="img-fluid" />
             <div class="container">
-                <div class="bread"><h1 class="text-white">Fuarlar</h1></div>
+                <div class="bread"><h1 class="text-white">{{$faaliyet->baslik}}</h1></div>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex flex-wrap">
-                    <h4>Rum intio veribus core adis exerum, vel el mollabo...</h4>
+                    <h4>{{$faaliyet->alt_baslik}}</h4>
 
-                    <button class="btn btn-link text-dark ml-auto text-decoration-none">
-                        Daha falza bilgi <img class="ml-2" src="{{asset('assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
-                    </button>
+{{--                    <button class="btn btn-link text-dark ml-auto text-decoration-none">--}}
+{{--                        Daha falza bilgi <img class="ml-2" src="{{asset('assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />--}}
+{{--                    </button>--}}
 
                 </div>
             </div>
@@ -25,17 +25,32 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-12">
-                    <img src="{{asset('assets/images/fuarlar.svg')}}" alt="..." class="img-fluid mb-4" />
-                    <h3 class="text-danger font-weight-bold">Milli Katılım Organizasyonları</h3>
-                    <p>Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh.</p>
+                    <img src="{{asset("storage/images/faliyet_images/$faaliyet->image")}}" alt="..." class="img-fluid mb-4" />
+                    <h3 class="text-danger font-weight-bold">{{$faaliyet->metin_baslik}}</h3>
+                    {!! $faaliyet->aciklama !!}
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
+                    @if(in_array('0',explode(',',$faaliyet->kategori_id)))
 
-                    <h4>Nasıl Başvurulur</h4>
-                    <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
+                        @for($i = 1 ; $i <= 8 ; $i++ )
+                    <a target="_blank" href="{{unserialize($faaliyet->link)[$i]}}" class="text-decoration-none text-light d-flex justify-content-between bg-red p-3 mt-3 text-light w-100">
+                        <div class="d-flex  align-items-center">
+                            <img src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..." />
+                            <h4 class="m-0">
+                                {{unserialize($faaliyet->link_baslik)[$i]}} <br />
+                                {{unserialize($faaliyet->link_altbaslik)[$i]}}
+                            </h4>
+                        </div>
+
+                        <img src="{{asset('assets/images/arrow-right-light.svg')}}" width="46" alt="..." />
+                    </a>
+                        @endfor
+
+                    @endif
+
                 </div>
             </div>
         </div>
+@if(!in_array('0',explode(',',$faaliyet->kategori_id)))
 
         <!-- threeslide start -->
         <div class="threeslide mb-5">
@@ -94,6 +109,8 @@
             </div>
         </div>
         <!-- threeslide end -->
+    @endif
+
 
     </main>
 

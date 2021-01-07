@@ -212,7 +212,7 @@
 
                             <div class="swiper-slide">
                                 <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">{{$haber->tarih}}</a></h5>
+                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">{{$value->created_at ?? ''}}</a></h5>
                                 <h5><a class="text-dark text-decoration-none" href="#">{{$value->baslik}}</a></h5>
                             </div>
 
@@ -250,7 +250,7 @@
                     <div class="col-12 col-sm-6 mb-3 mb-sm-0">
 
                         <div class="card py-5 px-2">
-                            <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}}   <br />
+                            <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}   <br />
                                 GTİP Listesi
                             </h4>
                             <h5><a class="text-dark text-decoration-none"   href="{{asset("storage/files/gtip_pdf/$sektor->gtip_pdf")}}">Pdf İndir (8 Mb)</a></h5>
@@ -261,7 +261,7 @@
                             <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}   <br />
                                 Tanıtım Broşürü
                             </h4>
-                            <h5><a class="text-dark text-decoration-none" href="{{asset("storage/files/tanitim_pdf/$sektor->tanitim_pdf")}}"></a></h5>
+                            <h5><a class="text-dark text-decoration-none" href="{{asset("storage/files/tanitim_pdf/$sektor->tanitim_pdf")}}">Pdf İndir (8 Mb)</a></h5>
                         </div>
                     </div>
                 </div>
