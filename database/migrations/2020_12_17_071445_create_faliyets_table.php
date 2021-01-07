@@ -19,6 +19,7 @@ class CreateFaliyetsTable extends Migration
             $table->string('kategori_id')->nullable();
             $table->text('baslik');
             $table->text('alt_baslik');
+            $table->text('metin_baslik');
             $table->text('aciklama');
             $table->string('link_baslik');
             $table->string('link_altbaslik');
