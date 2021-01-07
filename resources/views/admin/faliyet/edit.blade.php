@@ -28,7 +28,7 @@
                             </div>
                         @endif
                         <div class="form-group">
-                            <label for="exampleInputFile">Faliyet Resmi (540 X 230 )</label>
+                            <label for="exampleInputFile">Faliyet Resmi (650 X 350 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" class="custom-file-input" id="foto">
@@ -172,9 +172,9 @@
                     var objectUrl = _URL2.createObjectURL(file);
                     img.onload = function () {
 
-                        if (this.width != 540 && this.height != 230) {
+                        if (this.width != 650 && this.height != 350) {
 
-                            $('#error_foto').html('<label class="text-danger">Lütfen 540 X 230 boyutlarında yükleyiniz</label>');
+                            $('#error_foto').html('<label class="text-danger">Lütfen 650 X 350 boyutlarında yükleyiniz</label>');
                             $('#foto').addClass('has-error');
                             $('#edit').attr('disabled', true);
                         } else {
