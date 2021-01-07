@@ -55,7 +55,8 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::get('/ihracat-raporlari', [MainController::class, 'ihracatrapor'])->name('ihracatrapor');
     Route::get('/faydali-linkler', [MainController::class, 'faydalilinkler'])->name('faydalilinkler');
     Route::get('/etkinlikler', [MainController::class, 'etkinlik'])->name('etkinlik');
-    Route::get('/faaliyet', [MainController::class, 'faaliyet'])->name('faaliyet');
+    Route::get('/faaliyet/{faaliyet}', [MainController::class, 'faaliyet'])->name('faaliyet');
+    Route::get('/haber/{haber}', [MainController::class, 'haber'])->name('haber');
     Route::get('/yarismalar', [MainController::class, 'yarisma'])->name('yarisma');
     Route::get('/inovasyon/{inovasyon}', [MainController::class, 'inovasyon'])->name('inovasyon');
 

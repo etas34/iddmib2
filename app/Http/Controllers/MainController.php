@@ -150,8 +150,13 @@ class MainController extends Controller
         return view('frontend.inovasyon', compact('inovasyon'));
     }
 
+    public function haber(Haber $haber)
+    {
+        return view('frontend.haber', compact('haber'));
+    }
+
     public function faaliyet(Faliyet $faaliyet)
     {
-        return view('frontend.faaliyet', compact('faaliyet'));
+        return view('frontend.haber', compact('faaliyet'));
     }
 }
