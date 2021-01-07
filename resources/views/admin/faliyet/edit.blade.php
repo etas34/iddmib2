@@ -127,6 +127,7 @@
                                         <!-- /.tab-content -->
                                     </div><!-- /.card-body -->
                                 </div>
+                                @if(in_array(0,explode(',',$faliyet->kategori_id)))
                                 <div class="card card-light ">
                                     <div class="card-header">
                                         <h4>Linkler</h4>
@@ -162,6 +163,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                                 <!-- ./card -->
                             </div>
                             <!-- /.col -->

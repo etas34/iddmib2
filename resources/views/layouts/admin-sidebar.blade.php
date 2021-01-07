@@ -148,6 +148,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.baskaninmesaji.edit')}}" class="nav-link">
+                        <i class="nav-icon fa fa-envelope-open-text"></i>
+                        <p>
+                            Başkanın Mesajı
+                        </p>
+                    </a>
+                </li>
 
             </ul>
         </nav>

@@ -29,51 +29,20 @@
                     </div>
                 </div>
                 <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">
+
+
+
+                    @foreach($kadro as $key=>$value)
+
+                        @if($value->kadro == 'Yönetim Kurulu')
                     <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile1.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
+                        <a href="#"><img class="img-fluid mb-3"  src="{{asset("storage/images/kadro_images/$value->resim")}}" alt="..." /></a>
+                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->ad_soyad}}</a></h4>
+                        <h5><a class="text-secondary text-decoration-none" href="#">{{$value->unvan}}</a></h5>
                     </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile2.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile3.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile1.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile2.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile3.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile1.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile2.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile3.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
+                        @endif
+
+                    @endforeach
 
 
                 </div>
@@ -91,21 +60,21 @@
                     </div>
                 </div>
                 <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile1.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile2.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <a href="#"><img class="img-fluid mb-3"  src="{{asset('assets/images/profile3.svg')}}" alt="..." /></a>
-                        <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Tahsin Öztiryaki</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">Yönetim Kurulu Başkanı</a></h5>
-                    </div>
+
+
+                    @foreach($kadro as $key=>$value)
+
+                        @if($value->kadro == 'Denetim Kurulu')
+                            <div class="col-12 mb-3">
+                                <a href="#"><img class="img-fluid mb-3"  src="{{asset("storage/images/kadro_images/$value->resim")}}" alt="..." /></a>
+                                <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->ad_soyad}}</a></h4>
+                                <h5><a class="text-secondary text-decoration-none" href="#">{{$value->unvan}}</a></h5>
+                            </div>
+                        @endif
+
+                    @endforeach
+
+
 
 
                 </div>

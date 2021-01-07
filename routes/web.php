@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\InovasyonController;
 use App\Http\Controllers\Admin\SayfalarController;
 use App\Http\Controllers\Admin\SektorController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\BaskaninMesajiController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -142,6 +143,11 @@ Route::group(['middleware' => 'setlocale'], function () {
             Route::get('/destroy/{faliyetRapor}', [FaliyetRaporController::class, 'destroy'])->name('destroy');
             Route::post('/edit/{faliyetRapor}', [FaliyetRaporController::class, 'update'])->name('update');
             Route::post('/create', [FaliyetRaporController::class, 'store'])->name('store');
+        });
+
+        Route::group(['prefix' => 'baskaninmesaji', 'as' => 'baskaninmesaji.', 'middleware' => 'auth'], function () {
+            Route::get('/edit/', [BaskaninMesajiController::class, 'edit'])->name('edit');
+            Route::post('/edit/{baskaninmesaji}', [BaskaninMesajiController::class, 'update'])->name('update');
         });
 
 

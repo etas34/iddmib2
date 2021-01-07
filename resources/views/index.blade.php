@@ -79,12 +79,12 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Başkan'ın Mesajı</h3>
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
+                    <div class="text-secondary">{!! $baskan->metin !!}</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <img src="{{ asset('assets/images/message.png') }}" alt="..." class="img-fluid" />
+                    <img src="{{asset("storage/images/baskan_images/$baskan->image")}}" alt="..." class="img-fluid" />
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
                         @foreach($haber as $key=>$value)
                             <div class="swiper-slide">
                                 <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">{{$value->tarih->format('m/d/Y')}}</a></h5>
+                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">@if($value->tarih){{$value->tarih->format('m/d/Y') ?? ''}}@endif</a></h5>
                                 <h5><a class="text-dark text-decoration-none" href="#">{{$value->baslik}}</a></h5>
                             </div>
                             @endforeach
@@ -155,20 +155,20 @@
                     <h2>İhracat <br /> Rakamları</h2>
                     <div class="mt-auto">
                         <p>Son Güncelleme Tarihi</p>
-                        <p>{{$ihracatRakam->guncelleme_tarih}}</p>
+                        <p>{{$ihracatRakam->guncelleme_tarih ?? ''}}</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-4 mb-3 mb-sm-0">
                     <h2>Son Ay</h2>
-                    <p>{{$ihracatRakam->o_birinci}}</p>
-                    <h1 class="display-3 font-weight-bold">{{$ihracatRakam->o_ikinci}}</h1>
-                    <h4>{{$ihracatRakam->o_ucuncu}}</h4>
+                    <p>{{$ihracatRakam->o_birinci ?? ''}}</p>
+                    <h1 class="display-3 font-weight-bold">{{$ihracatRakam->o_ikinci ?? ''}}</h1>
+                    <h4>{{$ihracatRakam->o_ucuncu ?? ''}}</h4>
                 </div>
                 <div class="col-12 col-sm-4 mb-3 mb-sm-0">
                     <h2>Son 12 Ay</h2>
-                    <p>{{$ihracatRakam->s_birinci}}</p>
-                    <h1 class="display-3 font-weight-bold">{{$ihracatRakam->s_ikinci}}</h1>
-                    <h4>{{$ihracatRakam->s_ucuncu}}</h4>
+                    <p>{{$ihracatRakam->s_birinci ?? ''}}</p>
+                    <h1 class="display-3 font-weight-bold">{{$ihracatRakam->s_ikinci ?? ''}}</h1>
+                    <h4>{{$ihracatRakam->s_ucuncu ?? ''}}</h4>
                 </div>
             </div>
         </div>
