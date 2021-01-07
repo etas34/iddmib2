@@ -19,29 +19,6 @@
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label>Sektör Seçiniz</label>
-                                <select name="sektor_id" id="" class="form-control" required>
-                                    @foreach($sektor as $key=>$value)
-                                        <option value="{{$value->id}}"
-                                                @if($value->id==$faliyet->sektor_id) selected @endif>{{$value->baslik}}</option>
-                                    @endforeach
-
-                                </select>
-
-                            </div>
-                            {{--                            <div class="form-group col-md-6">--}}
-                            {{--                                <label>Kategori</label>--}}
-                            {{--                                <select name="kategori_id" class="form-control">--}}
-                            {{--                                    @foreach(config('constants.kategori') as $key=>$value)--}}
-                            {{--                                        <option @if($faliyet->kategori_id == $key) selected--}}
-                            {{--                                                @endif value="{{$key}}">{{$value}}</option>--}}
-                            {{--                                    @endforeach--}}
-                            {{--                                </select>--}}
-                            {{--                            </div>--}}
-
-                        </div>
 
                         @if($faliyet->image)
                             <div class="form-group">

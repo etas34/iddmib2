@@ -20,17 +20,6 @@
                     {{csrf_field()}}
                     <div class="card-body">
                         <div class="row">
-
-                            <div class="form-group col-md-6">
-                                <label>Sektör Seçiniz</label>
-                                <select name="sektor_id" id="" class="form-control" required>
-                                    @foreach($sektor as $key=>$value)
-                                        <option value="{{$value->id}}">{{$value->baslik}}</option>
-                                    @endforeach
-
-                                </select>
-
-                            </div>
                             <div class="form-group col-md-6">
                                 <label>Kategori</label>
                                 <select name="kategori_id" class="form-control">

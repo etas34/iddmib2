@@ -29,8 +29,7 @@ class FaliyetController extends Controller
      */
     public function create()
     {
-        $sektor=Sektor::where('durum',1)->get();
-        return view('admin.faliyet.create',compact('sektor'));
+        return view('admin.faliyet.create');
     }
 
     /**
@@ -58,7 +57,6 @@ class FaliyetController extends Controller
         }
         $faliyet->metin_baslik = '';
         $faliyet->kategori_id = $request->kategori_id;
-        $faliyet->sektor_id = $request->sektor_id;
         $faliyet->baslik = $request->baslik;
         $faliyet->alt_baslik = $request->alt_baslik;
         $faliyet->aciklama = $request->aciklama1;
@@ -92,8 +90,7 @@ class FaliyetController extends Controller
      */
     public function edit(Faliyet $faliyet)
     {
-        $sektor=Sektor::where('durum',1)->get();
-        return view('admin.faliyet.edit', compact('faliyet','sektor'));
+        return view('admin.faliyet.edit', compact('faliyet'));
     }
 
     /**
@@ -123,7 +120,6 @@ class FaliyetController extends Controller
         }
 //        $faliyet->kategori_id = $request->kategori_id;
         $faliyet->metin_baslik = $request->metin_baslik;
-        $faliyet->sektor_id = $request->sektor_id;
         $faliyet->baslik = $request->baslik;
         $faliyet->alt_baslik = $request->alt_baslik;
         $faliyet->aciklama = $request->aciklama;
