@@ -157,6 +157,6 @@ class MainController extends Controller
 
     public function faaliyet(Faliyet $faaliyet)
     {
-        return view('frontend.haber', compact('faaliyet'));
+        return view('frontend.faaliyet', compact('faaliyet'));
     }
 }

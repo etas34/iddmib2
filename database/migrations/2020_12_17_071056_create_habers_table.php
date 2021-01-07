@@ -17,6 +17,8 @@ class CreateHabersTable extends Migration
             $table->id();
             $table->integer('sektor_id');
             $table->text('baslik');
+            $table->text('alt_baslik');
+            $table->text('metin_altbaslik');
             $table->text('aciklama');
             $table->string('tarih');
             $table->string('image');

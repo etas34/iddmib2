@@ -9,6 +9,6 @@ use Spatie\Translatable\HasTranslations;
 class Haber extends Model
 {
     use HasTranslations;
-    public $translatable = ['baslik','aciklama'];
+    public $translatable = ['baslik','aciklama','alt_baslik', 'metin_altbaslik'];
     use HasFactory;
 }

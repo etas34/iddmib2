@@ -25,8 +25,10 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-12">
-                    <img src="{{asset("storage/images/faliyet_images/$haber->image")}}" alt="..." class="img-fluid mb-4" />
-                    <h3 class="text-danger font-weight-bold">{{$haber->metin_baslik}}</h3>
+                    <img src="{{asset("storage/images/haber_images/$haber->image")}}" alt="..." class="img-fluid mb-4 text-center" />
+
+
+                    <h3 class="text-danger font-weight-bold">{{$haber->metin_altbaslik}}</h3>
                     {!! $haber->aciklama !!}
 
 

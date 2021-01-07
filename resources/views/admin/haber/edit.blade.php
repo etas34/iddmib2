@@ -41,7 +41,7 @@
                             <input type="text" name="tarih" value="{{$haber->tarih}}" placeholder="05 05 2021" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Başlık Resmi (1920 X 900 )</label>
+                            <label for="exampleInputFile">Başlık Resmi (1200 X 700 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" class="custom-file-input" id="foto">
@@ -83,6 +83,26 @@
                                                             >
                                                         </div>
 
+                                                        <div class="form-group">
+
+                                                            <label for="cat_name">Haber Alt Başlığı ({{$value}})</label>
+                                                            <input  @if($key == 'tr') required @endif type="text" name="alt_baslik[{{$key}}]"
+                                                                   class="form-control" id="cat_name"  value=" {{$haber->getTranslations('alt_baslik')[$key] ?? ''}}"
+                                                            >
+                                                        </div>
+
+
+
+                                                        <div class="form-group">
+
+                                                            <label for="cat_name">Metin Başlığı ({{$value}})</label>
+                                                            <input  @if($key == 'tr') required @endif type="text" name="metin_altbaslik[{{$key}}]"
+                                                                   class="form-control"
+                                                                    id="cat_name"
+                                                                    value="{{$haber->getTranslations('metin_altbaslik')[$key] ?? ''}}"
+                                                            >
+                                                        </div>
+
 
 
                                                         <div class="form-group">
@@ -121,34 +141,34 @@
 
     @push('scripts')
         <script>
-            var _URL2 = window.URL || window.webkitURL;
-            $("#foto").change(function (e) {
-                var file, img;
-                if ((file = this.files[0])) {
-                    img = new Image();
-                    var objectUrl = _URL2.createObjectURL(file);
-                    img.onload = function () {
-
-                        if (this.width != 1920 && this.height != 900) {
-
-                            $('#error_foto').html('<label class="text-danger">Lütfen 1920 X 900 boyutlarında yükleyiniz</label>');
-                            $('#foto').addClass('has-error');
-                            $('#edit').attr('disabled', true);
-                        } else {
-
-                            $('#error_foto').html('<label class="text-success"></label>');
-                            $('#foto').removeClass('has-error');
-                            $('#edit').attr('disabled', false);
-
-                        }
-
-
-                        _URL2.revokeObjectURL(objectUrl);
-                    };
-                    img.src = objectUrl;
-                }
-
-            })
+            // var _URL2 = window.URL || window.webkitURL;
+            // $("#foto").change(function (e) {
+            //     var file, img;
+            //     if ((file = this.files[0])) {
+            //         img = new Image();
+            //         var objectUrl = _URL2.createObjectURL(file);
+            //         img.onload = function () {
+            //
+            //             if (this.width != 1920 && this.height != 900) {
+            //
+            //                 $('#error_foto').html('<label class="text-danger">Lütfen 1920 X 900 boyutlarında yükleyiniz</label>');
+            //                 $('#foto').addClass('has-error');
+            //                 $('#edit').attr('disabled', true);
+            //             } else {
+            //
+            //                 $('#error_foto').html('<label class="text-success"></label>');
+            //                 $('#foto').removeClass('has-error');
+            //                 $('#edit').attr('disabled', false);
+            //
+            //             }
+            //
+            //
+            //             _URL2.revokeObjectURL(objectUrl);
+            //         };
+            //         img.src = objectUrl;
+            //     }
+            //
+            // })
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({

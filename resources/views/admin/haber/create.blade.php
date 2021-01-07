@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputFile">Haber Resmi (570 X 380 )</label>
+                            <label for="exampleInputFile">Haber Resmi (1200 X 700 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" class="custom-file-input" id="foto">
@@ -78,7 +78,23 @@
                                                                >
                                                     </div>
 
+                                                    <div class="form-group">
 
+                                                        <label for="cat_name">Haber Alt Başlığı ({{$value}})</label>
+                                                        <input  @if($key == 'tr') required @endif type="text" name="alt_baslik[{{$key}}]"
+                                                                class="form-control" id="cat_name"
+                                                        >
+                                                    </div>
+
+
+
+                                                    <div class="form-group">
+
+                                                        <label for="cat_name">Metin Başlığı ({{$value}})</label>
+                                                        <input  @if($key == 'tr') required @endif type="text" name="metin_altbaslik[{{$key}}]"
+                                                                class="form-control" id="cat_name"
+                                                        >
+                                                    </div>
 
                                                     <div class="form-group">
                                                         <label>Haber İçeriği ({{$value}})</label>
@@ -117,34 +133,34 @@
 
     @push('scripts')
         <script>
-            var _URL2 = window.URL || window.webkitURL;
-            $("#foto").change(function (e) {
-                var file, img;
-                if ((file = this.files[0])) {
-                    img = new Image();
-                    var objectUrl = _URL2.createObjectURL(file);
-                    img.onload = function () {
-
-                        if (this.width != 570 && this.height != 380) {
-
-                            $('#error_foto').html('<label class="text-danger">Lütfen 570 X 380 boyutlarında yükleyiniz</label>');
-                            $('#foto').addClass('has-error');
-                            $('#edit').attr('disabled', true);
-                        } else {
-
-                            $('#error_foto').html('<label class="text-success"></label>');
-                            $('#foto').removeClass('has-error');
-                            $('#edit').attr('disabled', false);
-
-                        }
-
-
-                        _URL2.revokeObjectURL(objectUrl);
-                    };
-                    img.src = objectUrl;
-                }
-
-            })
+            // var _URL2 = window.URL || window.webkitURL;
+            // $("#foto").change(function (e) {
+            //     var file, img;
+            //     if ((file = this.files[0])) {
+            //         img = new Image();
+            //         var objectUrl = _URL2.createObjectURL(file);
+            //         img.onload = function () {
+            //
+            //             if (this.width != 570 && this.height != 380) {
+            //
+            //                 $('#error_foto').html('<label class="text-danger">Lütfen 570 X 380 boyutlarında yükleyiniz</label>');
+            //                 $('#foto').addClass('has-error');
+            //                 $('#edit').attr('disabled', true);
+            //             } else {
+            //
+            //                 $('#error_foto').html('<label class="text-success"></label>');
+            //                 $('#foto').removeClass('has-error');
+            //                 $('#edit').attr('disabled', false);
+            //
+            //             }
+            //
+            //
+            //             _URL2.revokeObjectURL(objectUrl);
+            //         };
+            //         img.src = objectUrl;
+            //     }
+            //
+            // })
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({

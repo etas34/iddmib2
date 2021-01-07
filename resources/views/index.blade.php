@@ -124,7 +124,7 @@
 
                         @foreach($haber as $key=>$value)
                             <div class="swiper-slide">
-                                <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
+                                <a href="{{route('haber',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
                                 <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">{{$value->tarih}}</a></h5>
                                 <h5><a class="text-dark text-decoration-none" href="#">{{$value->baslik}}</a></h5>
                             </div>
