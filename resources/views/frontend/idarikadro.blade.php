@@ -41,7 +41,7 @@
                                 <div class="w-100"></div>
                                 {{$value->tel}} <br/>
                                 {{$value->email}}
-                                </p>
+                                </p></a>
                             </div>
                         @endif
                             @endforeach
