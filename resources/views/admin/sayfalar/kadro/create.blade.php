@@ -65,11 +65,11 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Telefon Numarası</label>
-                                <input name="tel" type="tel" placeholder="+90 212 454 0991" class="form-control">
+                                <input name="tel" type="tel" placeholder="+90 212 444 5555" class="form-control">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>E-posta</label>
-                                <input name="email" type="email" placeholder="ozgur.inan@immib.org.tr" class="form-control">
+                                <input name="email" type="email" placeholder="ali.can@immib.org.tr" class="form-control">
                             </div>
 
                         </div>

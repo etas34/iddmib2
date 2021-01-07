@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Tarih</label>
-                            <input type="text" name="tarih" placeholder="05 05 2021" class="form-control">
+                            <input type="text" name="tarih" placeholder="21/05/2021" required class="form-control">
                         </div>
 
                         <div class="form-group">
