@@ -32,16 +32,16 @@
                     @foreach($kadro as $key=>$value)
                         @if($value->kadro ==  'İdari Kadro')
                             <div class="col-12 mb-3">
-                                <a href="#"><img class="img-fluid mb-3" src="{{asset('assets/images/profile1.svg')}}"
+                                <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/kadro_images/$value->resim")}}"
                                                  alt="..."/></a>
-                                <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Özgür İnan</a>
+                                <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->ad_soyad}}</a>
                                 </h4>
                                 <p><a class="text-secondary text-decoration-none" href="#">{{\App\Models\Sektor::find($value->sektor_id)->baslik}} Sektör Şubesi <br/>
-                                        Şube Müdür
+                                    {{$value->unvan}}
                                 <div class="w-100"></div>
-                                +90 212 454 0991 <br/>
-                                ozgur.inan@immib.org.tr
-                                </a></p>
+                                {{$value->tel}} <br/>
+                                {{$value->email}}
+                                </p>
                             </div>
                         @endif
                             @endforeach
