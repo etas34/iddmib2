@@ -50,7 +50,7 @@ class FaliyetRaporController extends Controller
 
             $pdfName = time() . '.' . $request->pdf->extension();
 
-            $request->pdf->storeAs('/public/files/faliyet_files', $pdfName);
+            $request->pdf->storeAs('/public/files/faliyetrapor_files', $pdfName);
             $faliyetrapor->rapor = $pdfName;
 
         }

@@ -254,7 +254,7 @@
             <div class="row row-cols-sm-2 row-cols-md-3">
                 @foreach($ihracat as $key=>$value)
                 <div class="col-12 mb-3">
-                    <a href="{{asset("storage/files/ihracat_files/$value->pdf")}}" class="card p-3 text-decoration-none rounded-lg">
+                    <a target="_blank" href="{{asset("storage/files/ihracat_files/$value->pdf")}}" class="card p-3 text-decoration-none rounded-lg">
                         <h3 class="text-dark text-decoration-none">&nbsp;</h3>
                         <h5 class="text-secondary text-decoration-none">{{$value->baslik}} <br /> İhracat Raporu</h5>
                     </a>
@@ -404,13 +404,14 @@
         <div class="row text-center justify-content-center">
             <div class="col-12 col-md-11">
                 <div class="row">
-                    @foreach($faliyetRapor as $key=>$value)
+                    @foreach($faliyetRapor->take(2) as $key=>$value)
                         <div class="col-12 col-sm-6 mb-3 mb-sm-0">
                             <div class="card py-5 px-2">
                                 <h4 class="text-red font-weight-bold"> İDDMİB   <br />
                                     {{$value->aciklama}}
                                 </h4>
-                                <h5><a class="text-dark text-decoration-none" href="{{asset("storage/files/faliyetrapor_files/$value->rapor")}}">Pdf İndir ( <span id="abcx"></span> MB )</a></h5>
+                                <h5><a target="_blank" class="text-dark text-decoration-none" href="{{asset("storage/files/faliyetrapor_files/$value->rapor")}}">Pdf İndir (
+                                    {{number_format((float)File::size(public_path("storage/files/faliyetrapor_files/$value->rapor")) / 1048576 , 2) }}  MB )</a></h5>
                             </div>
                         </div>
                     @endforeach
@@ -440,7 +441,7 @@
                     <p>Eget tincidunt nibh pulvinar a. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec</p>
                     <p>
                         +90 355 555 55 55 <br />
-                        bilgi@fikirkod.com
+                        info@turkishaluminium365.com
                     </p>
                     <a class="text-danger text-decoration-none font-weight-bold" href="#">Adrese Git</a>
                 </div>
@@ -451,9 +452,10 @@
 
     @push('scripts')
         <script>
-            var MFsize ={{File::size(public_path("storage/files/faliyetrapor_files/$value->rapor"))  /  1048576,2}}
-
-            $('#abcx').text(MFsize.toFixed(2))
+{{--            @foreach($faliyetRapor->take(2) as $key=>$value)--}}
+{{--            var MFsize{{$key}} ={{File::size(public_path("storage/files/faliyetrapor_files/$value->rapor"))  /  1048576,2}}--}}
+{{--            $('#abcx').text(MFsize{{$key}}.toFixed(2))--}}
+{{--            @endforeach--}}
             {{--$(function() {--}}
             {{--
             {{--});--}}

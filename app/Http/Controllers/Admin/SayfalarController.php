@@ -222,5 +222,7 @@ class SayfalarController extends Controller
 
 
 
+
+
 }
 

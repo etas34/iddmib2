@@ -13,33 +13,32 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.faliyetrapor.update',$faliyetRapor)}}" method="post" autocomplete="off"
+                <form action="{{route('admin.sunum.store')}}" method="post" autocomplete="off"
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
-                        @if($faliyetRapor->rapor)
-                            <div class="form-group">
-                                <label>Seçili PDF:</label>
-                                <div class="custom-file">
-                                    <a target="_blank"
-                                       href="{{asset("storage/files/faliyetrapor_files/$faliyetRapor->rapor")}}"> {{$faliyetRapor->rapor}}
-                                        <i class="nav-icon fa fa-file-pdf"></i></a>
-                                </div>
-                            </div>
-                        @endif
+
+
                         <div class="form-group">
-                            <label for="exampleInputFile">İhracat Raporu (PDF)</label>
+                            <label for="exampleInputFile">Sunum (PDF yada PPTX)</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input  type="file" name="pdf" accept="application/pdf"
-                                           class="custom-file-input"
-                                           id="foto">
+                                    <input required type="file" name="sunum" accept="application/msword,
+                                     application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+                                      application/vnd.ms-powerpoint,
+                                       application/vnd.openxmlformats-officedocument.presentationml.slideshow,
+                                        application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                                         application/pdf" class="custom-file-input"
+                                          >
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
 
                             </div>
 
+
                         </div>
+
+
                             <div class="row">
                                 <div class="col-12">
                                     <!-- Custom Tabs -->
@@ -63,9 +62,9 @@
                                                         <div class="form-group">
 
                                                             <label for="cat_name">Başlık ({{$value}})</label>
-                                                            <input  @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
-                                                                   value=" @if (array_key_exists($key,$faliyetRapor->getTranslations('aciklama'))) {{$faliyetRapor->getTranslations('aciklama')[$key]}} @endif"
+                                                            <input  @if($key == 'tr') required @endif type="text" name="aciklama[{{$key}}]"
                                                                    class="form-control" id="cat_name"
+
                                                             >
                                                         </div>
 
@@ -73,8 +72,7 @@
 
 {{--                                                        <div class="form-group">--}}
 {{--                                                            <label>Alt Başlık ({{$value}})</label>--}}
-{{--                                                            <input type="text"  value=" @if (array_key_exists($key,$faliyetRapor->getTranslations('alt_baslik'))) {{$faliyetRapor->getTranslations('baslik')[$key]}} @endif"--}}
-{{--                                                                   name="alt_baslık[{{$key}}]" class="form-control">--}}
+{{--                                                            <input type="text" name="alt_baslık[{{$key}}]" class="form-control">--}}
 
 {{--                                                        </div>--}}
                                                     </div>
@@ -90,7 +88,9 @@
                             </div>
                             <!-- /.row -->
 
-                    </div>
+                        </div>
+
+
                     <!-- /.card-body -->
 
                     <div class="card-footer">

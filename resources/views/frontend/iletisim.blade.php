@@ -34,7 +34,7 @@
                     <p>Eget tincidunt nibh pulvinar a. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec</p>
                     <p>
                         +90 355 555 55 55 <br />
-                        bilgi@fikirkod.com
+                        info@turkishaluminium365.com
                     </p>
                     <a class="text-danger text-decoration-none font-weight-bold" href="#">Adrese Git</a>
                 </div>

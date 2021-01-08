@@ -15,6 +15,7 @@ use App\Models\Kadro;
 use App\Models\Sektor;
 use App\Models\Slider;
 use App\Models\Inovasyon;
+use App\Models\Sunum;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -77,9 +78,9 @@ class MainController extends Controller
     public function hakkimizda()
     {
         $hakkimizda = Hakkimizda::first();
-        $sektor = Sektor::where('durum',1)
+        $sektor = Sektor::where('durum', 1)
             ->get();
-        return view('frontend.hakkimizda',compact('sektor','hakkimizda'));
+        return view('frontend.hakkimizda', compact('sektor', 'hakkimizda'));
     }
 
 
@@ -102,12 +103,22 @@ class MainController extends Controller
 
     public function raporlar()
     {
-        return view('frontend.raporlar');
+
+        $fr = FaliyetRapor::orderBy('created_at', 'DESC')
+            ->get();
+        $fr_first = $fr->first();
+        $compact = compact('fr','fr_first');
+
+        return view('frontend.raporlar', $compact);
     }
 
     public function sunumlar()
     {
-        return view('frontend.sunumlar');
+        $sunum= Sunum::orderBy('created_at', 'DESC')
+            ->get();
+        $s_first = $sunum->first();
+        $compact = compact('sunum','s_first');
+        return view('frontend.sunumlar',$compact);
     }
 
     public function ihracat()
@@ -157,11 +168,11 @@ class MainController extends Controller
 
     public function faaliyet(Faliyet $faaliyet)
     {
-        $k_ids = explode(',',$faaliyet->kategori_id);
+        $k_ids = explode(',', $faaliyet->kategori_id);
 
-        $etkinlik = Etkinlik::whereIn('kategori_id',  $k_ids)
-        ->get();
-        $compact = compact('faaliyet','etkinlik');
+        $etkinlik = Etkinlik::whereIn('kategori_id', $k_ids)
+            ->get();
+        $compact = compact('faaliyet', 'etkinlik');
 
         return view('frontend.faaliyet', $compact);
     }

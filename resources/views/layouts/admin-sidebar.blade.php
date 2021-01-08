@@ -28,7 +28,7 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item @if(request()->routeIs('admin.sayfalar.*')) menu-open @endif">
+                <li class="nav-item @if(request()->routeIs('admin.sayfalar.*') or request()->routeIs('admin.sunum.index')) menu-open @endif">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
                         <p>
@@ -52,6 +52,16 @@
                                class="nav-link @if(request()->routeIs('admin.sayfalar.hakkimizda')) active @endif ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Hakkımızda  </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.sunum.index')}}"
+                               class="nav-link @if(request()->routeIs('admin.sunum.*')) active @endif ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sunumlar  </p>
                             </a>
                         </li>
 

@@ -13,16 +13,16 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.faliyetrapor.update',$faliyetRapor)}}" method="post" autocomplete="off"
+                <form action="{{route('admin.sunum.update',$sunum)}}" method="post" autocomplete="off"
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
-                        @if($faliyetRapor->rapor)
+                        @if($sunum->sunum)
                             <div class="form-group">
                                 <label>Seçili PDF:</label>
                                 <div class="custom-file">
                                     <a target="_blank"
-                                       href="{{asset("storage/files/faliyetrapor_files/$faliyetRapor->rapor")}}"> {{$faliyetRapor->rapor}}
+                                       href="{{asset("storage/files/sunum_files/$sunum->sunum")}}"> {{$sunum->sunum}}
                                         <i class="nav-icon fa fa-file-pdf"></i></a>
                                 </div>
                             </div>
@@ -31,7 +31,12 @@
                             <label for="exampleInputFile">İhracat Raporu (PDF)</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input  type="file" name="pdf" accept="application/pdf"
+                                    <input  type="file" name="sunum" accept="application/msword,
+                                     application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+                                      application/vnd.ms-powerpoint,
+                                       application/vnd.openxmlformats-officedocument.presentationml.slideshow,
+                                        application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                                         application/pdf"
                                            class="custom-file-input"
                                            id="foto">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
@@ -63,8 +68,8 @@
                                                         <div class="form-group">
 
                                                             <label for="cat_name">Başlık ({{$value}})</label>
-                                                            <input  @if($key == 'tr') required @endif type="text" name="baslik[{{$key}}]"
-                                                                   value=" @if (array_key_exists($key,$faliyetRapor->getTranslations('aciklama'))) {{$faliyetRapor->getTranslations('aciklama')[$key]}} @endif"
+                                                            <input  @if($key == 'tr') required @endif type="text" name="aciklama[{{$key}}]"
+                                                                   value=" @if (array_key_exists($key,$sunum->getTranslations('aciklama'))) {{$sunum->getTranslations('aciklama')[$key]}} @endif"
                                                                    class="form-control" id="cat_name"
                                                             >
                                                         </div>
@@ -73,7 +78,7 @@
 
 {{--                                                        <div class="form-group">--}}
 {{--                                                            <label>Alt Başlık ({{$value}})</label>--}}
-{{--                                                            <input type="text"  value=" @if (array_key_exists($key,$faliyetRapor->getTranslations('alt_baslik'))) {{$faliyetRapor->getTranslations('baslik')[$key]}} @endif"--}}
+{{--                                                            <input type="text"  value=" @if (array_key_exists($key,$sunum->getTranslations('alt_baslik'))) {{$sunum->getTranslations('baslik')[$key]}} @endif"--}}
 {{--                                                                   name="alt_baslık[{{$key}}]" class="form-control">--}}
 
 {{--                                                        </div>--}}

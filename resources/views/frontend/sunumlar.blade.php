@@ -23,15 +23,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="position-relative">
-                        <img  src="{{asset('assets/images/raporbg.svg')}}" alt="..." class="img-fluid" />
-                        <a href="#" class="text-decoration-none text-light d-flex justify-content-between bg-red position-absolute p-3 text-light w-100" style="bottom:0;">
+                        <img src="{{asset('assets/images/raporbg.svg')}}" alt="..." class="img-fluid"/>
+                        <a target="_blank" href="{{asset("storage/files/sunum_files/$s_first->sunum")}}"
+                           class="text-decoration-none text-light d-flex justify-content-between bg-red position-absolute p-3 text-light w-100"
+                           style="bottom:0;">
                             <div class="d-flex  align-items-center">
-                                <img  src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..." />
-                                <h4 class="m-0">2020 <br />
-                                    4. Çeyrek Sunumu
+                                <img src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..."/>
+                                <h4 class="m-0"> {{ $s_first->aciklama }}
                                 </h4>
                             </div>
-                            <img  src="{{asset('assets/images/arrow-right-light.svg')}}" width="46" alt="..." />
+                            <img src="{{asset('assets/images/arrow-right-light.svg')}}" width="46" alt="..."/>
                         </a>
                     </div>
                 </div>
@@ -47,25 +48,18 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($sunum as $key=>$value)
+                    @if($value  != $s_first )
+                        <div class="col-12 mb-3">
+                            <a href="{{asset("storage/files/sunum_files/$value->sunum")}}"
+                               class="text-dark text-decoration-none d-flex justify-content-between align-items-center border bg-transparent py-2 px-3 rounded-lg">
+                                <h5 class="mb-0">{{$value->aciklama}}</h5>
+                                <img src="{{asset('assets/images/arrow-right-red.svg')}}" height="36" alt="..."/>
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
 
-                <div class="col-12 mb-3">
-                    <a href="#" class="text-dark text-decoration-none d-flex justify-content-between align-items-center border bg-transparent py-2 px-3">
-                        <h5 class="mb-0">2020 Yılı 3.Çeyrek Sunumu</h5>
-                        <img  src="{{asset('assets/images/arrow-right-red.svg')}}" height="36" alt="..." />
-                    </a>
-                </div>
-                <div class="col-12 mb-3">
-                    <a href="#" class="text-dark text-decoration-none d-flex justify-content-between align-items-center border bg-transparent py-2 px-3">
-                        <h5 class="mb-0">2020 Yılı 2.Çeyrek Sunumu</h5>
-                        <img  src="{{asset('assets/images/arrow-right-red.svg')}}" height="36"  alt="..." />
-                    </a>
-                </div>
-                <div class="col-12 mb-3">
-                    <a href="#" class="text-dark text-decoration-none d-flex justify-content-between align-items-center border bg-transparent py-2 px-3">
-                        <h5 class="mb-0">2020 Yılı 1.Çeyrek Sunumu</h5>
-                        <img  src="{{asset('assets/images/arrow-right-red.svg')}}" height="36"  alt="..." />
-                    </a>
-                </div>
 
             </div>
             <div class="row">

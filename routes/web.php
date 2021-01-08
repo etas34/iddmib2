@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BaskaninMesajiController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DuyuruController;
 use App\Http\Controllers\Admin\EtkinlikController;
@@ -13,7 +14,7 @@ use App\Http\Controllers\Admin\InovasyonController;
 use App\Http\Controllers\Admin\SayfalarController;
 use App\Http\Controllers\Admin\SektorController;
 use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\BaskaninMesajiController;
+use App\Http\Controllers\Admin\SunumController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -115,6 +116,14 @@ Route::group(['middleware' => 'setlocale'], function () {
             Route::post('/edit/{ihracat}', [IhracatController::class, 'update'])->name('update');
             Route::post('/create', [IhracatController::class, 'store'])->name('store');
         });
+        Route::group(['prefix' => 'sunum', 'as' => 'sunum.', 'middleware' => 'auth'], function () {
+            Route::get('/', [SunumController::class, 'index'])->name('index');
+            Route::get('/create', [SunumController::class, 'create'])->name('create');
+            Route::get('/edit/{sunum}', [SunumController::class, 'edit'])->name('edit');
+            Route::get('/destroy/{sunum}', [SunumController::class, 'destroy'])->name('destroy');
+            Route::post('/edit/{sunum}', [SunumController::class, 'update'])->name('update');
+            Route::post('/create', [SunumController::class, 'store'])->name('store');
+        });
         Route::group(['prefix' => 'faliyet', 'as' => 'faliyet.', 'middleware' => 'auth'], function () {
             Route::get('/', [FaliyetController::class, 'index'])->name('index');
             Route::get('/create', [FaliyetController::class, 'create'])->name('create');
@@ -149,8 +158,8 @@ Route::group(['middleware' => 'setlocale'], function () {
         });
 
         Route::group(['prefix' => 'baskaninmesaji', 'as' => 'baskaninmesaji.', 'middleware' => 'auth'], function () {
-            Route::get('/edit/', [BaskaninMesajiController::class, 'edit'])->name('edit');
-            Route::post('/edit/{baskaninmesaji}', [BaskaninMesajiController::class, 'update'])->name('update');
+            Route::get('/edit/', [BaskaninMesajiControllerAlias::class, 'edit'])->name('edit');
+            Route::post('/edit/{baskaninmesaji}', [BaskaninMesajiControllerAlias::class, 'update'])->name('update');
         });
 
 
@@ -159,6 +168,10 @@ Route::group(['middleware' => 'setlocale'], function () {
             Route::group(['prefix' => 'hakkimizda'], function () {
                 Route::get('/', [SayfalarController::class, 'hakkimizda'])->name('hakkimizda');
                 Route::post('/{hakkimizda}', [SayfalarController::class, 'hakkimizda_update'])->name('hakkimizda.update');
+            });
+               Route::group(['prefix' => 'ihracatrotasi'], function () {
+                Route::get('/', [SayfalarController::class, 'ihracatrotasi'])->name('ihracatrotasi');
+                Route::post('/{ihracatrotasi}', [SayfalarController::class, 'hakkimizda_update'])->name('hakkimizda.update');
             });
 
             Route::group(['prefix' => 'kadro'], function () {
