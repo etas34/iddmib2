@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaskaninMesaji;
+use App\Models\Devletdestegi;
 use App\Models\Duyuru;
 use App\Models\Etkinlik;
 use App\Models\Faliyet;
@@ -11,6 +12,7 @@ use App\Models\Haber;
 use App\Models\Hakkimizda;
 use App\Models\Ihracat;
 use App\Models\IhracatRakam;
+use App\Models\Ihracatrotasi;
 use App\Models\Kadro;
 use App\Models\Sektor;
 use App\Models\Slider;
@@ -106,7 +108,8 @@ class MainController extends Controller
 
         $fr = FaliyetRapor::orderBy('created_at', 'DESC')
             ->get();
-        $fr_first = $fr->first();
+        $fr_first = $fr
+            ->first();
         $compact = compact('fr','fr_first');
 
         return view('frontend.raporlar', $compact);
@@ -128,17 +131,27 @@ class MainController extends Controller
 
     public function ihracatrota()
     {
-        return view('frontend.ihracatrota');
+        $ir = Ihracatrotasi::first();
+        $compact = compact('ir');
+        return view('frontend.ihracatrota',$compact);
     }
 
     public function devletdestek()
     {
-        return view('frontend.devletdestek');
+        $devletdestek = Devletdestegi::first();
+        $compact = compact('devletdestek');
+        return view('frontend.devletdestek',$compact);
     }
 
     public function ihracatrapor()
     {
-        return view('frontend.ihracatrapor');
+        $ir = Ihracat::orderBy('created_at', 'DESC')
+            ->get();
+        $ir_first = $ir
+            ->first();
+        $compact = compact('ir','ir_first');
+
+        return view('frontend.ihracatrapor', $compact);
     }
 
     public function faydalilinkler()

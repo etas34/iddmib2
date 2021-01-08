@@ -158,8 +158,8 @@ Route::group(['middleware' => 'setlocale'], function () {
         });
 
         Route::group(['prefix' => 'baskaninmesaji', 'as' => 'baskaninmesaji.', 'middleware' => 'auth'], function () {
-            Route::get('/edit/', [BaskaninMesajiControllerAlias::class, 'edit'])->name('edit');
-            Route::post('/edit/{baskaninmesaji}', [BaskaninMesajiControllerAlias::class, 'update'])->name('update');
+            Route::get('/edit/', [BaskaninMesajiController::class, 'edit'])->name('edit');
+            Route::post('/edit/{baskaninmesaji}', [BaskaninMesajiController::class, 'update'])->name('update');
         });
 
 
@@ -169,9 +169,14 @@ Route::group(['middleware' => 'setlocale'], function () {
                 Route::get('/', [SayfalarController::class, 'hakkimizda'])->name('hakkimizda');
                 Route::post('/{hakkimizda}', [SayfalarController::class, 'hakkimizda_update'])->name('hakkimizda.update');
             });
-               Route::group(['prefix' => 'ihracatrotasi'], function () {
+            Route::group(['prefix' => 'ihracatrotasi'], function () {
                 Route::get('/', [SayfalarController::class, 'ihracatrotasi'])->name('ihracatrotasi');
-                Route::post('/{ihracatrotasi}', [SayfalarController::class, 'hakkimizda_update'])->name('hakkimizda.update');
+                Route::post('/{ihracatrotasi}', [SayfalarController::class, 'ihracatrotasi_update'])->name('ihracatrotasi.update');
+            });
+
+            Route::group(['prefix' => 'devletdestegi'], function () {
+                Route::get('/', [SayfalarController::class, 'devletdestegi'])->name('devletdestegi');
+                Route::post('/{devletdestegi}', [SayfalarController::class, 'devletdestegi_update'])->name('devletdestegi.update');
             });
 
             Route::group(['prefix' => 'kadro'], function () {

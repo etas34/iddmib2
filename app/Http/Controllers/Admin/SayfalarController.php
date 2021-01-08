@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Devletdestegi;
 use App\Models\Hakkimizda;
 use App\Models\IhracatPage;
+use App\Models\Ihracatrotasi;
 use App\Models\Kadro;
 use App\Models\Sektor;
 use Illuminate\Http\Request;
@@ -66,6 +68,87 @@ class SayfalarController extends Controller
 
 
         $saved = $hakkimizda->save();
+
+        if ($saved)
+            toastr()->success('Kayıt Başarılı');
+        else
+            toastr()->error('Bir Şeyler Ters Gitti');
+
+        return back();
+    }
+  public function ihracatrotasi()
+    {
+        $ihracatrotasi = Ihracatrotasi::first();
+        return view('admin.sayfalar.ihracatrotasi', compact('ihracatrotasi'));
+    }
+
+    public function ihracatrotasi_update(Request $request, Ihracatrotasi $ihracatrotasi)
+    {
+        if ($request->file('image')) {
+            if ($ihracatrotasi->image and file_exists(storage_path("app\\public\\images\\sayfalar_images\\$ihracatrotasi->image")))
+                unlink(storage_path("app\\public\\images\\sayfalar_images\\$ihracatrotasi->image"));
+            $request->validate([
+
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+            $imageName = time() . '.' . $request->image->extension();
+
+            $request->image->storeAs('/public/images/sayfalar_images', $imageName);
+            $ihracatrotasi->image = $imageName;
+
+        }
+
+        $ihracatrotasi->altbaslik = $request->altbaslik;
+        $ihracatrotasi->metinbaslik = $request->metinbaslik;
+        $ihracatrotasi->metin = $request->metin;
+        $ihracatrotasi->link = $request->link;
+        $ihracatrotasi->link_baslik = $request->link_baslik;
+        $ihracatrotasi->link_altbaslik = $request->link_altbaslik;
+
+
+        $saved = $ihracatrotasi->save();
+
+        if ($saved)
+            toastr()->success('Kayıt Başarılı');
+        else
+            toastr()->error('Bir Şeyler Ters Gitti');
+
+        return back();
+    }
+
+public function devletdestegi()
+    {
+        $devletdestegi = Devletdestegi::first();
+        return view('admin.sayfalar.devletdestegi', compact('devletdestegi'));
+    }
+
+    public function devletdestegi_update(Request $request, Devletdestegi $devletdestegi)
+    {
+        if ($request->file('image')) {
+            if ($devletdestegi->image and file_exists(storage_path("app\\public\\images\\sayfalar_images\\$devletdestegi->image")))
+                unlink(storage_path("app\\public\\images\\sayfalar_images\\$devletdestegi->image"));
+            $request->validate([
+
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+            $imageName = time() . '.' . $request->image->extension();
+
+            $request->image->storeAs('/public/images/sayfalar_images', $imageName);
+            $devletdestegi->image = $imageName;
+
+        }
+
+        $devletdestegi->altbaslik = $request->altbaslik;
+        $devletdestegi->metinbaslik = $request->metinbaslik;
+        $devletdestegi->metin = $request->metin;
+        $devletdestegi->link = $request->link;
+        $devletdestegi->link_baslik = $request->link_baslik;
+        $devletdestegi->link_altbaslik = $request->link_altbaslik;
+
+
+        $saved = $devletdestegi->save();
 
         if ($saved)
             toastr()->success('Kayıt Başarılı');

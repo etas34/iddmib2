@@ -5,7 +5,7 @@
         <div class="position-relative mb-4">
             <img src="{{asset('assets/images/aboutBg.png')}}" alt="" class="img-fluid"/>
             <div class="container">
-                <div class="bread"><h1 class="text-white">Raporlar</h1></div>
+                <div class="bread"><h1 class="text-white">Faaliyet Raporları</h1></div>
             </div>
         </div>
         <div class="container">

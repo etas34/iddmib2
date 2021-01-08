@@ -46,6 +46,27 @@
                         </li>
 
                     </ul>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.sayfalar.devletdestegi')}}"
+                               class="nav-link @if(request()->routeIs('admin.sayfalar.devletdestegi')) active @endif ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Devlet Desteği</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                      <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.sayfalar.ihracatrotasi')}}"
+                               class="nav-link @if(request()->routeIs('admin.sayfalar.ihracatrotasi')) active @endif ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>İhracat Rotası  </p>
+                            </a>
+                        </li>
+
+                    </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('admin.sayfalar.hakkimizda')}}"
