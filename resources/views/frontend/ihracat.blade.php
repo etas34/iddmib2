@@ -6,13 +6,13 @@
         <div class="position-relative mb-4">
             <img src="{{asset('assets/images/aboutBg.png')}}" alt="" class="img-fluid" />
             <div class="container">
-                <div class="bread"><h1 class="text-white">İhracat Rotası</h1></div>
+                <div class="bread"><h1 class="text-white">{{$ir->baslik}}</h1></div>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex flex-wrap">
-                    <h4>Rum intio veribus core adis exerum, vel el mollabo...</h4>
+                    <h4>{{$ir->altbaslik}}</h4>
 
 
                 </div>
@@ -23,8 +23,8 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-12">
-                    <img src="{{asset('assets/images/ihracatbg.svg')}}" alt="..." class="img-fluid mb-4" />
-                    <h3 class="text-danger font-weight-bold">İMMİB Endüstriyel Tasarım Yarışmaları</h3>
+                    <img src="{{asset("storage/images/sayfalar_images/$ir->image")}}" alt="..." class="img-fluid mb-4" />
+                    <h3 class="text-danger font-weight-bold">{{$ir->}}</h3>
                     <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
                     <p>Curabitur aliquet quam id dui posuere blandit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh.</p>
                     <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>

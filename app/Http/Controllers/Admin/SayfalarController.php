@@ -259,49 +259,49 @@ public function devletdestegi()
     }
 
 
-    public function ihracatPage()
-    {
-        $ihracatPage = IhracatPage::first();
-        return view('admin.sayfalar.ihracatPage', compact('ihracatPage'));
-    }
-
-
-
-    public function ihracatPage_update(Request $request, IhracatPage $ihracatPage)
-    {
-        if ($request->file('image')) {
-            if ($ihracatPage->image and file_exists(storage_path("app\\public\\images\\sayfalar_images\\$ihracatPage->image")))
-                unlink(storage_path("app\\public\\images\\sayfalar_images\\$ihracatPage->image"));
-            $request->validate([
-
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-            ]);
-            $imageName = time() . '.' . $request->image->extension();
-
-            $request->image->storeAs('/public/images/sayfalar_images', $imageName);
-            $ihracatPage->image = $imageName;
-
-        }
-
-        $ihracatPage->baslik = $request->baslik;
-        $ihracatPage->altbaslik = $request->altbaslik;
-        $ihracatPage->metinbaslik = $request->metinbaslik;
-        $ihracatPage->metin = $request->metin;
-        $ihracatPage->link_baslik = $request->link_baslik;
-        $ihracatPage->link_altbaslik = $request->link_altbaslik;
-        $ihracatPage->link = $request->link;
-
-
-        $saved = $ihracatPage->save();
-
-        if ($saved)
-            toastr()->success('Kayıt Başarılı');
-        else
-            toastr()->error('Bir Şeyler Ters Gitti');
-
-        return back();
-    }
+//    public function ihracatPage()
+//    {
+//        $ihracatPage = IhracatPage::first();
+//        return view('admin.sayfalar.ihracatPage', compact('ihracatPage'));
+//    }
+//
+//
+//
+//    public function ihracatPage_update(Request $request, IhracatPage $ihracatPage)
+//    {
+//        if ($request->file('image')) {
+//            if ($ihracatPage->image and file_exists(storage_path("app\\public\\images\\sayfalar_images\\$ihracatPage->image")))
+//                unlink(storage_path("app\\public\\images\\sayfalar_images\\$ihracatPage->image"));
+//            $request->validate([
+//
+//                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//
+//            ]);
+//            $imageName = time() . '.' . $request->image->extension();
+//
+//            $request->image->storeAs('/public/images/sayfalar_images', $imageName);
+//            $ihracatPage->image = $imageName;
+//
+//        }
+//
+//        $ihracatPage->baslik = $request->baslik;
+//        $ihracatPage->altbaslik = $request->altbaslik;
+//        $ihracatPage->metinbaslik = $request->metinbaslik;
+//        $ihracatPage->metin = $request->metin;
+//        $ihracatPage->link_baslik = $request->link_baslik;
+//        $ihracatPage->link_altbaslik = $request->link_altbaslik;
+//        $ihracatPage->link = $request->link;
+//
+//
+//        $saved = $ihracatPage->save();
+//
+//        if ($saved)
+//            toastr()->success('Kayıt Başarılı');
+//        else
+//            toastr()->error('Bir Şeyler Ters Gitti');
+//
+//        return back();
+//    }
 
 
 

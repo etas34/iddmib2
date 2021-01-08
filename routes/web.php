@@ -188,10 +188,10 @@ Route::group(['middleware' => 'setlocale'], function () {
                 Route::post('/create', [SayfalarController::class, 'kadro_store'])->name('kadro_store');
             });
 
-            Route::group(['prefix' => 'ihracat'], function () {
-                Route::get('/', [SayfalarController::class, 'ihracatPage'])->name('ihracatPage');
-                Route::post('/{ihracatPage}', [SayfalarController::class, 'ihracatPage_update'])->name('ihracatPage.update');
-            });
+//            Route::group(['prefix' => 'ihracat'], function () {
+//                Route::get('/', [SayfalarController::class, 'ihracatPage'])->name('ihracatPage');
+//                Route::post('/{ihracatPage}', [SayfalarController::class, 'ihracatPage_update'])->name('ihracatPage.update');
+//            });
 
         });
 //        Route::group(['prefix'=>'model','as'=>'model.','middleware'=>'auth'],function (){

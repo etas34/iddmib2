@@ -36,16 +36,16 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('admin.sayfalar.ihracatPage')}}"
-                               class="nav-link @if(request()->routeIs('admin.sayfalar.ihracatPage')) active @endif ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>İhracat Sayfası  </p>
-                            </a>
-                        </li>
+{{--                    <ul class="nav nav-treeview">--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{route('admin.sayfalar.ihracatPage')}}"--}}
+{{--                               class="nav-link @if(request()->routeIs('admin.sayfalar.ihracatPage')) active @endif ">--}}
+{{--                                <i class="far fa-circle nav-icon"></i>--}}
+{{--                                <p>İhracat Sayfası  </p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                    </ul>
+{{--                    </ul>--}}
 
                     <ul class="nav nav-treeview">
                         <li class="nav-item">

@@ -11,6 +11,7 @@ use App\Models\FaliyetRapor;
 use App\Models\Haber;
 use App\Models\Hakkimizda;
 use App\Models\Ihracat;
+use App\Models\IhracatPage;
 use App\Models\IhracatRakam;
 use App\Models\Ihracatrotasi;
 use App\Models\Kadro;
@@ -126,7 +127,9 @@ class MainController extends Controller
 
     public function ihracat()
     {
-        return view('frontend.ihracat');
+        $ip = IhracatPage::first();
+        $compact = compact('ip');
+        return view('frontend.ihracat',$compact);
     }
 
     public function ihracatrota()
