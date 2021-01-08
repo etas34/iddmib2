@@ -60,8 +60,8 @@ class MainController extends Controller
             ->first();
         $etkinlik = Etkinlik::where('sektor_id', $sektor->id)
             ->get();
-        $faaliyet = Faliyet::where('sektor_id', $sektor->id)
-            ->get();
+//        $faaliyet = Faliyet::where('sektor_id', $sektor->id)
+//            ->get();
         $ihracat = Ihracat::where('sektor_id', $sektor->id)
             ->get();
         $haber = Haber::where('sektor_id', $sektor->id)
@@ -71,7 +71,6 @@ class MainController extends Controller
             'sektor',
             'ihracatrakam',
             'etkinlik',
-            'faaliyet',
             'ihracat',
             'haber'
         ));

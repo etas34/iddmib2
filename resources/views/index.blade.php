@@ -240,6 +240,7 @@
         </div>
     </div>
     <!-- sectors end -->
+    <hr class="mb-5" />
 
     <!-- reports start -->
     <div class="reports mb-5">
@@ -250,6 +251,7 @@
                     <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
                 </div>
             </div>
+
 
             <div class="row row-cols-sm-2 row-cols-md-3">
                 @foreach($ihracat as $key=>$value)
@@ -268,7 +270,9 @@
             </div>
         </div>
     </div>
+
     <!-- reports end -->
+    <hr class="mb-5" />
 
     <!-- service start -->
     <div class="service mb-5">

@@ -122,39 +122,39 @@
     </div>
     <!-- threeslide end -->
 
-    <hr class="mb-5" />
+{{--    <hr class="mb-5" />--}}
 
     <!-- service start -->
-    <div class="service mb-5">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h3 class="text-danger font-weight-bold">Aliminyum URGE Projeleri</h3>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
+{{--    <div class="service mb-5">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row mb-4">--}}
+{{--                <div class="col-12">--}}
+{{--                    <h3 class="text-danger font-weight-bold">Aliminyum URGE Projeleri</h3>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row mb-3">--}}
+{{--                <div class="col-12">--}}
+{{--                    <div class="swiper-container">--}}
+{{--                        <div class="swiper-wrapper">--}}
 
-                            @foreach($faaliyet as $key=>$value)
+{{--                            @foreach($faaliyet as $key=>$value)--}}
 
-                                <div class="swiper-slide">
-                                    <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->image")}}" alt="..." /></a>
-                                    <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="#">{{$value->baslik}}</a></h5>
-                                    <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h6>
-                                </div>
+{{--                                <div class="swiper-slide">--}}
+{{--                                    <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->image")}}" alt="..." /></a>--}}
+{{--                                    <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="#">{{$value->baslik}}</a></h5>--}}
+{{--                                    <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h6>--}}
+{{--                                </div>--}}
 
-                            @endforeach
+{{--                            @endforeach--}}
 
-                        </div>
-                    </div>
-                    <div role="button" class="service-left d-none d-md-block"><img src="{{asset('/assets/images/arrow-left-red.svg')}}" alt="..." /></div>
-                    <div role="button" class="service-right d-none d-md-block"><img src="{{asset('/assets/images/arrow-right-red.svg')}}" alt="..." /></div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div role="button" class="service-left d-none d-md-block"><img src="{{asset('/assets/images/arrow-left-red.svg')}}" alt="..." /></div>--}}
+{{--                    <div role="button" class="service-right d-none d-md-block"><img src="{{asset('/assets/images/arrow-right-red.svg')}}" alt="..." /></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- service end -->
 
     <hr class="mb-5" />
