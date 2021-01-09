@@ -32,7 +32,7 @@
                     <h6 class="border rounded px-2 py-3 d-inline-block text-center">
                         <span class="font-weight-bold">Turkish</span> 365 <br />
                         E-ihracat Portalı
-                    </h6>
+                    </h5>
                 </div>
             </div>
             <div class="row">
@@ -50,7 +50,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Güncel Duyurular</h3>
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
+                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
                 </div>
             </div>
             <div class="row">
@@ -79,7 +79,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Başkan'ın Mesajı</h3>
-                    <div class="text-secondary">{!! $baskan->metin !!}</div>
+                  {!! $baskan->metin !!}
                 </div>
             </div>
             <div class="row">
@@ -100,7 +100,7 @@
                         Donec rutrum congue leo eget malesuada.
                     </div>
                     <div class="col-sm-4">
-                        <button class="btn btn-light font-weight-bold">ÜYELİK BAŞVURUSU</button>
+                        <a href="{{route('iletisim')}}" class="btn btn-light font-weight-bold">İLETİŞİME GEÇİN </a>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Haberler</h3>
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
+                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
                 </div>
             </div>
             <div class="row mb-3">
@@ -125,7 +125,7 @@
                         @foreach($haber as $key=>$value)
                             <div class="swiper-slide">
                                 <a href="{{route('haber',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="{{route('haber',$value)}}">{{$value->tarih}}</a></h5>
+                               <a class="" style="color: #6c757d " href="{{route('haber',$value)}}">{{$value->tarih}}</a>
                                 <h5><a class="text-dark text-decoration-none" href="{{route('haber',$value)}}">{{$value->baslik}}</a></h5>
                             </div>
                             @endforeach
@@ -140,7 +140,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm haberleri göster</a>
+                    <a class="text-danger" href="#">Tüm haberleri göster</a>
                 </div>
             </div>
         </div>
@@ -181,7 +181,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Sektörler</h3>
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
+                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
                 </div>
             </div>
             <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">
@@ -248,7 +248,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">İhracat Raporları</h3>
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
+                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
                 </div>
             </div>
 
@@ -257,7 +257,7 @@
                 @foreach($ihracat as $key=>$value)
                 <div class="col-12 mb-3">
                     <a target="_blank" href="{{asset("storage/files/ihracat_files/$value->pdf")}}" class="card p-3 text-decoration-none rounded-lg">
-                        <h3 class="text-dark text-decoration-none">&nbsp;</h3>
+                        <h3 class="text-dark text-decoration-none">{{ \App\Models\Sektor::find($value->sektor_id)->baslik }}</h3>
                         <h5 class="text-secondary text-decoration-none">{{$value->baslik}} <br /> İhracat Raporu</h5>
                     </a>
                 </div>
@@ -280,7 +280,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Faaliyetler</h3>
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
+                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
                 </div>
             </div>
             <div class="row mb-3">
@@ -292,7 +292,7 @@
 
                             <div class="swiper-slide">
                                 <a href="{{route('faaliyet',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->image")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="{{route('faaliyet',$value)}}">{{$value->baslik}}</a></h5>
+                                <h5 class="text-secondary"><a class="text-dark" href="{{route('faaliyet',$value)}}">{{$value->baslik}}</a></h5>
                                 <h6><span class="text-secondary text-decoration-none">{{$value->alt_baslik}}</span></h6>
                             </div>
                             @endforeach
@@ -308,7 +308,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm faaliyetleri göster</a>
+                    <a class="text-danger" href="#">Tüm faaliyetleri göster</a>
                 </div>
             </div>
         </div>
@@ -323,7 +323,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Etkinlik Takvimi</h3>
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
+                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
                 </div>
             </div>
             <div class="row mb-3">
@@ -341,7 +341,12 @@
                                         <div class="card-footer bg-transparent border-top-0">
                                             {{$value->alt_baslik}}
                                         </div>
+                                        <div class="card-footer bg-transparent border-top-0 text-secondary d-flex justify-content-between">
+                                            <span>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</span>
+                                            <span>{{config('constants.kategori.'.$value->kategori_id)}}</span>
+                                        </div>
                                     </div>
+
                                 </div>
                             @endforeach
 
@@ -354,7 +359,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm etkinlikleri göster</a>
+                    <a class="text-danger" href="#">Tüm etkinlikleri göster</a>
                 </div>
             </div>
         </div>
@@ -369,7 +374,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">İnovasyon</h3>
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
+                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
                 </div>
             </div>
             <div class="row mb-3">
@@ -379,8 +384,8 @@
                             @foreach($inovasyon as $key=>$value)
                                 <div class="swiper-slide">
                                     <a href="{{route('inovasyon',$value)}}"><img class="img-fluid mb-3 d-block mx-auto" src="{{asset("storage/images/inovasyon_images/$value->image")}}" alt="..." /></a>
-                                    <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="#">{{$value->baslik}}</a></h5>
-                                    <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h6>
+                                    <h5 class="text-secondary"><a class="text-dark" href="#">{{$value->baslik}}</a></h5>
+                                    <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h5>
                                 </div>
                             @endforeach
 
@@ -395,7 +400,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm inovasyonları göster</a>
+                    <a class="text-danger" href="#">Tüm inovasyonları göster</a>
                 </div>
             </div>
         </div>
@@ -447,7 +452,7 @@
                         +90 355 555 55 55 <br />
                         info@turkishaluminium365.com
                     </p>
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Adrese Git</a>
+                    <a class="text-danger" href="#">Adrese Git</a>
                 </div>
             </div>
         </div>

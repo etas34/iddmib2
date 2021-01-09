@@ -31,12 +31,61 @@
                 <a href="{{route('home')}}" class="navbar-brand"><img  src="{{ asset('assets/images/logo.svg') }}" alt="..." /></a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#mynav"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="mynav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Kurumsal</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('ihracat')}}">İhracat</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Sektörler</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Faliyetler</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">İnovasyon</a></li>
+                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Kurumsal</a>
+                            <div class="dropdown-menu rounded-0">
+                                <a href="{{route('hakkimizda')}}" class="dropdown-item">Hakkımızda</a>
+                                <a href="{{route('yonetimkurulu')}}" class="dropdown-item">Yönetim Kurulu</a>
+                                <a href="{{route('yonetimkurulu')}}" class="dropdown-item">Denetim Kurulu</a>
+                                <a href="{{route('idarikadro')}}" class="dropdown-item">İdari Kadro</a>
+                                <a href="{{route('raporlar')}}" class="dropdown-item">Raporlar</a>
+                                <a href="{{route('sunumlar')}}" class="dropdown-item">Sunumlar</a>
+                            </div>
+                        </li>
+                         <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">İhracat</a>
+                            <div class="dropdown-menu rounded-0">
+                                <a href="{{route('ihracatrota')}}" class="dropdown-item">İhracat Rotası</a>
+                                <a href="{{route('devletdestek')}}" class="dropdown-item">Devlet Destekleri</a>
+                                <a href="{{route('ihracatrapor')}}" class="dropdown-item">İhracat Raporları</a>
+                                <a href="{{route('faydalilinkler')}}" class="dropdown-item">Faydalı Linkler</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Üyelik</a></li>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Sektörler</a>
+                             <div class="dropdown-menu rounded-0">
+                                 @foreach($sektor as $key=>$value)
+                                 <a href="{{route('sektordetail',$value->id)}}" class="dropdown-item">{{$value->baslik}}</a>
+                                 @endforeach
+                             </div>
+                         </li>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Faaliyetler</a>
+                             <div class="dropdown-menu rounded-0">
+                                 <a href="{{route('etkinlik')}}" class="dropdown-item">Etkinlik Takvimi </a>
+                                 <a href="" class="dropdown-item">Fuarlar</a>
+                                 <a href="" class="dropdown-item">Heyetler</a>
+                                 <a href="" class="dropdown-item">Çalıştaylar</a>
+                                 <a href="" class="dropdown-item">Sanal Heyetler</a>
+                                 <a href="" class="dropdown-item">URGE Projeleri</a>
+                                 <a href="" class="dropdown-item">Turkish 365</a>
+
+                             </div>
+                         </li>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">İnovasyon</a>
+                             <div class="dropdown-menu rounded-0">
+
+                                 <a href="" class="dropdown-item">ARGE Proje Pazarı</a>
+                                 <a href="{{route('yarisma')}}" class="dropdown-item">Endüstriyel Tasarım Yarışması </a>
+                                 <a href="" class="dropdown-item">İhracatçı-Öğrenci Buluşmaları</a>
+                                 <a href="" class="dropdown-item">Birlikte Tasarlayalım</a>
+                                 <a href="" class="dropdown-item">İhracat Başarı Ödülü</a>
+
+                             </div>
+                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{route('iletisim')}}">İletişim</a></li>
                     </ul>
                 </div>
@@ -91,14 +140,11 @@
                         <a href="{{route('devletdestek')}}" class="btn btn-outline-secondary mb-2 mr-2">Devlet Destekleri</a>
                         <a href="{{route('ihracatrapor')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Raporları</a>
                         <a href="{{route('faydalilinkler')}}" class="btn btn-outline-secondary mb-2 mr-2">Faydalı Linkler</a> <br />
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Aliminyum</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Bakır</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Döküm</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Ev ve Mutfak</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Kaynak</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Metal Hırdavat</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Metal Ambalaj</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Yapı Malzemeleri</a>  <br />
+                        @foreach($sektor as $key=>$value)
+                        <a href="{{route('sektordetail',$value->id)}}" class="btn btn-outline-secondary mb-2 mr-2">{{$value->baslik}}</a>
+                        @endforeach
+
+                        <br />
                         <a href="{{route('etkinlik')}}" class="btn btn-outline-secondary mb-2 mr-2">Etkinlik Takvimi</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Fuarlar</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Heyetler</a>
@@ -148,6 +194,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <!-- swiperjs -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="{{asset('assets/mixitup.min.js')}}"></script>
 
 <script src="{{ asset('assets/main.js') }}"></script>
 @stack('scripts')

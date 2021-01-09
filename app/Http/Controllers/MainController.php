@@ -163,7 +163,12 @@ class MainController extends Controller
 
     public function etkinlik()
     {
-        return view('frontend.etkinlik');
+        $etkinlik = Etkinlik::all();
+        $sektor = Sektor::where('durum',1)
+            ->get();
+        $compact = compact('etkinlik','sektor');
+
+        return view('frontend.etkinlik',$compact);
     }
 
     public function yarisma()
@@ -187,7 +192,10 @@ class MainController extends Controller
 
         $etkinlik = Etkinlik::whereIn('kategori_id', $k_ids)
             ->get();
-        $compact = compact('faaliyet', 'etkinlik');
+        $compact = compact(
+            'faaliyet',
+            'etkinlik'
+        );
 
         return view('frontend.faaliyet', $compact);
     }
