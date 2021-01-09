@@ -283,27 +283,23 @@
                 </div>
             </div>
             <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">
+            @foreach($kadro as $key=>$value)
+
+
                 <div class="col-12 mb-3">
-                    <a href="#"><img class="img-fluid mb-3" src="{{asset('/assets/images/profile4.svg')}}" alt="..." /></a>
-                    <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Ebru Kutlualp</a></h4>
-                    <p><a class="text-secondary text-decoration-none" href="#">Metaller Sektör Şubesi <br />
-                            Şube Müdür <div class="w-100"></div>
-                    +90 212 454 0991 <br />
-                    ebru.kutlualp@immib.org.tr
-                    </a></p>
-                </div>
-                <div class="col-12 mb-3">
-                    <a href="#"><img class="img-fluid mb-3" src="{{asset('/assets/images/profile4.svg')}}" alt="..." /></a>
-                    <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Ebru Kutlualp</a></h4>
-                    <p><a class="text-secondary text-decoration-none" href="#">Metaller Sektör Şubesi <br />
-                            Şube Müdür
+                    <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/kadro_images/$value->resim")}}" alt="..." /></a>
+                    <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->ad_soyad}}</a></h4>
+                    <p><a class="text-secondary text-decoration-none" href="#">{{$sektor->baslik}} Sektör Şubesi <br />
+                            {{$value->unvan}}
                     <div class="w-100"></div>
-                    +90 212 454 0991 <br />
-                    ebru.kutlualp@immib.org.tr
+                            {{$value->tel}} <br />
+
+
+                       {{$value->email}}
                     </a></p>
                 </div>
 
-
+                @endforeach
             </div>
         </div>
     </div>

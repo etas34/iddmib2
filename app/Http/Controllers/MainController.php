@@ -66,13 +66,15 @@ class MainController extends Controller
             ->get();
         $haber = Haber::where('sektor_id', $sektor->id)
             ->get();
-
+        $kadro = Kadro::where('sektor_id',$sektor->id )
+            ->get();
         return view('frontend.sektordetail', compact(
             'sektor',
             'ihracatrakam',
             'etkinlik',
             'ihracat',
-            'haber'
+            'haber',
+            'kadro'
         ));
     }
 

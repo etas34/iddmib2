@@ -64,25 +64,21 @@
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Faaliyetler</a>
                              <div class="dropdown-menu rounded-0">
-                                 <a href="{{route('etkinlik')}}" class="dropdown-item">Etkinlik Takvimi </a>
-                                 <a href="" class="dropdown-item">Fuarlar</a>
-                                 <a href="" class="dropdown-item">Heyetler</a>
-                                 <a href="" class="dropdown-item">Çalıştaylar</a>
-                                 <a href="" class="dropdown-item">Sanal Heyetler</a>
-                                 <a href="" class="dropdown-item">URGE Projeleri</a>
-                                 <a href="" class="dropdown-item">Turkish 365</a>
+{{--                                 <a href="{{route('etkinlik')}}" class="dropdown-item">Etkinlik Takvimi </a>--}}
+                                 @foreach($faaliyet as $key=>$value)
+                                 <a href="{{route('faaliyet',$value)}}" class="dropdown-item">{{$value->baslik}}</a>
+                                     @endforeach
 
                              </div>
                          </li>
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">İnovasyon</a>
                              <div class="dropdown-menu rounded-0">
+                                 @foreach($inovasyon as $key=>$value)
+                                     <a href="{{route('inovasyon',$value)}}" class="dropdown-item">{{$value->baslik}}</a>
+                                 @endforeach
 
-                                 <a href="" class="dropdown-item">ARGE Proje Pazarı</a>
-                                 <a href="{{route('yarisma')}}" class="dropdown-item">Endüstriyel Tasarım Yarışması </a>
-                                 <a href="" class="dropdown-item">İhracatçı-Öğrenci Buluşmaları</a>
-                                 <a href="" class="dropdown-item">Birlikte Tasarlayalım</a>
-                                 <a href="" class="dropdown-item">İhracat Başarı Ödülü</a>
+
 
                              </div>
                          </li>
@@ -146,14 +142,12 @@
 
                         <br />
                         <a href="{{route('etkinlik')}}" class="btn btn-outline-secondary mb-2 mr-2">Etkinlik Takvimi</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Fuarlar</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Heyetler</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Çalıştaylar</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracat Ödül Töreni</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">ARGE Proje Pazarı</a>
-                        <a href="{{route('yarisma')}}" class="btn btn-outline-secondary mb-2 mr-2">Endüstriyel Tasarım Yarışması</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Birlikte Tasarlaylım</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İhracatçı-Öğrenci Buluşmaları</a>  <br />
+                        @foreach($faaliyet as $key=>$value)
+                            <a href="{{route('faaliyet',$value)}}"  class="btn btn-outline-secondary mb-2 mr-2">{{$value->baslik}}</a>
+                        @endforeach
+                        @foreach($inovasyon as $key=>$value)
+                            <a href="{{route('inovasyon',$value)}}"  class="btn btn-outline-secondary mb-2 mr-2">{{$value->baslik}}</a>
+                        @endforeach
                         <a href="{{route('iletisim')}}" class="btn btn-outline-secondary mb-2 mr-2">İletişim</a>
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İDDMİB Basın Kiti</a>
                         <a href="{{route('iletisim')}}#sss" class="btn btn-outline-secondary mb-2 mr-2">Sıkça Sorulan Sorular</a>
