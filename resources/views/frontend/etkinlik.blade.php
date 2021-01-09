@@ -13,9 +13,9 @@
                 <div class="col-12 d-flex flex-wrap">
                     <h4>Rum intio veribus core adis exerum, vel el mollabo...</h4>
 
-                    <button class="btn btn-link text-dark ml-auto text-decoration-none">
-                        Daha fazla bilgi <img class="ml-2" src="{{asset('assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
-                    </button>
+{{--                    <button class="btn btn-link text-dark ml-auto text-decoration-none">--}}
+{{--                        Daha fazla bilgi <img class="ml-2" src="{{asset('assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />--}}
+{{--                    </button>--}}
 
                 </div>
             </div>
