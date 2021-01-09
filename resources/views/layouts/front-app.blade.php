@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/responsive.css') }}" />
-
+    @toastr_css
     @stack('styles')
 
 
@@ -192,6 +192,8 @@
     <script src="{{asset('assets/mixitup.min.js')}}"></script>
 
 <script src="{{ asset('assets/main.js') }}"></script>
-@stack('scripts')
+    @toastr_js
+    @toastr_render
+    @stack('scripts')
 </body>
 </html>
