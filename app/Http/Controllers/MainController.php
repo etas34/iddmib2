@@ -20,6 +20,7 @@ use App\Models\Slider;
 use App\Models\Inovasyon;
 use App\Models\Sunum;
 use Illuminate\Http\Request;
+use Mail;
 
 class MainController extends Controller
 {
@@ -90,6 +91,28 @@ class MainController extends Controller
 
     public function iletisim()
     {
+        return view('frontend.iletisim');
+    }
+    public function iletisim_gonder(Request $request)
+    {
+        //  Send mail to admin
+        Mail::send('mail', array(
+            'mesaj' => $request->get('mesaj'),
+            'isim_soyisim' => $request->get('isim_soyisim'),
+            'email' => $request->get('email'),
+            'tel' => $request->get('tel'),
+            'adres' => $request->get('adres'),
+        ), function($message) use ($request){
+            $message->from($request->email);
+            $message->to('info@turkishaluminium365.com', 'Admin')->subject('IDDMIB İletişim Formu');
+        });
+        if (!Mail::failures())
+            toastr()->success('Mesajınız Başarıyla Gönderildi');
+        else
+            toastr()->error('Bir Şeyler Ters Gitti');
+
+
+
         return view('frontend.iletisim');
     }
 
