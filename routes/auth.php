@@ -25,21 +25,21 @@ Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])
 Route::post('/admin/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest');
 
-Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+/*Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
     ->middleware('guest')
-    ->name('password.request');
+    ->name('password.request');*/
 
-Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+/*Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
     ->middleware('guest')
-    ->name('password.email');
+    ->name('password.email');*/
 
-Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
+/*Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
     ->middleware('guest')
     ->name('password.reset');
 
 Route::post('/reset-password', [NewPasswordController::class, 'store'])
     ->middleware('guest')
-    ->name('password.update');
+    ->name('password.update');*/
 
 Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
     ->middleware('auth')
