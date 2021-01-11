@@ -15,6 +15,9 @@ class CreateBaskaninMesajisTable extends Migration
     {
         Schema::create('baskanin_mesajis', function (Blueprint $table) {
             $table->id();
+            $table->text('baslik')->nullable();
+            $table->text('alt_baslik')->nullable();
+            $table->text('metin_baslik')->nullable();
             $table->text('metin')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

@@ -205,10 +205,22 @@ class MainController extends Controller
     {
         return view('frontend.inovasyon', compact('inovasyon'));
     }
+    public function baskanmesaj()
+    {
+        $bm = BaskaninMesaji::first();
+        $compact = compact('bm');
+        return view('frontend.baskanmesaj',$compact);
+    }
 
     public function haber(Haber $haber)
     {
         return view('frontend.haber', compact('haber'));
+    }
+    public function haberler()
+    {
+        $haber = Haber::all();
+        $compact = compact('haber');
+        return view('frontend.haberler',$compact);
     }
 
     public function faaliyet(Faliyet $faaliyet)

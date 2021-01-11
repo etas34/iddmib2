@@ -84,7 +84,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <img src="{{asset("storage/images/baskan_images/$baskan->image")}}" alt="..." class="img-fluid" />
+                    <a href="{{route('baskanmesaj')}}">  <img src="{{asset("storage/images/baskan_images/$baskan->image")}}" alt="..." class="img-fluid" /></a>
                 </div>
             </div>
         </div>
@@ -140,7 +140,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger" href="#">Tüm haberleri göster</a>
+                    <a class="text-danger" href="{{route('haberler')}}">Tüm haberleri göster</a>
                 </div>
             </div>
         </div>

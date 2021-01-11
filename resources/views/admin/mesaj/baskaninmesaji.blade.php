@@ -22,14 +22,16 @@
                         @if($baskaninmesaji->image)
                             <div class="form-group">
                                 <label for="file">Seçili resim:</label>
-                                <div id="file"> <img src="{{asset("storage/images/baskan_images/$baskaninmesaji->image")}}" width="300"  alt="..."></div>
+                                <div id="file"><img
+                                        src="{{asset("storage/images/baskan_images/$baskaninmesaji->image")}}"
+                                        width="300" alt="..."></div>
                             </div>
                         @endif
                         <div class="form-group">
                             <label for="exampleInputFile">Başkanın Resmi (1100 X 463 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input  type="file" name="image" class="custom-file-input" id="foto">
+                                    <input type="file" name="image" class="custom-file-input" id="foto">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
 
@@ -61,10 +63,41 @@
 
 
                                                         <label>Başkanın Mesajı ({{$value}})</label>
-                                                        <textarea id="summernote_{{$key}}" @if($key == 'tr') required @endif name="metin[{{$key}}]"
+                                                        <textarea rows="3" id="summernote_{{$key}}"
+                                                                  @if($key == 'tr') required
+                                                                  @endif name="metin[{{$key}}]"
                                                         >  {{$baskaninmesaji->getTranslations('metin')[$key] ?? ''}}</textarea>
 
                                                     </div>
+
+                                                    <div class="card bg-light ">
+                                                        <div class="card-header">
+                                                            <h4>Detay Sayfası</h4>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label>Başlık</label>
+                                                                <input name="baslik[{{$key}}]" class="form-control"
+                                                                       type="text"
+                                                                       value="{{$baskaninmesaji->getTranslations('baslik')[$key] ?? ''}}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Alt başlık</label>
+                                                                <input name="alt_baslik[{{$key}}]" class="form-control"
+                                                                       type="text"
+                                                                       value="{{$baskaninmesaji->getTranslations('alt_baslik')[$key] ?? ''}}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Metin Alt Başlık</label>
+                                                                <input name="metin_baslik[{{$key}}]"
+                                                                       class="form-control" type="text"
+                                                                       value="{{$baskaninmesaji->getTranslations('metin_baslik')[$key] ?? ''}}">
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
 
                                                 </div>
                                             @endforeach
@@ -126,7 +159,7 @@
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({
-                    height: 300
+                    height: 100
                 })
                 @endforeach
             })
