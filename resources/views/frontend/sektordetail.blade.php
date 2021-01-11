@@ -60,6 +60,52 @@
     </div>
     <!-- numbers end -->
 
+    <!-- threeslide start -->
+    <div class="threeslide mb-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h3 class="text-danger font-weight-bold">{{$sektor->name}} Etkinlik Takvimi</h3>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            @foreach($etkinlik as $key=>$value)
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <div class="card-header text-danger bg-transparent">{{$value->tarih}}</div>
+                                        <div class="card-body">
+                                            <h5>{{ $value->baslik }}</h5>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-top-0">
+                                            {{$value->alt_baslik}} &nbsp;
+                                        </div>
+                                        <div class="card-footer bg-transparent border-top-0 text-secondary d-flex justify-content-between">
+                                            <span>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</span>
+                                            <span>{{config('constants.kategori.'.$value->kategori_id)}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+
+                    </div>
+                    <div role="button" class="three-left d-none d-md-block"><img src="{{asset('/assets/images/arrow-left-red.svg')}}" alt="..." /></div>
+                    <div role="button" class="three-right d-none d-md-block"><img src="{{asset('/assets/images/arrow-right-red.svg')}}" alt="..." /></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <a class="text-danger">Tüm {{$sektor->baslik}} Etkinliklerini Göster</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- threeslide end -->
+    <hr class="mb-5" />
     <div class="container mb-5">
         <div class="row">
             <div class="col-12">
@@ -76,51 +122,9 @@
                 </div>
             </div>
         </div>
+
     </div>
 
-    <hr class="mb-5" />
-
-    <!-- threeslide start -->
-    <div class="threeslide mb-5">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h3 class="text-danger font-weight-bold">{{$sektor->name}} Etkinlik Takvimi</h3>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            @foreach($etkinlik as $key=>$value)
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <div class="card-header text-danger bg-transparent">{{$value->tarih}}</div>
-                                    <div class="card-body">
-                                        <h5>{{ $value->baslik }}</h5>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-top-0">
-                                        {{$value->alt_baslik}} &nbsp;
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-
-                        </div>
-
-                    </div>
-                    <div role="button" class="three-left d-none d-md-block"><img src="{{asset('/assets/images/arrow-left-red.svg')}}" alt="..." /></div>
-                    <div role="button" class="three-right d-none d-md-block"><img src="{{asset('/assets/images/arrow-right-red.svg')}}" alt="..." /></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm {{$sektor->baslik}} Etkinliklerini Göster</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- threeslide end -->
 
 {{--    <hr class="mb-5" />--}}
 
@@ -228,7 +232,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm haberleri göster</a>
+                  <a class="text-danger">Tüm haberleri göster</a>
                 </div>
             </div>
         </div>
@@ -269,6 +273,7 @@
         </div>
     </div>
 
+    <hr class="mb-5" />
     <!-- sectors start -->
     <div class="sectors mb-5">
         <div class="container">
@@ -278,27 +283,23 @@
                 </div>
             </div>
             <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">
+            @foreach($kadro as $key=>$value)
+
+
                 <div class="col-12 mb-3">
-                    <a href="#"><img class="img-fluid mb-3" src="{{asset('/assets/images/profile4.svg')}}" alt="..." /></a>
-                    <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Ebru Kutlualp</a></h4>
-                    <p><a class="text-secondary text-decoration-none" href="#">Metaller Sektör Şubesi <br />
-                            Şube Müdür <div class="w-100"></div>
-                    +90 212 454 0991 <br />
-                    ebru.kutlualp@immib.org.tr
-                    </a></p>
-                </div>
-                <div class="col-12 mb-3">
-                    <a href="#"><img class="img-fluid mb-3" src="{{asset('/assets/images/profile4.svg')}}" alt="..." /></a>
-                    <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">Ebru Kutlualp</a></h4>
-                    <p><a class="text-secondary text-decoration-none" href="#">Metaller Sektör Şubesi <br />
-                            Şube Müdür
+                    <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/kadro_images/$value->resim")}}" alt="..." /></a>
+                    <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->ad_soyad}}</a></h4>
+                    <p><a class="text-secondary text-decoration-none" href="#">{{$sektor->baslik}} Sektör Şubesi <br />
+                            {{$value->unvan}}
                     <div class="w-100"></div>
-                    +90 212 454 0991 <br />
-                    ebru.kutlualp@immib.org.tr
+                            {{$value->tel}} <br />
+
+
+                       {{$value->email}}
                     </a></p>
                 </div>
 
-
+                @endforeach
             </div>
         </div>
     </div>

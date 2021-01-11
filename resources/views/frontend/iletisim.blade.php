@@ -41,7 +41,8 @@
             </div>
         </div>
         <hr class="mb-5" />
-
+        <form method="post" action="{{route('iletisim_gonder')}}">
+            @csrf
         <div class="container py-5">
             <div class="row mb-4">
                 <div class="col-12">
@@ -51,38 +52,38 @@
             </div>
             <div class="row mb-4">
                 <div class="col-12">
-                    <textarea name="message" class="form-control bg-transparent" rows="4" placeholder="İletişim Konusu"></textarea>
+                    <textarea required name="mesaj" class="form-control bg-transparent" rows="4" placeholder="İletişim Konusu"></textarea>
                 </div>
             </div>
             <div class="row mb-4">
                 <div class="col-md-6">
                     <div class="row mb-4">
                         <div class="col-12">
-                            <input type="text" class="form-control bg-transparent" placeholder="İsim Soyisim" />
+                          <input  type="text" name="isim_soyisim" class="form-control bg-transparent" placeholder="İsim Soyisim" />
                         </div>
                     </div>
                     <div class="row mb-4">
                         <div class="col-12">
-                            <input type="text" class="form-control bg-transparent" placeholder="E-Posta" />
+                            <input required type="email" name="email" class="form-control bg-transparent" placeholder="E-Posta" />
                         </div>
                     </div>
                     <div class="row mb-4 mb-md-0">
                         <div class="col-12">
-                            <input type="text" class="form-control bg-transparent" placeholder="Telefon" />
+                            <input required type="tel" name="tel" class="form-control bg-transparent" placeholder="Telefon" />
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <textarea name="address" class="form-control h-100 bg-transparent"  placeholder="Adres"></textarea>
+                    <textarea required name="adres" class="form-control h-100 bg-transparent"  placeholder="Adres"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button class="btn btn-danger">GÖNDER</button>
+                    <button type="submit" class="btn btn-danger">GÖNDER</button>
                 </div>
             </div>
         </div>
-
+        </form>
         <hr class="mb-5" />
 
         <div class="container mb-5">

@@ -20,6 +20,7 @@ use App\Models\Slider;
 use App\Models\Inovasyon;
 use App\Models\Sunum;
 use Illuminate\Http\Request;
+use Mail;
 
 class MainController extends Controller
 {
@@ -66,13 +67,15 @@ class MainController extends Controller
             ->get();
         $haber = Haber::where('sektor_id', $sektor->id)
             ->get();
-
+        $kadro = Kadro::where('sektor_id',$sektor->id )
+            ->get();
         return view('frontend.sektordetail', compact(
             'sektor',
             'ihracatrakam',
             'etkinlik',
             'ihracat',
-            'haber'
+            'haber',
+            'kadro'
         ));
     }
 
@@ -88,6 +91,28 @@ class MainController extends Controller
 
     public function iletisim()
     {
+        return view('frontend.iletisim');
+    }
+    public function iletisim_gonder(Request $request)
+    {
+        //  Send mail to admin
+        Mail::send('mail', array(
+            'mesaj' => $request->get('mesaj'),
+            'isim_soyisim' => $request->get('isim_soyisim'),
+            'email' => $request->get('email'),
+            'tel' => $request->get('tel'),
+            'adres' => $request->get('adres'),
+        ), function($message) use ($request){
+            $message->from($request->email);
+            $message->to('info@turkishaluminium365.com', 'Admin')->subject('IDDMIB İletişim Formu');
+        });
+        if (!Mail::failures())
+            toastr()->success('Mesajınız Başarıyla Gönderildi');
+        else
+            toastr()->error('Bir Şeyler Ters Gitti');
+
+
+
         return view('frontend.iletisim');
     }
 
@@ -163,7 +188,12 @@ class MainController extends Controller
 
     public function etkinlik()
     {
-        return view('frontend.etkinlik');
+        $etkinlik = Etkinlik::all();
+        $sektor = Sektor::where('durum',1)
+            ->get();
+        $compact = compact('etkinlik','sektor');
+
+        return view('frontend.etkinlik',$compact);
     }
 
     public function yarisma()
@@ -187,7 +217,10 @@ class MainController extends Controller
 
         $etkinlik = Etkinlik::whereIn('kategori_id', $k_ids)
             ->get();
-        $compact = compact('faaliyet', 'etkinlik');
+        $compact = compact(
+            'faaliyet',
+            'etkinlik'
+        );
 
         return view('frontend.faaliyet', $compact);
     }

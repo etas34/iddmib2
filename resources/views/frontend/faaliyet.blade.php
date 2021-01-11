@@ -71,6 +71,7 @@
                                         <div class="card-footer bg-transparent border-top-0">
                                             {{$value->alt_baslik}}
                                         </div>
+
                                     </div>
                                 </div>
                                 @endforeach
@@ -86,7 +87,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <a class="text-danger text-decoration-none font-weight-bold" href="#">Tüm Milli Katılım Organizasyonlarını Göster</a>
+                      <a class="text-danger">Tüm Milli Katılım Organizasyonlarını Göster</a>
                     </div>
                 </div>
             </div>

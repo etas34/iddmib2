@@ -2,6 +2,9 @@
 
 namespace App\View\Components;
 
+use App\Models\Faliyet;
+use App\Models\Inovasyon;
+use App\Models\Sektor;
 use Illuminate\View\Component;
 
 class FrontApp extends Component
@@ -23,6 +26,11 @@ class FrontApp extends Component
      */
     public function render()
     {
-        return view('layouts.front-app');
+        $sektor = Sektor::where('durum',1)
+            ->get();
+        $faaliyet  = Faliyet::all();
+        $inovasyon = Inovasyon::all();
+        $compact = compact('inovasyon','sektor','faaliyet');
+        return view('layouts.front-app',$compact);
     }
 }
