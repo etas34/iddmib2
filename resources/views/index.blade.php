@@ -359,7 +359,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger" href="#">Tüm etkinlikleri göster</a>
+                    <a class="text-danger" href="{{route('etkinlik')}}">Tüm etkinlikleri göster</a>
                 </div>
             </div>
         </div>
