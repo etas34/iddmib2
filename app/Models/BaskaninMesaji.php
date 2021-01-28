@@ -11,6 +11,7 @@ class BaskaninMesaji extends Model
     use HasFactory;
     use HasTranslations;
 
-    public $translatable = ['metin'];
+    public $translatable = ['metin','baslik','alt_baslik','metin_baslik'];
+
 
 }

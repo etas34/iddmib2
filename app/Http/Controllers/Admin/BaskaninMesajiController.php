@@ -91,6 +91,9 @@ class BaskaninMesajiController extends Controller
 
         }
         $baskaninmesaji->metin = $request->metin;
+        $baskaninmesaji->baslik = $request->baslik;
+        $baskaninmesaji->alt_baslik = $request->alt_baslik;
+        $baskaninmesaji->metin_baslik = $request->metin_baslik;
         $saved = $baskaninmesaji->save();
         if ($saved)
             toastr()->success('Kayıt Başarılı');

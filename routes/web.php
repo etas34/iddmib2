@@ -61,6 +61,8 @@ Route::group(['middleware' => 'setlocale'], function () {
     Route::get('/haber/{haber}', [MainController::class, 'haber'])->name('haber');
     Route::get('/yarismalar', [MainController::class, 'yarisma'])->name('yarisma');
     Route::get('/inovasyon/{inovasyon}', [MainController::class, 'inovasyon'])->name('inovasyon');
+    Route::get('/baskanin-mesaji', [MainController::class, 'baskanmesaj'])->name('baskanmesaj');
+    Route::get('/haberler', [MainController::class, 'haberler'])->name('haberler');
 
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
 
