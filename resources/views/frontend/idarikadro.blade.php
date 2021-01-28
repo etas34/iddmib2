@@ -32,11 +32,14 @@
                     @foreach($kadro as $key=>$value)
                         @if($value->kadro ==  'İdari Kadro')
                             <div class="col-12 mb-3">
-                                <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/kadro_images/$value->resim")}}"
+                                <a ><img class="img-fluid mb-3" src="{{asset("storage/images/kadro_images/$value->resim")}}"
                                                  alt="..."/></a>
-                                <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->ad_soyad}}</a>
+                                <h4><a class="text-dark font-weight-bold text-decoration-none">{{$value->ad_soyad}}</a>
                                 </h4>
-                                <p><a class="text-secondary text-decoration-none" href="#">{{\App\Models\Sektor::find($value->sektor_id)->baslik}} Sektör Şubesi <br/>
+                                <p><a class="text-secondary text-decoration-none">
+                                        @if($value->sektor_id!=null)
+                                        {{\App\Models\Sektor::find($value->sektor_id)->baslik}} Sektör Şubesi <br/>
+                                        @endif
                                     {{$value->unvan}}
                                 <div class="w-100"></div>
                                 {{$value->tel}} <br/>

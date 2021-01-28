@@ -118,13 +118,13 @@ class MainController extends Controller
 
     public function yonetimkurulu()
     {
-        $kadro = Kadro::all();
+        $kadro = Kadro::orderByRaw('ISNULL(sira), sira ASC')->get();
         return view('frontend.yonetimkurulu', compact('kadro'));
     }
 
     public function idarikadro()
     {
-        $kadro = Kadro::all();
+        $kadro = Kadro::orderByRaw('ISNULL(sira), sira ASC')->get();
         return view('frontend.idarikadro', compact('kadro'));
     }
 

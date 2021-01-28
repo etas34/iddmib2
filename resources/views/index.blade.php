@@ -79,7 +79,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Başkan'ın Mesajı</h3>
-                  {!! $baskan->metin !!}
+                  {!! $baskan->alt_baslik !!}
                 </div>
             </div>
             <div class="row">
@@ -124,7 +124,7 @@
 
                         @foreach($haber as $key=>$value)
                             <div class="swiper-slide">
-                                <a href="{{route('haber',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
+                                <a href="{{route('haber',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->ana_resim")}}" alt="..." /></a>
                                <a class="" style="color: #6c757d " href="{{route('haber',$value)}}">{{$value->tarih}}</a>
                                 <h5><a class="text-dark text-decoration-none" href="{{route('haber',$value)}}">{{$value->baslik}}</a></h5>
                             </div>
@@ -291,7 +291,7 @@
                             @foreach($faliyet as $key=>$value)
 
                             <div class="swiper-slide">
-                                <a href="{{route('faaliyet',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->image")}}" alt="..." /></a>
+                                <a href="{{route('faaliyet',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->ana_resim")}}" alt="..." /></a>
                                 <h5 class="text-secondary"><a class="text-dark" href="{{route('faaliyet',$value)}}">{{$value->baslik}}</a></h5>
                                 <h6><span class="text-secondary text-decoration-none">{{$value->alt_baslik}}</span></h6>
                             </div>
@@ -383,9 +383,9 @@
                         <div class="swiper-wrapper">
                             @foreach($inovasyon as $key=>$value)
                                 <div class="swiper-slide">
-                                    <a href="{{route('inovasyon',$value)}}"><img class="img-fluid mb-3 d-block mx-auto" src="{{asset("storage/images/inovasyon_images/$value->image")}}" alt="..." /></a>
-                                    <h5 class="text-secondary"><a class="text-dark" href="#">{{$value->baslik}}</a></h5>
-                                    <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h5>
+                                    <a href="{{route('inovasyon',$value)}}"><img class="img-fluid mb-3 d-block mx-auto" src="{{asset("storage/images/inovasyon_images/$value->ana_resim")}}" alt="..." /></a>
+                                    <h5 class="text-secondary"><a class="text-dark" href="{{route('inovasyon',$value)}}">{{$value->baslik}}</a></h5>
+                                    <h6><a class="text-secondary text-decoration-none" href="{{route('inovasyon',$value)}}">{{$value->alt_baslik}}</a></h6>
                                 </div>
                             @endforeach
 

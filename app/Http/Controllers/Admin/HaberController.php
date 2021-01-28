@@ -43,18 +43,32 @@ class HaberController extends Controller
     public function store(Request $request)
     {
         $haber = new Haber();
-        if ($request->file('image')) {
+        if ($request->file('ana_resim')) {
             $request->validate([
 
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'ana_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             ]);
 
 
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time() . '.' . $request->ana_resim->extension();
 
-            $request->image->storeAs('/public/images/haber_images', $imageName);
-            $haber->image = $imageName;
+            $request->ana_resim->storeAs('/public/images/haber_images', $imageName);
+            $haber->ana_resim = $imageName;
+
+        }
+        if ($request->file('detay_resim')) {
+            $request->validate([
+
+                'detay_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = 'detay'.time() . '.' . $request->detay_resim->extension();
+
+            $request->detay_resim->storeAs('/public/images/haber_images', $imageName);
+            $haber->detay_resim = $imageName;
 
         }
         $haber->sektor_id = $request->sektor_id;
@@ -106,20 +120,37 @@ class HaberController extends Controller
     public function update(Request $request, Haber $haber)
     {
 
-        if ($request->file('image')) {
-            if ($haber->image and file_exists(storage_path("app\\public\\images\\haber_images\\$haber->image")))
-                unlink(storage_path("app\\public\\images\\haber_images\\$haber->image"));
+        if ($request->file('ana_resim')) {
+            if ($haber->ana_resim and file_exists(storage_path("app\\public\\images\\haber_images\\$haber->ana_resim")))
+                unlink(storage_path("app\\public\\images\\haber_images\\$haber->ana_resim"));
             $request->validate([
 
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'ana_resim' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             ]);
 
 
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time() . '.' . $request->ana_resim->extension();
 
-            $request->image->storeAs('/public/images/haber_images', $imageName);
-            $haber->image = $imageName;
+
+            $request->ana_resim->storeAs('/public/images/haber_images', $imageName);
+            $haber->ana_resim = $imageName;
+
+        }
+        if ($request->file('detay_resim')) {
+            if ($haber->detay_resim and file_exists(storage_path("app\\public\\images\\haber_images\\$haber->detay_resim")))
+                unlink(storage_path("app\\public\\images\\haber_images\\$haber->detay_resim"));
+            $request->validate([
+
+                'detay_resim' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = 'detay'.time() . '.' . $request->detay_resim->extension();
+
+            $request->detay_resim->storeAs('/public/images/haber_images', $imageName);
+            $haber->detay_resim = $imageName;
 
         }
         $haber->sektor_id = $request->sektor_id;
@@ -146,8 +177,10 @@ class HaberController extends Controller
      */
     public function destroy(Haber $haber)
     {
-        if ($haber->image and file_exists(storage_path("app\\public\\images\\haber_images\\$haber->image")))
-            unlink(storage_path("app\\public\\images\\haber_images\\$haber->image"));
+        if ($haber->ana_resim and file_exists(storage_path("app\\public\\images\\haber_images\\$haber->ana_resim")))
+            unlink(storage_path("app\\public\\images\\haber_images\\$haber->ana_resim"));
+        if ($haber->detay_resim and file_exists(storage_path("app\\public\\images\\haber_images\\$haber->detay_resim")))
+            unlink(storage_path("app\\public\\images\\haber_images\\$haber->detay_resim"));
         $saved = $haber->delete();
         if ($saved)
             toastr()->success('Silme Başarılı');

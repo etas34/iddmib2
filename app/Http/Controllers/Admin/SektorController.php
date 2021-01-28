@@ -178,7 +178,8 @@ class SektorController extends Controller
 
             $isim1 = time() . '.' . $request->gtip_pdf->extension();
 
-            $request->pdf->storeAs('/public/files/gtip_pdf', $isim1);
+
+            $request->gtip_pdf->storeAs('/public/files/gtip_pdf', $isim1);
             $sektor->gtip_pdf = $isim1;
         }
 

@@ -41,18 +41,33 @@ class FaliyetController extends Controller
     public function store(Request $request)
     {
         $faliyet = new Faliyet();
-        if ($request->file('image')) {
+        if ($request->file('ana_resim')) {
             $request->validate([
 
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'ana_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             ]);
 
 
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time() . '.' . $request->ana_resim->extension();
 
-            $request->image->storeAs('/public/images/faliyet_images', $imageName);
-            $faliyet->image = $imageName;
+            $request->ana_resim->storeAs('/public/images/faliyet_images', $imageName);
+            $faliyet->ana_resim = $imageName;
+
+        }
+
+        if ($request->file('detay_resim')) {
+            $request->validate([
+
+                'detay_resim' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = 'detay'.time() . '.' . $request->detay_resim->extension();
+
+            $request->detay_resim->storeAs('/public/images/faliyet_images', $imageName);
+            $faliyet->detay_resim = $imageName;
 
         }
         $faliyet->metin_baslik = '';
@@ -102,20 +117,36 @@ class FaliyetController extends Controller
      */
     public function update(Request $request, Faliyet $faliyet)
     {
-        if ($request->file('image')) {
-            if ($faliyet->image and file_exists(storage_path("app\\public\\images\\faliyet_images\\$faliyet->image")))
-                unlink(storage_path("app\\public\\images\\faliyet_images\\$faliyet->image"));
+        if ($request->file('ana_resim')) {
+            if ($faliyet->ana_resim and file_exists(storage_path("app\\public\\images\\faliyet_images\\$faliyet->ana_resim")))
+                unlink(storage_path("app\\public\\images\\faliyet_images\\$faliyet->ana_resim"));
             $request->validate([
 
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'ana_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             ]);
 
 
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time() . '.' . $request->ana_resim->extension();
 
-            $request->image->storeAs('/public/images/faliyet_images', $imageName);
-            $faliyet->image = $imageName;
+            $request->ana_resim->storeAs('/public/images/faliyet_images', $imageName);
+            $faliyet->ana_resim = $imageName;
+
+        }
+        if ($request->file('detay_resim')) {
+            if ($faliyet->detay_resim and file_exists(storage_path("app\\public\\images\\faliyet_images\\$faliyet->detay_resim")))
+                unlink(storage_path("app\\public\\images\\faliyet_images\\$faliyet->detay_resim"));
+            $request->validate([
+
+                'detay_resim' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = 'detay'.time() . '.' . $request->detay_resim->extension();
+
+            $request->detay_resim->storeAs('/public/images/faliyet_images', $imageName);
+            $faliyet->detay_resim = $imageName;
 
         }
 //        $faliyet->kategori_id = $request->kategori_id;
@@ -145,8 +176,11 @@ class FaliyetController extends Controller
      */
     public function destroy(Faliyet $faliyet)
     {
-        if ($faliyet->image and file_exists(storage_path("app\\public\\images\\faliyet_images\\$faliyet->image")))
-            unlink(storage_path("app\\public\\images\\faliyet_images\\$faliyet->image"));
+        if ($faliyet->ana_resim and file_exists(storage_path("app\\public\\images\\faliyet_images\\$faliyet->ana_resim")))
+            unlink(storage_path("app\\public\\images\\faliyet_images\\$faliyet->ana_resim"));
+
+        if ($faliyet->detay_resim and file_exists(storage_path("app\\public\\images\\faliyet_images\\$faliyet->detay_resim")))
+            unlink(storage_path("app\\public\\images\\faliyet_images\\$faliyet->detay_resim"));
         $saved = $faliyet->delete();
         if ($saved)
             toastr()->success('Silme Başarılı');

@@ -52,7 +52,7 @@
                                 <a href="{{route('faydalilinkler')}}" class="dropdown-item">Faydalı Linkler</a>
                             </div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Üyelik</a></li>
+{{--                        <li class="nav-item"><a class="nav-link" href="#">Üyelik</a></li>--}}
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Sektörler</a>
                              <div class="dropdown-menu rounded-0">

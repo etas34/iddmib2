@@ -19,24 +19,46 @@
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
+                        <div class="row">
 
-                        @if($inovasyon->image)
-                            <div class="form-group">
-                                <label for="file">Seçili resim:</label>
-                                <div id="file"><img src="{{asset("storage/images/inovasyon_images/$inovasyon->image")}}"
-                                                    width="300" alt="..."></div>
-                            </div>
-                        @endif
+                            @if($inovasyon->ana_resim)
+                                <div class="form-group col-md-6">
+                                    <label for="file">Anasayfa Seçili Resim</label>
+                                    <div id="file"><img src="{{asset("storage/images/inovasyon_images/$inovasyon->ana_resim")}}"
+                                                        width="300" alt="..."></div>
+                                </div>
+                            @endif
+
+                                @if($inovasyon->detay_resim)
+                                    <div class="form-group col-md-6">
+                                        <label for="file">Anasayfa Seçili Resim</label>
+                                        <div id="file"><img src="{{asset("storage/images/inovasyon_images/$inovasyon->detay_resim")}}"
+                                                            width="300" alt="..."></div>
+                                    </div>
+                                @endif
+                        </div>
+
                         <div class="form-group">
-                            <label for="exampleInputFile">Başlık Resmi (1920 X 900 )</label>
+                            <label for="exampleInputFile">Anasayfa Resim ( 1200x600 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="image" class="custom-file-input" id="foto">
+                                    <input type="file" name="ana_resim" class="custom-file-input" id="foto">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
 
                             </div>
                             <span id="error_foto"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Detay Resim</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="detay_resim" class="custom-file-input" >
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -148,6 +170,7 @@
 
     @push('scripts')
         <script>
+
             var _URL2 = window.URL || window.webkitURL;
             $("#foto").change(function (e) {
                 var file, img;
@@ -156,9 +179,9 @@
                     var objectUrl = _URL2.createObjectURL(file);
                     img.onload = function () {
 
-                        if (this.width != 1920 && this.height != 900) {
+                        if (this.width != 1200 && this.height != 600) {
 
-                            $('#error_foto').html('<label class="text-danger">Lütfen 1920 X 900 boyutlarında yükleyiniz</label>');
+                            $('#error_foto').html('<label class="text-danger">Lütfen 1200 X 600 boyutlarında yükleyiniz</label>');
                             $('#foto').addClass('has-error');
                             $('#edit').attr('disabled', true);
                         } else {
@@ -175,7 +198,7 @@
                     img.src = objectUrl;
                 }
 
-            })
+            });
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({

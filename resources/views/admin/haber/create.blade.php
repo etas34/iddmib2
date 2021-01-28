@@ -37,10 +37,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputFile">Haber Resmi (1200 X 700 )</label>
+                            <label for="exampleInputFile">Anasayfa Resim (1200 X 600 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="image" class="custom-file-input" id="foto">
+                                    <input type="file" name="ana_resim" required class="custom-file-input" id="foto">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
 
@@ -49,6 +49,19 @@
 
                         </div>
 
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">Detay Resim</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="detay_resim" required class="custom-file-input">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+
+                            </div>
+                            <span id="error_foto"></span>
+
+                        </div>
 
                         <div class="row">
                             <div class="col-12">
@@ -133,34 +146,34 @@
 
     @push('scripts')
         <script>
-            // var _URL2 = window.URL || window.webkitURL;
-            // $("#foto").change(function (e) {
-            //     var file, img;
-            //     if ((file = this.files[0])) {
-            //         img = new Image();
-            //         var objectUrl = _URL2.createObjectURL(file);
-            //         img.onload = function () {
-            //
-            //             if (this.width != 570 && this.height != 380) {
-            //
-            //                 $('#error_foto').html('<label class="text-danger">Lütfen 570 X 380 boyutlarında yükleyiniz</label>');
-            //                 $('#foto').addClass('has-error');
-            //                 $('#edit').attr('disabled', true);
-            //             } else {
-            //
-            //                 $('#error_foto').html('<label class="text-success"></label>');
-            //                 $('#foto').removeClass('has-error');
-            //                 $('#edit').attr('disabled', false);
-            //
-            //             }
-            //
-            //
-            //             _URL2.revokeObjectURL(objectUrl);
-            //         };
-            //         img.src = objectUrl;
-            //     }
-            //
-            // })
+            var _URL2 = window.URL || window.webkitURL;
+            $("#foto").change(function (e) {
+                var file, img;
+                if ((file = this.files[0])) {
+                    img = new Image();
+                    var objectUrl = _URL2.createObjectURL(file);
+                    img.onload = function () {
+
+                        if (this.width != 1200 && this.height != 600) {
+
+                            $('#error_foto').html('<label class="text-danger">Lütfen 1200 X 600 boyutlarında yükleyiniz</label>');
+                            $('#foto').addClass('has-error');
+                            $('#edit').attr('disabled', true);
+                        } else {
+
+                            $('#error_foto').html('<label class="text-success"></label>');
+                            $('#foto').removeClass('has-error');
+                            $('#edit').attr('disabled', false);
+
+                        }
+
+
+                        _URL2.revokeObjectURL(objectUrl);
+                    };
+                    img.src = objectUrl;
+                }
+
+            });
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({

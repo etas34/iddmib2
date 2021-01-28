@@ -13,8 +13,6 @@
             <div class="row">
                 <div class="col-12 d-flex flex-wrap">
                     <h4>{{$inovasyon->alt_baslik}}</h4>
-
-
                 </div>
             </div>
         </div>
@@ -24,7 +22,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <img src="{{asset("storage/images/inovasyon_images/$inovasyon->image")}}" alt="..." class="img-fluid mb-4" />
+                    <img src="{{asset("storage/images/inovasyon_images/$inovasyon->detay_resim")}}" width="100%" alt="..." class="img-fluid mb-4" />
 
                         <h3 class="text-danger font-weight-bold">{{$inovasyon->metin_baslik}}</h3>
 

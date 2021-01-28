@@ -22,6 +22,7 @@ class CreateKadrosTable extends Migration
             $table->string('tel')->nullable();
             $table->string('email')->nullable();
             $table->string('resim');
+            $table->tinyInteger('sira')->nullable();
             $table->timestamps();
         });
     }

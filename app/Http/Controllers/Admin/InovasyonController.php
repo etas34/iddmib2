@@ -38,32 +38,32 @@ class InovasyonController extends Controller
     public function store(Request $request)
     {
 
-        $inovasyon = new Inovasyon();
-        if ($request->file('image')) {
-
-            $request->validate([
-
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-            ]);
-
-
-            $imageName = time() . '.' . $request->image->extension();
-
-            $request->image->storeAs('/public/images/inovasyon_images', $imageName);
-            $inovasyon->image = $imageName;
-        }
-        $inovasyon->baslik = $request->baslik;
-        $inovasyon->alt_baslik = $request->alt_baslik;
-        $inovasyon->metin_baslik = $request->metin_baslik;
-        $inovasyon->metin = $request->metin;
-        $saved = $inovasyon->save();
-        if ($saved)
-            toastr()->success('Kayıt Başarılı');
-        else
-            toastr()->error('Bir Şeyler Ters Gitti');
-
-        return redirect()->route('admin.inovasyon.index');
+//        $inovasyon = new Inovasyon();
+//        if ($request->file('image')) {
+//
+//            $request->validate([
+//
+//                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//
+//            ]);
+//
+//
+//            $imageName = time() . '.' . $request->image->extension();
+//
+//            $request->image->storeAs('/public/images/inovasyon_images', $imageName);
+//            $inovasyon->image = $imageName;
+//        }
+//        $inovasyon->baslik = $request->baslik;
+//        $inovasyon->alt_baslik = $request->alt_baslik;
+//        $inovasyon->metin_baslik = $request->metin_baslik;
+//        $inovasyon->metin = $request->metin;
+//        $saved = $inovasyon->save();
+//        if ($saved)
+//            toastr()->success('Kayıt Başarılı');
+//        else
+//            toastr()->error('Bir Şeyler Ters Gitti');
+//
+//        return redirect()->route('admin.inovasyon.index');
 
 
     }
@@ -100,21 +100,38 @@ class InovasyonController extends Controller
     public function update(Request $request, Inovasyon $inovasyon)
     {
 
-        if ($request->file('image')) {
-            if ($inovasyon->image and file_exists(storage_path("app\\public\\images\\inovasyon_images\\$inovasyon->image")))
-                unlink(storage_path("app\\public\\images\\inovasyon_images\\$inovasyon->image"));
+        if ($request->file('ana_resim')) {
+            if ($inovasyon->ana_resim and file_exists(storage_path("app\\public\\images\\inovasyon_images\\$inovasyon->ana_resim")))
+                unlink(storage_path("app\\public\\images\\inovasyon_images\\$inovasyon->ana_resim"));
             $request->validate([
 
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'ana_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             ]);
 
 
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time() . '.' . $request->ana_resim->extension();
 
-            $request->image->storeAs('/public/images/inovasyon_images', $imageName);
-            $inovasyon->image = $imageName;
+            $request->ana_resim->storeAs('/public/images/inovasyon_images', $imageName);
+            $inovasyon->ana_resim = $imageName;
         }
+
+        if ($request->file('detay_resim')) {
+            if ($inovasyon->detay_resim and file_exists(storage_path("app\\public\\images\\inovasyon_images\\$inovasyon->detay_resim")))
+                unlink(storage_path("app\\public\\images\\inovasyon_images\\$inovasyon->detay_resim"));
+            $request->validate([
+
+                'detay_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = 'detay'.time() . '.' . $request->detay_resim->extension();
+
+            $request->detay_resim->storeAs('/public/images/inovasyon_images', $imageName);
+            $inovasyon->detay_resim = $imageName;
+        }
+
         $inovasyon->baslik = $request->baslik;
         $inovasyon->alt_baslik = $request->alt_baslik;
         $inovasyon->metin_baslik = $request->metin_baslik;

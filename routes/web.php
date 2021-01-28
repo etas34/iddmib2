@@ -186,8 +186,10 @@ Route::group(['middleware' => 'setlocale'], function () {
                 Route::get('/', [SayfalarController::class, 'kadro_index'])->name('kadro_index');
                 Route::get('/create', [SayfalarController::class, 'kadro_create'])->name('kadro_create');
                 Route::get('/edit/{kadro}', [SayfalarController::class, 'kadro_edit'])->name('kadro_edit');
+                Route::get('/edit2/{kadro}', [SayfalarController::class, 'kadro_edit2'])->name('kadro_edit2');
                 Route::get('/destroy/{kadro}', [SayfalarController::class, 'kadro_destroy'])->name('kadro_destroy');
                 Route::post('/edit/{kadro}', [SayfalarController::class, 'kadro_update'])->name('kadro_update');
+                Route::post('/sira/{kadro}', [SayfalarController::class, 'kadro_sira'])->name('kadro_sira');
                 Route::post('/create', [SayfalarController::class, 'kadro_store'])->name('kadro_store');
             });
 

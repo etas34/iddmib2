@@ -47,6 +47,7 @@
 {{--                                @foreach(config('constants.kadro') as $key=>$value)--}}
 {{--                                    <option  value="{{$key}}">{{$value}}</option>--}}
 {{--                                @endforeach--}}
+
                             <select  name="kadro" id="kadro" class="form-control" required>
                                 @foreach(config('constants.kadro') as $key=>$value)
                                     <option value="{{$key}}" @if($kadro->kadro==$key) selected @endif>{{$value}}</option>
@@ -55,7 +56,17 @@
                             </select>
 
                         </div>
+                        <div class="form-group" id="sektor">
+                            <label>Sektör </label>
+                            <select name="sektor_id" id="sektor_id" class="form-control" required>
+                                <option value="" selected disabled>Sektör Seçiniz</option>
+                                @foreach($sektor as $key=>$value)
+                                    <option value="{{$value->id}}" @if($kadro->sektor_id==$value->id) selected @endif>{{$value->baslik}}</option>
+                                @endforeach
 
+                            </select>
+
+                        </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label>Ad Soyad</label>

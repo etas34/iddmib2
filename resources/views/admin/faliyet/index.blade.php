@@ -32,7 +32,7 @@
                         @foreach( $faliyet as $key=>$value)
                         <tr>
 
-                            <td><img src="{{asset("storage/images/faliyet_images/$value->image")}}" height="60px" width="60px"></td>
+                            <td><img src="{{asset("storage/images/faliyet_images/$value->ana_resim")}}" height="60px" width="60px"></td>
                             <td>{{$value->baslik}}</td>
 {{--                            <td>{{config('constants.kategori.'.$value->kategori_id)}}</td>--}}
                             <td><a href="{{route('admin.faliyet.edit',$value)}}"><span class="badge bg-warning p-2">Düzenle</span></a></td>

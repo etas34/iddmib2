@@ -25,7 +25,7 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-12">
-                    <img src="{{asset("storage/images/faliyet_images/$faaliyet->image")}}" alt="..." class="img-fluid mb-4" />
+                    <img src="{{asset("storage/images/faliyet_images/$faaliyet->detay_resim")}}"  width="100%" alt="..." class="img-fluid mb-4" />
                     <h3 class="text-danger font-weight-bold">{{$faaliyet->metin_baslik}}</h3>
                     {!! $faaliyet->aciklama !!}
 

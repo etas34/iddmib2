@@ -19,24 +19,46 @@
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
+                        <div class="row">
 
-                        @if($faliyet->image)
-                            <div class="form-group">
-                                <label for="file">Seçili resim:</label>
-                                <div id="file"><img src="{{asset("storage/images/faliyet_images/$faliyet->image")}}"
-                                                    width="300" alt="..."></div>
-                            </div>
-                        @endif
+                            @if($faliyet->ana_resim)
+                                <div class="form-group col-md-6">
+                                    <label for="file">Anasayfa Seçili Resim</label>
+                                    <div id="file"><img src="{{asset("storage/images/faliyet_images/$faliyet->ana_resim")}}"
+                                                        width="300" alt="..."></div>
+                                </div>
+                            @endif
+
+                                @if($faliyet->detay_resim)
+                                    <div class="form-group col-md-6">
+                                        <label for="file">Detay Seçili Resim</label>
+                                        <div id="file"><img src="{{asset("storage/images/faliyet_images/$faliyet->detay_resim")}}"
+                                                            width="300" alt="..."></div>
+                                    </div>
+                                @endif
+                        </div>
+
                         <div class="form-group">
-                            <label for="exampleInputFile">Faliyet Resmi (1200 X 700 )</label>
+                            <label for="exampleInputFile">Anasayfa Resmi (1200 X 600 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="image" class="custom-file-input" id="foto">
+                                    <input type="file" name="ana_resim" class="custom-file-input" required id="foto">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
 
                             </div>
                             <span id="error_foto"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Detay Resmi</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="detay_resim" class="custom-file-input">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -164,34 +186,35 @@
 
     @push('scripts')
         <script>
-            // var _URL2 = window.URL || window.webkitURL;
-            // $("#foto").change(function (e) {
-            //     var file, img;
-            //     if ((file = this.files[0])) {
-            //         img = new Image();
-            //         var objectUrl = _URL2.createObjectURL(file);
-            //         img.onload = function () {
-            //
-            //             if (this.width != 650 && this.height != 350) {
-            //
-            //                 $('#error_foto').html('<label class="text-danger">Lütfen 650 X 350 boyutlarında yükleyiniz</label>');
-            //                 $('#foto').addClass('has-error');
-            //                 $('#edit').attr('disabled', true);
-            //             } else {
-            //
-            //                 $('#error_foto').html('<label class="text-success"></label>');
-            //                 $('#foto').removeClass('has-error');
-            //                 $('#edit').attr('disabled', false);
-            //
-            //             }
-            //
-            //
-            //             _URL2.revokeObjectURL(objectUrl);
-            //         };
-            //         img.src = objectUrl;
-            //     }
-            //
-            // })
+
+            var _URL2 = window.URL || window.webkitURL;
+            $("#foto").change(function (e) {
+                var file, img;
+                if ((file = this.files[0])) {
+                    img = new Image();
+                    var objectUrl = _URL2.createObjectURL(file);
+                    img.onload = function () {
+
+                        if (this.width != 1200 && this.height != 600) {
+
+                            $('#error_foto').html('<label class="text-danger">Lütfen 1200 X 600 boyutlarında yükleyiniz</label>');
+                            $('#foto').addClass('has-error');
+                            $('#edit').attr('disabled', true);
+                        } else {
+
+                            $('#error_foto').html('<label class="text-success"></label>');
+                            $('#foto').removeClass('has-error');
+                            $('#edit').attr('disabled', false);
+
+                        }
+
+
+                        _URL2.revokeObjectURL(objectUrl);
+                    };
+                    img.src = objectUrl;
+                }
+
+            });
             $(function () {
                 @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote({

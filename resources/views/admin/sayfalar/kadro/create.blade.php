@@ -91,7 +91,34 @@
 
     @push('scripts')
         <script>
+            var _URL2 = window.URL || window.webkitURL;
+            $("#foto").change(function (e) {
+                var file, img;
+                if ((file = this.files[0])) {
+                    img = new Image();
+                    var objectUrl = _URL2.createObjectURL(file);
+                    img.onload = function () {
 
+                        if (this.width != 300 && this.height != 200) {
+
+                            $('#error_foto').html('<label class="text-danger">Lütfen 300 X 200 boyutlarında yükleyiniz</label>');
+                            $('#foto').addClass('has-error');
+                            $('#edit').attr('disabled', true);
+                        } else {
+
+                            $('#error_foto').html('<label class="text-success"></label>');
+                            $('#foto').removeClass('has-error');
+                            $('#edit').attr('disabled', false);
+
+                        }
+
+
+                        _URL2.revokeObjectURL(objectUrl);
+                    };
+                    img.src = objectUrl;
+                }
+
+            });
             $(() => {
                     var sektor = $('#sektor')
                     var sektor_id = $('#sektor_id')

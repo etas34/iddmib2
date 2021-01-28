@@ -21,7 +21,8 @@ class CreateHabersTable extends Migration
             $table->text('metin_altbaslik');
             $table->text('aciklama');
             $table->string('tarih');
-            $table->string('image');
+            $table->string('ana_resim');
+            $table->string('detay_resim');
 
             $table->timestamps();
         });

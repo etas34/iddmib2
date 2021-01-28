@@ -161,8 +161,13 @@ public function devletdestegi()
 
     public function kadro_index()
     {
-        $kadro = Kadro::all();
-        return view('admin.sayfalar.kadro.index', compact('kadro'));
+        $kadro_yonetim = Kadro::where('kadro','Yönetim Kurulu')
+            ->orderByRaw('ISNULL(sira), sira ASC')->get();
+        $kadro_denetim = Kadro::where('kadro','Denetim Kurulu')
+            ->orderByRaw('ISNULL(sira), sira ASC')->get();
+        $kadro_idari = Kadro::where('kadro','İdari Kadro')
+            ->orderByRaw('ISNULL(sira), sira ASC')->get();
+        return view('admin.sayfalar.kadro.index', compact('kadro_yonetim','kadro_denetim','kadro_idari'));
     }
 
     public function kadro_create()
@@ -175,9 +180,13 @@ public function devletdestegi()
 
     public function kadro_edit(Kadro $kadro)
     {
+        return view('admin.sayfalar.kadro.edit', compact('kadro'));
+    }
+    public function kadro_edit2(Kadro $kadro)
+    {
         $sektor = Sektor::where('durum', 1)
             ->get();
-        return view('admin.sayfalar.kadro.edit', compact('kadro', 'sektor'));
+        return view('admin.sayfalar.kadro.edit2', compact('kadro', 'sektor'));
     }
 
     public function kadro_destroy(Kadro $kadro)
@@ -210,10 +219,32 @@ public function devletdestegi()
             $kadro->resim = $imageName;
 
         }
+        if ($request->sektor_id)
+            $kadro->sektor_id = $request->sektor_id;
+        else
+            $kadro->sektor_id=null;
+
+        $kadro->kadro = $request->kadro;
         $kadro->ad_soyad = $request->ad_soyad;
         $kadro->tel = $request->tel;
         $kadro->email = $request->email;
         $kadro->unvan = $request->unvan;
+        $saved = $kadro->save();
+        if ($saved)
+            toastr()->success('Kayıt Başarılı');
+        else
+            toastr()->error('Bir Şeyler Ters Gitti!');
+
+
+        return redirect()->route('admin.sayfalar.kadro_index');
+
+    }
+
+
+    public function kadro_sira(Kadro $kadro, Request $request)
+    {
+
+        $kadro->sira = $request->sira;
         $saved = $kadro->save();
         if ($saved)
             toastr()->success('Kayıt Başarılı');

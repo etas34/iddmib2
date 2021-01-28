@@ -215,7 +215,7 @@
                             @foreach($haber as $key=>$value)
 
                             <div class="swiper-slide">
-                                <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->image")}}" alt="..." /></a>
+                                <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->ana_resim")}}" alt="..." /></a>
                                 <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="#">{{$value->created_at ?? ''}}</a></h5>
                                 <h5><a class="text-dark text-decoration-none" href="#">{{$value->baslik}}</a></h5>
                             </div>
@@ -244,7 +244,7 @@
     <div class="container mb-5">
         <div class="row mb-4">
             <div class="col-12">
-                <h3 class="text-danger font-weight-bold">Aliminyum GTİP Listesi ve Tanıtım</h3>
+                <h3 class="text-danger font-weight-bold">{{$sektor->baslik}}  GTİP Listesi ve Tanıtım</h3>
             </div>
         </div>
 
@@ -279,7 +279,7 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12">
-                    <h3 class="text-danger font-weight-bold">Aliminyum Sektörü Ekibimiz</h3>
+                    <h3 class="text-danger font-weight-bold">{{$sektor->baslik}}  Sektörü Ekibimiz</h3>
                 </div>
             </div>
             <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">

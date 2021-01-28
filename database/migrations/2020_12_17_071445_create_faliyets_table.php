@@ -22,8 +22,9 @@ class CreateFaliyetsTable extends Migration
             $table->text('aciklama');
             $table->string('link_baslik');
             $table->string('link_altbaslik');
-            $table->string('link');
-            $table->string('image');
+            $table->text('link');
+            $table->string('ana_resim');
+            $table->string('detay_resim');
             $table->timestamps();
         });
     }

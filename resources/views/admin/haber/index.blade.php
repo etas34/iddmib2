@@ -32,7 +32,7 @@
                         @foreach( $haber as $key=>$value)
                         <tr>
 
-                            <td><img src="{{asset("storage/images/haber_images/$value->image")}}" height="60px" width="60px"></td>
+                            <td><img src="{{asset("storage/images/haber_images/$value->ana_resim")}}" height="60px" width="60px"></td>
                             <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</td>
                             <td>{{$value->baslik}}</td>
 {{--                            <td>{!! $value->aciklama   !!}</td>--}}

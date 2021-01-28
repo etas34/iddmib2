@@ -25,7 +25,7 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-12">
-                    <img src="{{asset("storage/images/haber_images/$haber->image")}}" alt="..." class="img-fluid mb-4 text-center" />
+                    <img src="{{asset("storage/images/haber_images/$haber->detay_resim")}}"   width="100%"  alt="..." class="img-fluid mb-4 text-center" />
 
 
                     <h3 class="text-danger font-weight-bold">{{$haber->metin_altbaslik}}</h3>
