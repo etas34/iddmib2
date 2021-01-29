@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex flex-wrap">
-                    <h4>Rum intio veribus core adis exerum, vel el mollabo...</h4>
+                    <h4>İDDMİB idari kadrosunu tanıyın!</h4>
 
 
                 </div>
@@ -38,7 +38,15 @@
                                 </h4>
                                 <p><a class="text-secondary text-decoration-none">
                                         @if($value->sektor_id!=null)
-                                        {{\App\Models\Sektor::find($value->sektor_id)->baslik}} Sektör Şubesi <br/>
+                                            @foreach(explode(",",$value->sektor_id) as $sektor)
+                                                @if($sektor==999)
+                                                    Metaller Şubesi <br/>
+                                                @else
+                                                    {{\App\Models\Sektor::find($sektor)->baslik}} Sektör Şubesi <br/>
+                                                @endif
+
+
+                                            @endforeach
                                         @endif
                                     {{$value->unvan}}
                                 <div class="w-100"></div>

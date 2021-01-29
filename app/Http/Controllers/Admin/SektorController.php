@@ -18,7 +18,7 @@ class SektorController extends Controller
      */
     public function index()
     {
-        $sektor =  Sektor::where('durum',1)
+        $sektor =  Sektor::where('durum',1)->where('id','!=',999)
         ->get();
         return view('admin.sektor.index',compact('sektor'));
     }

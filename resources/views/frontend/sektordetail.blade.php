@@ -23,10 +23,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <img  width="1050" height="699" src="{{asset("storage/images/sektor_images/$sektor->image")}}" alt="..." class="mb-4" />
-                <h3 class="text-danger font-weight-bold">{{$sektor->baslik}} Sektörü</h3>
-                {!! $sektor->aciklama !!}
-                <p></p>
+                <img  width="100%"  src="{{asset("storage/images/sektor_images/$sektor->image")}}" alt="..." class="mb-4" />
+                <h3 class="text-danger font-weight-bold mt-3">{{$sektor->baslik}} Sektörü</h3>
+
+                <div class="mt-3">
+                    {!! $sektor->aciklama !!}
+                </div>
             </div>
         </div>
     </div>
@@ -105,6 +107,7 @@
         </div>
     </div>
     <!-- threeslide end -->
+    @if($sektor->id!=5 && $sektor->id!=6)
     <hr class="mb-5" />
     <div class="container mb-5">
         <div class="row">
@@ -125,43 +128,8 @@
 
     </div>
 
-
-{{--    <hr class="mb-5" />--}}
-
-    <!-- service start -->
-{{--    <div class="service mb-5">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row mb-4">--}}
-{{--                <div class="col-12">--}}
-{{--                    <h3 class="text-danger font-weight-bold">Aliminyum URGE Projeleri</h3>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="row mb-3">--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="swiper-container">--}}
-{{--                        <div class="swiper-wrapper">--}}
-
-{{--                            @foreach($faaliyet as $key=>$value)--}}
-
-{{--                                <div class="swiper-slide">--}}
-{{--                                    <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/faliyet_images/$value->image")}}" alt="..." /></a>--}}
-{{--                                    <h5 class="text-secondary"><a class="text-dark text-decoration-none font-weight-bold" href="#">{{$value->baslik}}</a></h5>--}}
-{{--                                    <h6><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h6>--}}
-{{--                                </div>--}}
-
-{{--                            @endforeach--}}
-
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div role="button" class="service-left d-none d-md-block"><img src="{{asset('/assets/images/arrow-left-red.svg')}}" alt="..." /></div>--}}
-{{--                    <div role="button" class="service-right d-none d-md-block"><img src="{{asset('/assets/images/arrow-right-red.svg')}}" alt="..." /></div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-    <!-- service end -->
-
     <hr class="mb-5" />
+    @endif
 
     <!-- threeslide start -->
     <div class="threeslide mb-5">

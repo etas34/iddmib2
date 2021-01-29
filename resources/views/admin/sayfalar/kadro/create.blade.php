@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group" id="sektor" style="display: none">
                             <label>Sektör Seçiniz</label>
-                            <select name="sektor_id" id="sektor_id" class="form-control">
+                            <select name="sektor_id[]" id="sektor_id" class="form-control select2" multiple>
                                 <option disabled value="0">Sektör Seçiniz</option>
                                 @foreach($sektor as $key=>$value)
                                     <option value="{{$value->id}}">{{$value->baslik}}</option>

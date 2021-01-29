@@ -29,7 +29,7 @@ class MainController extends Controller
         $slider = Slider::first();
         $duyuru = Duyuru::all();
         $haber = Haber::all();
-        $sektor = Sektor::all();
+        $sektor = Sektor::where('durum',1)->where('id','!=',999)->get();
         $ihracat = Ihracat::all();
         $faliyet = Faliyet::all();
         $ihracatRakam = IhracatRakam::first();
@@ -67,7 +67,7 @@ class MainController extends Controller
             ->get();
         $haber = Haber::where('sektor_id', $sektor->id)
             ->get();
-        $kadro = Kadro::where('sektor_id',$sektor->id )
+        $kadro = Kadro::where('sektor_id','like',"%".$sektor->id."%" )
             ->get();
         return view('frontend.sektordetail', compact(
             'sektor',

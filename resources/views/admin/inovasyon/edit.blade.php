@@ -120,6 +120,7 @@
                                                         >{{$inovasyon->getTranslations('metin')[$key] ?? ''}}</textarea>
 
                                                     </div>
+                                                    @if($inovasyon->id!=9 && $inovasyon->id!=10)
                                                     <div class="row">
                                                         <div class="form-group col-md-6">
                                                             <label>İnovasyon Website Başlığı ({{$value}})</label>
@@ -136,6 +137,7 @@
                                                             >
                                                         </div>
                                                     </div>
+                                                        @endif
                                                 </div>
                                             @endforeach
 
@@ -143,10 +145,12 @@
                                         <!-- /.tab-content -->
                                     </div><!-- /.card-body -->
                                 </div>
+                                @if($inovasyon->id!=9 && $inovasyon->id!=10)
                                 <div class="form-group">
                                     <label>İnovasyon Websitesi</label>
                                     <input type="text" value="{{$inovasyon->link}}" name="link" class="form-control">
                                 </div>
+                                @endif
                                 <!-- ./card -->
                             </div>
                             <!-- /.col -->

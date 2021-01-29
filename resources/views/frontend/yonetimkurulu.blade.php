@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex flex-wrap">
-                    <h4>Rum intio veribus core adis exerum, vel el mollabo...</h4>
+                    <h4>İDDMİB yönetim kurulunu tanıyın!</h4>
 
 
 

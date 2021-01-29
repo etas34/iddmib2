@@ -16,7 +16,7 @@ class DuyuruController extends Controller
      */
     public function index()
     {
-        $duyuru =Duyuru::all();
+        $duyuru =Duyuru::orderByRaw('ISNULL(sira), sira ASC')->get();
         return view('admin.duyuru.index',compact('duyuru'));
     }
 
@@ -53,6 +53,7 @@ class DuyuruController extends Controller
             $duyuru->image = $imageName;
 
         }
+        $duyuru->link = $request->link;
         $saved = $duyuru->save();
 
         if ($saved)
@@ -111,6 +112,22 @@ class DuyuruController extends Controller
             $duyuru->image = $imageName;
 
         }
+        $duyuru->link = $request->link;
+        $saved = $duyuru->save();
+
+        if ($saved)
+            toastr()->success('Güncelleme Başarılı');
+        else
+            toastr()->error('Bir Şeyler Ters Gitti');
+
+        return redirect()->route('admin.duyuru.index');
+
+    }
+
+    public function sira(Request $request, Duyuru $duyuru)
+    {
+
+        $duyuru->sira=$request->sira;
         $saved = $duyuru->save();
 
         if ($saved)

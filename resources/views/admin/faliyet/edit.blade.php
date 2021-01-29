@@ -42,7 +42,7 @@
                             <label for="exampleInputFile">Anasayfa Resmi (1200 X 600 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="ana_resim" class="custom-file-input" required id="foto">
+                                    <input type="file" name="ana_resim" class="custom-file-input"  id="foto">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
 
@@ -133,7 +133,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            @for($i = 1 ; $i<= 8 ; $i++)
+                                            @for($i = 1 ; $i<= 6 ; $i++)
                                                 <div class="col-md-12"><h4>Link Grup #{{$i}}</h4>
                                                 </div>
                                                 <div class="form-group col-md-4">

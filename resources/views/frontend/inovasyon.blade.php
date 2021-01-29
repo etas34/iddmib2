@@ -27,9 +27,12 @@
                         <h3 class="text-danger font-weight-bold">{{$inovasyon->metin_baslik}}</h3>
 
                         {!! $inovasyon->metin !!}
+
+
+                    @if($inovasyon->id!=9 && $inovasyon->id!=10)
                     <a target="_blank" href="{{$inovasyon->link}}" class="text-decoration-none text-light d-flex justify-content-between bg-red p-3 text-light w-100">
                         <div class="d-flex  align-items-center">
-                            <img src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..." />
+{{--                            <img src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..." />--}}
                             <h4 class="m-0">
                                 {{$inovasyon->link_baslik}} <br />
                                 {{$inovasyon->link_altbaslik}}
@@ -37,6 +40,7 @@
                         </div>
                         <img src="{{asset('assets/images/arrow-right-light.svg')}}" width="46" alt="..." />
                     </a>
+                        @endif
                 </div>
             </div>
         </div>

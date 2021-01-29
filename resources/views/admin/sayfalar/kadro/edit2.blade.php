@@ -58,10 +58,18 @@
                         </div>
                         <div class="form-group" id="sektor">
                             <label>Sektör </label>
-                            <select name="sektor_id" id="sektor_id" class="form-control" required>
-                                <option value="" selected disabled>Sektör Seçiniz</option>
+                            <select name="sektor_id[]" id="sektor_id" class="form-control select2" multiple data-placeholder="Sektör Seçiniz" required>
                                 @foreach($sektor as $key=>$value)
-                                    <option value="{{$value->id}}" @if($kadro->sektor_id==$value->id) selected @endif>{{$value->baslik}}</option>
+                                    <option value="{{$value->id}}"
+                                            @foreach(explode(",",$kadro->sektor_id) as $sektor)
+
+                                            @if($sektor==$value->id) selected @endif
+                                        @endforeach
+                                    >@if($value->id==999)
+                                         Metaller
+                                        @else
+                                         {{$value->baslik}}
+                                    @endif</option>
                                 @endforeach
 
                             </select>
@@ -104,7 +112,6 @@
 
     @push('scripts')
         <script>
-
             $(() => {
                     var sektor = $('#sektor')
                     var sektor_id = $('#sektor_id')

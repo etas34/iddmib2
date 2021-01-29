@@ -34,6 +34,11 @@
 
                         </div>
 
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Link</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="link">
+                        </div>
+
 
 
 

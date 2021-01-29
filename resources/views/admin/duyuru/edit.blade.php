@@ -41,6 +41,11 @@
 
 
 
+                            <div class="form-group">
+                                <label for="exampleInputFile">Link</label>
+                                <input type="text" name="link" class="form-control" value="{{$duyuru->link}}" >
+
+                            </div>
 
                     </div>
                     <!-- /.card-body -->

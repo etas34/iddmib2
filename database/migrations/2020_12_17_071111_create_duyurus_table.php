@@ -16,6 +16,8 @@ class CreateDuyurusTable extends Migration
         Schema::create('duyurus', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('link')->nullable();
+            $table->tinyInteger('sira')->nullable();
             $table->timestamps();
         });
     }

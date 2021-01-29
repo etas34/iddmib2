@@ -36,11 +36,10 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Kurumsal</a>
                             <div class="dropdown-menu rounded-0">
                                 <a href="{{route('hakkimizda')}}" class="dropdown-item">Hakkımızda</a>
-                                <a href="{{route('yonetimkurulu')}}" class="dropdown-item">Yönetim Kurulu</a>
-                                <a href="{{route('yonetimkurulu')}}" class="dropdown-item">Denetim Kurulu</a>
+                                <a href="{{route('yonetimkurulu')}}" class="dropdown-item">Yönetim ve Denetim Kurulu</a>
                                 <a href="{{route('idarikadro')}}" class="dropdown-item">İdari Kadro</a>
-                                <a href="{{route('raporlar')}}" class="dropdown-item">Raporlar</a>
-                                <a href="{{route('sunumlar')}}" class="dropdown-item">Sunumlar</a>
+{{--                                <a href="{{route('raporlar')}}" class="dropdown-item">Raporlar</a>--}}
+{{--                                <a href="{{route('sunumlar')}}" class="dropdown-item">Sunumlar</a>--}}
                             </div>
                         </li>
                          <li class="nav-item dropdown">
@@ -49,7 +48,7 @@
                                 <a href="{{route('ihracatrota')}}" class="dropdown-item">İhracat Rotası</a>
                                 <a href="{{route('devletdestek')}}" class="dropdown-item">Devlet Destekleri</a>
                                 <a href="{{route('ihracatrapor')}}" class="dropdown-item">İhracat Raporları</a>
-                                <a href="{{route('faydalilinkler')}}" class="dropdown-item">Faydalı Linkler</a>
+{{--                                <a href="{{route('faydalilinkler')}}" class="dropdown-item">Faydalı Linkler</a>--}}
                             </div>
                         </li>
 {{--                        <li class="nav-item"><a class="nav-link" href="#">Üyelik</a></li>--}}
@@ -97,7 +96,7 @@
                     <div class="col-12 col-md-auto text-center text-md-right">
                         <ul class="list-inline m-0">
                             <li class="list-inline-item"><a class="@if ( Config::get('app.locale') == 'tr') text-light   @else text-secondary   @endif  text-decoration-none" href="{{route('setlocale','tr')}}">Türkçe</a></li>
-                            <li class="list-inline-item"><a class="@if ( Config::get('app.locale') == 'en') text-light   @else text-secondary   @endif text-decoration-none" href="{{route('setlocale','en')}}">English</a></li>
+{{--                            <li class="list-inline-item"><a class="@if ( Config::get('app.locale') == 'en') text-light   @else text-secondary   @endif text-decoration-none" href="{{route('setlocale','en')}}">English</a></li>--}}
                         </ul>
                     </div>
                 </div>
@@ -129,13 +128,13 @@
                         <a href="{{route('hakkimizda')}}" class="btn btn-outline-secondary mb-2 mr-2">Hakkımızda</a>
                         <a href="{{route('yonetimkurulu')}}" class="btn btn-outline-secondary mb-2 mr-2">Yönetim ve Denetim Kurulu</a>
                         <a href="{{route('idarikadro')}}" class="btn btn-outline-secondary mb-2 mr-2">İdari Kadro</a>
-                        <a href="{{route('raporlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Raporlar</a>
-                        <a href="{{route('sunumlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Sunumlar</a>
+{{--                        <a href="{{route('raporlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Raporlar</a>--}}
+{{--                        <a href="{{route('sunumlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Sunumlar</a>--}}
                         <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Üyelik</a> <br />
                         <a href="{{route('ihracatrota')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Rotası</a>
                         <a href="{{route('devletdestek')}}" class="btn btn-outline-secondary mb-2 mr-2">Devlet Destekleri</a>
                         <a href="{{route('ihracatrapor')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Raporları</a>
-                        <a href="{{route('faydalilinkler')}}" class="btn btn-outline-secondary mb-2 mr-2">Faydalı Linkler</a> <br />
+{{--                        <a href="{{route('faydalilinkler')}}" class="btn btn-outline-secondary mb-2 mr-2">Faydalı Linkler</a> <br />--}}
                         @foreach($sektor as $key=>$value)
                         <a href="{{route('sektordetail',$value->id)}}" class="btn btn-outline-secondary mb-2 mr-2">{{$value->baslik}}</a>
                         @endforeach

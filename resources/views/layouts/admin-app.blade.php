@@ -27,7 +27,9 @@
 
 
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
-
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 
 
 {{--    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">--}}
@@ -61,6 +63,9 @@
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link">Anasayfa</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ route('home') }}" class="nav-link">İDDMİB</a>
             </li>
         </ul>
 
@@ -169,6 +174,8 @@
 
 <script src="{{asset('adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
 
+<!-- Select2 -->
+<script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
 
 
 
@@ -192,6 +199,7 @@
     $(function () {
 
 
+        $('.select2').select2();
         bsCustomFileInput.init();
 
 

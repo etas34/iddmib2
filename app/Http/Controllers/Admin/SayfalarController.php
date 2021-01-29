@@ -220,7 +220,7 @@ public function devletdestegi()
 
         }
         if ($request->sektor_id)
-            $kadro->sektor_id = $request->sektor_id;
+            $kadro->sektor_id = implode(",", (array)$request->sektor_id);
         else
             $kadro->sektor_id=null;
 
@@ -272,7 +272,7 @@ public function devletdestegi()
 
         }
         $kadro->kadro = $request->kadro;
-        $kadro->sektor_id = $request->sektor_id;
+        $kadro->sektor_id = implode(",", (array)$request->sektor_id);
         $kadro->ad_soyad = $request->ad_soyad;
         $kadro->tel = $request->tel;
         $kadro->email = $request->email;

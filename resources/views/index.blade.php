@@ -26,18 +26,7 @@
                     <h1>{{$slider->baslik}}</h1>
                     <h2 class="mb-3">{{$slider->alt_baslik}}
                     </h2>
-                    <p>{{$slider->aciklama}}</p>
-                </div>
-                <div class="col-sm-4 text-center text-sm-right">
-                    <h6 class="border rounded px-2 py-3 d-inline-block text-center">
-                        <span class="font-weight-bold">Turkish</span> 365 <br />
-                        E-ihracat Portalı
-                    </h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <a href="#"><img src="{{ asset('assets/images/arrow-down.svg') }}" alt="..." /></a>
+{{--                    <p>{{$slider->aciklama}}</p>--}}
                 </div>
             </div>
         </div>
@@ -49,8 +38,8 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12">
-                    <h3 class="text-danger font-weight-bold">Güncel Duyurular</h3>
-                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
+                    <h3 class="text-danger font-weight-bold">İDDMİB'ten Duyurular</h3>
+                    <h5>Birliğimiz hakkında güncel duyuruları keşfedin!</h5>
                 </div>
             </div>
             <div class="row">
@@ -58,7 +47,16 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             @foreach($duyuru as $key=>$value)
-                            <div class="swiper-slide"><img class="img-fluid" src="{{asset("storage/images/duyuru_images/$value->image")}}" alt="..." /></div>
+
+                                    <div class="swiper-slide">
+                                        <a href="{{$value->link}}">
+                                            <img class="img-fluid" src="{{asset("storage/images/duyuru_images/$value->image")}}" alt="..." />
+                                        </a>
+
+
+                                    </div>
+
+
                             @endforeach
                         </div>
 
@@ -79,7 +77,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Başkan'ın Mesajı</h3>
-                  {!! $baskan->alt_baslik !!}
+                  <h5>{!! $baskan->alt_baslik !!}</h5>
                 </div>
             </div>
             <div class="row">
@@ -113,8 +111,8 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12">
-                    <h3 class="text-danger font-weight-bold">Haberler</h3>
-                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
+                    <h3 class="text-danger font-weight-bold">Haberler ve Duyurular</h3>
+                    <h5>Sektörel gelişmeler hakkında güncel haber ve duyuruları keşfedin!</h5>
                 </div>
             </div>
             <div class="row mb-3">
@@ -181,7 +179,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Sektörler</h3>
-                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
+                    <h5>Sektörlerimizi keşfedin!</h5>
                 </div>
             </div>
             <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">
@@ -189,7 +187,7 @@
                     <div class="col-12 mb-3">
                         <a href="{{route('sektordetail',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/sektor_images/$value->image")}}" alt="..." /></a>
                         <h4><a href="{{route('sektordetail',$value)}}" class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->baslik}}</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h5>
+                        <h5><a class="text-secondary text-decoration-none" href="{{route('sektordetail',$value)}}">{{$value->alt_baslik}}</a></h5>
                     </div>
                 @endforeach
 
@@ -248,7 +246,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">İhracat Raporları</h3>
-                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
+                    <h5>Sektörlerimze ait güncel ihracat raporlarını keşfedin!</h5>
                 </div>
             </div>
 
@@ -280,7 +278,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Faaliyetler</h3>
-                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
+                    <h5>Güncel faaliyetlerimizi keşfedin!</h5>
                 </div>
             </div>
             <div class="row mb-3">
@@ -323,7 +321,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">Etkinlik Takvimi</h3>
-                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
+                    <h5>Güncel etkinliklerimizi keşfedin!</h5>
                 </div>
             </div>
             <div class="row mb-3">
@@ -374,7 +372,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">İnovasyon</h3>
-                    <h5>Quisque velit nisi, pretium ut lacinia in, elementum id enim</h5>
+                    <h5>Güncel inovasyon projelerimizi keşfedin!</h5>
                 </div>
             </div>
             <div class="row mb-3">
@@ -446,10 +444,12 @@
                     <img src="{{ asset('assets/images/contact.svg') }}" alt="..." class="img-fluid" />
                 </div>
                 <div class="col-12 col-sm-6">
-                    <h5>Proin eget tortor risus. Mauris blandit aliquet elit</h5>
-                    <p>Eget tincidunt nibh pulvinar a. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec</p>
+                    <h5>Istanbul Ferrous and Non-Ferrous Metals Exporters' Association</h5>
+                    <p>Sanayi Cad. No:3, Dış Ticaret Kompleksi
+                        A Blok, Çobançeşme Mevkii 34196
+                        Bahçelievler / İSTANBUL</p>
                     <p>
-                        +90 355 555 55 55 <br />
+                        +90 (212) 454 00 00 (Pbx) <br />
                         info@turkishaluminium365.com
                     </p>
                     <a class="text-danger" href="#">Adrese Git</a>

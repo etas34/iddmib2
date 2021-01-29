@@ -36,7 +36,7 @@
 
                     <a href="{{$ir->link}}" class="text-decoration-none text-light d-flex justify-content-between bg-red p-3 text-light w-100">
                         <div class="d-flex  align-items-center">
-                            <img  src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..." />
+{{--                            <img  src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..." />--}}
                             <h4 class="m-0">
                                 {{$ir->link_baslik}} <br />
                                 {{$ir->link_altbaslik}}

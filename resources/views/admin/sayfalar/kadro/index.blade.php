@@ -187,7 +187,16 @@
                                 <td><img src="{{asset("storage/images/kadro_images/$value->resim")}}" height="60px"
                                          width="60px"></td>
                                 <td> {{$value->kadro}}</td>
-                                <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik ?? ''}}</td>
+                                <td>@foreach(explode(",",$value->sektor_id) as $sektor)
+                                        @if($sektor==999)
+                                            Metaller<br>
+                                        @else
+                                            {{\App\Models\Sektor::find($sektor)->baslik ?? ''}}<br>
+                                        @endif
+
+                                        @endforeach
+
+                                </td>
                                 <td> {{$value->unvan}}</td>
                                 <td> {{$value->ad_soyad}}</td>
                                 <td> {{$value->tel}}</td>

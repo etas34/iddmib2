@@ -85,6 +85,7 @@ Route::group(['middleware' => 'setlocale'], function () {
             Route::get('/edit/{duyuru}', [DuyuruController::class, 'edit'])->name('edit');
             Route::get('/destroy/{duyuru}', [DuyuruController::class, 'destroy'])->name('destroy');
             Route::post('/edit/{duyuru}', [DuyuruController::class, 'update'])->name('update');
+            Route::post('/sira/{duyuru}', [DuyuruController::class, 'sira'])->name('sira');
             Route::post('/create', [DuyuruController::class, 'store'])->name('store');
         });
         Route::group(['prefix' => 'haber', 'as' => 'haber.', 'middleware' => 'auth'], function () {

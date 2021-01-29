@@ -31,7 +31,7 @@
 
                     @if(in_array('0',explode(',',$faaliyet->kategori_id)))
 
-                        @for($i = 1 ; $i <= 8 ; $i++ )
+                        @for($i = 1 ; $i <= 6 ; $i++ )
                     <a target="_blank" href="{{unserialize($faaliyet->link)[$i]}}" class="text-decoration-none text-light d-flex justify-content-between bg-red p-3 mt-3 text-light w-100">
                         <div class="d-flex  align-items-center">
                             <img src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..." />
@@ -87,7 +87,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                      <a class="text-danger">Tüm Milli Katılım Organizasyonlarını Göster</a>
+                      <a class="text-danger">Tüm etkinlikleri göster</a>
                     </div>
                 </div>
             </div>
