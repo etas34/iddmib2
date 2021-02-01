@@ -44,18 +44,32 @@ class SektorController extends Controller
     {
 
         $sektor = new Sektor();
-        if ($request->file('image')) {
+        if ($request->file('ana_resim')) {
             $request->validate([
 
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'ana_resim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             ]);
 
 
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time() . '.' . $request->ana_resim->extension();
 
-            $request->image->storeAs('/public/images/sektor_images', $imageName);
-            $sektor->image = $imageName;
+            $request->ana_resim->storeAs('/public/images/sektor_images', $imageName);
+            $sektor->ana_resim = $imageName;
+
+        }
+        if ($request->file('detay_resim')) {
+            $request->validate([
+
+                'detay_resim' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = 'detay'.time() . '.' . $request->detay_resim->extension();
+
+            $request->detay_resim->storeAs('/public/images/sektor_images', $imageName);
+            $sektor->detay_resim = $imageName;
 
         }
         if ($request->file('sektor_resim')) {
@@ -66,7 +80,7 @@ class SektorController extends Controller
             ]);
 
 
-            $resimName = time() . '.' . $request->image->extension();
+            $resimName = time() . '.' . $request->sektor_resim->extension();
 
             $request->sektor_resim->storeAs('/public/images/sektor_resim', $resimName);
             $sektor->sektor_resim = $resimName;
@@ -150,22 +164,40 @@ class SektorController extends Controller
     public function update(Request $request, Sektor $sektor)
     {
 
-        if ($request->file('image')) {
-            if ($sektor->image and file_exists(storage_path("app\\public\\images\\sektor_images\\$sektor->image")))
+        if ($request->file('ana_resim')) {
+            if ($sektor->image and file_exists(storage_path("app\\public\\images\\sektor_images\\$sektor->ana_resim")))
                 unlink(storage_path("app\\public\\images\\sektor_images\\$sektor->image"));
 
             $request->validate([
 
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'ana_resim' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             ]);
 
 
 
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time() . '.' . $request->ana_resim->extension();
 
-            $request->image->storeAs('/public/images/sektor_images', $imageName);
-            $sektor->image = $imageName;
+            $request->ana_resim->storeAs('/public/images/sektor_images', $imageName);
+            $sektor->ana_resim = $imageName;
+
+        }
+        if ($request->file('detay_resim')) {
+            if ($sektor->image and file_exists(storage_path("app\\public\\images\\sektor_images\\$sektor->detay_resim")))
+                unlink(storage_path("app\\public\\images\\sektor_images\\$sektor->image"));
+
+            $request->validate([
+
+                'detay_resim' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+
+            $imageName = 'detay'.time() . '.' . $request->detay_resim->extension();
+
+            $request->detay_resim->storeAs('/public/images/sektor_images', $imageName);
+            $sektor->detay_resim = $imageName;
 
         }
         if ($request->file('gtip_pdf')) {
@@ -215,7 +247,7 @@ class SektorController extends Controller
 
         }
         $sektor->baslik = $request->baslik;
-        $sektor->alt_baslik = $request->baslik;
+        $sektor->alt_baslik = $request->alt_baslik;
         $sektor->metin_baslik = $request->metin_baslik;
         $sektor->aciklama = $request->aciklama;
         $sektor->sektor_link_baslik = $request->sektor_link_baslik;

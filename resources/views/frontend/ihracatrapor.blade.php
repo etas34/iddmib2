@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex flex-wrap">
-                    <h4>Sektörlerimze ait güncel ihracat raporlarını keşfedin!</h4>
+                    <h4>Sektörlerimize ait güncel ihracat raporlarını keşfedin!</h4>
 
 
                 </div>
@@ -62,12 +62,7 @@
 
 
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <h6 class="text-secondary">Quisque velit nisi, pretium ut lacinia in, elementum id enim</h6>
-                    <a class="text-danger text-decoration-none font-weight-bold" href="#">www.turkishmetals.org/arsiv</a>
-                </div>
-            </div>
+
         </div>
     </main>
 

@@ -22,10 +22,10 @@
 
 
                         <div class="form-group">
-                            <label for="exampleInputFile">Sektör Banner (350 X 233 )</label>
+                            <label for="exampleInputFile">Anasayfa Resim (350 X 233 )</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input required type="file" name="image" class="custom-file-input" id="foto">
+                                    <input required type="file" name="ana_resim" class="custom-file-input" id="foto">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
 
@@ -35,6 +35,17 @@
                         </div>
 
 
+                        <div class="form-group">
+                            <label for="exampleInputFile">Detay Resim</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input required type="file" name="detay_resim" class="custom-file-input" >
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+
+                            </div>
+
+                        </div>
                         <div class="row">
                             <div class="col-12">
                                 <!-- Custom Tabs -->

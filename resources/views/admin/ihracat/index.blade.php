@@ -21,6 +21,7 @@
                             <th>Dosya</th>
                             <th>Sektör</th>
                             <th>Rapor Adı</th>
+                            <th>Anasayfada Göster</th>
                             <th>Düzenle</th>
                             <th>Sil</th>
 
@@ -34,6 +35,7 @@
                             <td><a target="_blank" href="{{asset("storage/files/ihracat_files/$value->pdf")}}"> Rapor PDF <i class="nav-icon fa fa-file-pdf"></i></a></td>
                             <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik }}</td>
                             <td>{{$value->baslik}}</td>
+                            <td>@if($value->anasayfa==1) Evet @else Hayır @endif</td>
 
 
 

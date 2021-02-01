@@ -1,26 +1,8 @@
 <x-front-app>
 
-    <!--
-     イースターエッグ
-
-                    _ ___                /^^\ /^\  /^^\_
-    _          _@)@) \            ,,/ '` ~ `'~~ ', `\.
-  _/o\_ _ _ _/~`.`...'~\        ./~~..,'`','',.,' '  ~:
- / `,'.~,~.~  .   , . , ~|,   ,/ .,' , ,. .. ,,.   `,  ~\_
-( ' _' _ '_` _  '  .    , `\_/ .' ..' '  `  `   `..  `,   \_
- ~V~ V~ V~ V~ ~\ `   ' .  '    , ' .,.,''`.,.''`.,.``. ',   \_
-  _/\ /\ /\ /\_/, . ' ,   `_/~\_ .' .,. ,, , _/~\_ `. `. '.,  \_
- < ~ ~ '~`'~'`, .,  .   `_: ::: \_ '      `_/ ::: \_ `.,' . ',  \_
-  \ ' `_  '`_    _    ',/ _::_::_ \ _    _/ _::_::_ \   `.,'.,`., \-,-,-,_,_,
-   `'~~ `'~~ `'~~ `'~~  \(_)(_)(_)/  `~~' \(_)(_)(_)/ ~'`\_.._,._,'_;_;_;_;_;
-
-
-    -->
-
-
     <!-- hero start -->
     <div style="background-image: url({{asset("storage/images/slider_images/$slider->image")}}) !important" class="hero text-light mb-5">
-        <div class="container">
+        <div class="container" style="margin-top: 15px;">
             <div class="row mb-5">
                 <div class="col-sm-8">
                     <h1>{{$slider->baslik}}</h1>
@@ -95,7 +77,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-sm-8">
-                        Donec rutrum congue leo eget malesuada.
+                        İhracat dünyası hakkında bilgi almak için,
                     </div>
                     <div class="col-sm-4">
                         <a href="{{route('iletisim')}}" class="btn btn-light font-weight-bold">İLETİŞİME GEÇİN </a>
@@ -150,7 +132,7 @@
         <div class="container">
             <div class="row text-center text-sm-left">
                 <div class="col-12 col-sm-4 d-flex flex-column mb-3 mb-sm-0">
-                    <h2>İhracat <br /> Rakamları</h2>
+                    <h2>Demir ve Demir Dışı Metaller Sektör İhracatı</h2>
                     <div class="mt-auto">
                         <p>Son Güncelleme Tarihi</p>
                         <p>{{$ihracatRakam->guncelleme_tarih ?? ''}}</p>
@@ -185,9 +167,9 @@
             <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">
                 @foreach($sektor as $key=>$value)
                     <div class="col-12 mb-3">
-                        <a href="{{route('sektordetail',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/sektor_images/$value->image")}}" alt="..." /></a>
+                        <a href="{{route('sektordetail',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/sektor_images/$value->ana_resim")}}" alt="..." /></a>
                         <h4><a href="{{route('sektordetail',$value)}}" class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->baslik}}</a></h4>
-                        <h5><a class="text-secondary text-decoration-none" href="{{route('sektordetail',$value)}}">{{$value->alt_baslik}}</a></h5>
+{{--                        <h5><a class="text-secondary text-decoration-none" href="{{route('sektordetail',$value)}}">{{$value->alt_baslik}}</a></h5>--}}
                     </div>
                 @endforeach
 
@@ -246,7 +228,7 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h3 class="text-danger font-weight-bold">İhracat Raporları</h3>
-                    <h5>Sektörlerimze ait güncel ihracat raporlarını keşfedin!</h5>
+                    <h5>Sektörlerimize ait güncel ihracat raporlarını keşfedin!</h5>
                 </div>
             </div>
 
@@ -332,7 +314,7 @@
                         @foreach($etkinlik as $key=>$value)
                                 <div class="swiper-slide">
                                     <div class="card">
-                                        <div class="card-header text-danger bg-transparent">{{$value->tarih}}</div>
+                                        <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d/m/Y")}}-{{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d/m/Y")}}</div>
                                         <div class="card-body">
                                             <h5>{{$value->baslik}}</h5>
                                         </div>
@@ -407,29 +389,29 @@
 
     <hr class="mb-5" />
 
-    <div class="container mb-5">
-        <div class="row text-center justify-content-center">
-            <div class="col-12 col-md-11">
-                <div class="row">
-                    @foreach($faliyetRapor->take(2) as $key=>$value)
-                        <div class="col-12 col-sm-6 mb-3 mb-sm-0">
-                            <div class="card py-5 px-2">
-                                <h4 class="text-red font-weight-bold"> İDDMİB   <br />
-                                    {{$value->aciklama}}
-                                </h4>
-                                <h5><a target="_blank" class="text-dark text-decoration-none" href="{{asset("storage/files/faliyetrapor_files/$value->rapor")}}">Pdf İndir (
-                                    {{number_format((float)File::size(public_path("storage/files/faliyetrapor_files/$value->rapor")) / 1048576 , 2) }}  MB )</a></h5>
-                            </div>
-                        </div>
-                    @endforeach
+{{--    <div class="container mb-5">--}}
+{{--        <div class="row text-center justify-content-center">--}}
+{{--            <div class="col-12 col-md-11">--}}
+{{--                <div class="row">--}}
+{{--                    @foreach($faliyetRapor->take(2) as $key=>$value)--}}
+{{--                        <div class="col-12 col-sm-6 mb-3 mb-sm-0">--}}
+{{--                            <div class="card py-5 px-2">--}}
+{{--                                <h4 class="text-red font-weight-bold"> İDDMİB   <br />--}}
+{{--                                    {{$value->aciklama}}--}}
+{{--                                </h4>--}}
+{{--                                <h5><a target="_blank" class="text-dark text-decoration-none" href="{{asset("storage/files/faliyetrapor_files/$value->rapor")}}">Pdf İndir (--}}
+{{--                                    {{number_format((float)File::size(public_path("storage/files/faliyetrapor_files/$value->rapor")) / 1048576 , 2) }}  MB )</a></h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
 
 
-                </div>
-            </div>
-        </div>
-    </div>
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
-    <hr class="mb-5" />
+{{--    <hr class="mb-5" />--}}
 
     <!-- contact start -->
     <div class="contact mb-5">
@@ -444,13 +426,13 @@
                     <img src="{{ asset('assets/images/contact.svg') }}" alt="..." class="img-fluid" />
                 </div>
                 <div class="col-12 col-sm-6">
-                    <h5>Istanbul Ferrous and Non-Ferrous Metals Exporters' Association</h5>
+                    <h5>İstanbul Demir ve Demir Dışı Metaller İhracatçıları Birliği</h5>
                     <p>Sanayi Cad. No:3, Dış Ticaret Kompleksi
                         A Blok, Çobançeşme Mevkii 34196
                         Bahçelievler / İSTANBUL</p>
                     <p>
                         +90 (212) 454 00 00 (Pbx) <br />
-                        info@turkishaluminium365.com
+                        iddmib@immib.org.tr
                     </p>
                     <a class="text-danger" href="#">Adrese Git</a>
                 </div>

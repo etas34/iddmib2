@@ -61,19 +61,24 @@
                     <div class="col-12">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
-                             @foreach($etkinlik as $key=>$value)
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <div class="card-header text-danger bg-transparent">{{$value->tarih}}</div>
-                                        <div class="card-body">
-                                            {{$value->baslik}}
-                                        </div>
-                                        <div class="card-footer bg-transparent border-top-0">
-                                            {{$value->alt_baslik}}
+
+                                @foreach($etkinlik as $key=>$value)
+                                    <div class="swiper-slide">
+                                        <div class="card">
+                                            <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d/m/Y")}}-{{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d/m/Y")}}</div>
+                                            <div class="card-body">
+                                                <h5>{{$value->baslik}}</h5>
+                                            </div>
+                                            <div class="card-footer bg-transparent border-top-0">
+                                                {{$value->alt_baslik}}
+                                            </div>
+                                            <div class="card-footer bg-transparent border-top-0 text-secondary d-flex justify-content-between">
+                                                <span>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</span>
+                                                <span>{{config('constants.kategori.'.$value->kategori_id)}}</span>
+                                            </div>
                                         </div>
 
                                     </div>
-                                </div>
                                 @endforeach
 
 

@@ -26,10 +26,10 @@ class FrontApp extends Component
      */
     public function render()
     {
-        $sektor = Sektor::where('durum',1)->where('id','!=',999)
+        $sektor = Sektor::where('durum',1)->where('id','!=',999)->orderBy('baslik','asc')
             ->get();
         $faaliyet  = Faliyet::all();
-        $inovasyon = Inovasyon::all();
+        $inovasyon = Inovasyon::where('id','!=',9)->get();
         $compact = compact('inovasyon','sektor','faaliyet');
         return view('layouts.front-app',$compact);
     }

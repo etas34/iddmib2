@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex flex-wrap">
-                    <h4>İDDMİB idari kadrosunu tanıyın!</h4>
+                    <h4>Bilgi ve önerileriniz için, bize ulaşın!</h4>
 
 
 
@@ -30,13 +30,13 @@
                     <img src="{{asset('assets/images/contact.svg')}}" alt="..." class="img-fluid" />
                 </div>
                 <div class="col-12 col-sm-6">
-                    <h5>Istanbul Ferrous and Non-Ferrous Metals Exporters' Association</h5>
+                    <h5>İstanbul Demir ve Demir Dışı Metaller İhracatçıları Birliği</h5>
                     <p>Sanayi Cad. No:3, Dış Ticaret Kompleksi
                         A Blok, Çobançeşme Mevkii 34196
                         Bahçelievler / İSTANBUL</p>
                     <p>
                         +90 (212) 454 00 00 (Pbx) <br />
-                        info@turkishaluminium365.com
+                        iddmib@immib.org.tr
                     </p>
                     <a class="text-danger text-decoration-none font-weight-bold" href="#">Adrese Git</a>
                 </div>

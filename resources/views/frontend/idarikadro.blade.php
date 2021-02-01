@@ -40,9 +40,9 @@
                                         @if($value->sektor_id!=null)
                                             @foreach(explode(",",$value->sektor_id) as $sektor)
                                                 @if($sektor==999)
-                                                    Metaller Şubesi <br/>
+                                                    Metaller Sektörü <br/>
                                                 @else
-                                                    {{\App\Models\Sektor::find($sektor)->baslik}} Sektör Şubesi <br/>
+                                                    {{\App\Models\Sektor::find($sektor)->baslik}} Sektörü <br/>
                                                 @endif
 
 

@@ -45,13 +45,12 @@
                          <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">İhracat</a>
                             <div class="dropdown-menu rounded-0">
-                                <a href="{{route('ihracatrota')}}" class="dropdown-item">İhracat Rotası</a>
+                                <a href="{{route('ihracatrota')}}" class="dropdown-item">İhracat Radarı</a>
                                 <a href="{{route('devletdestek')}}" class="dropdown-item">Devlet Destekleri</a>
                                 <a href="{{route('ihracatrapor')}}" class="dropdown-item">İhracat Raporları</a>
 {{--                                <a href="{{route('faydalilinkler')}}" class="dropdown-item">Faydalı Linkler</a>--}}
                             </div>
                         </li>
-{{--                        <li class="nav-item"><a class="nav-link" href="#">Üyelik</a></li>--}}
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Sektörler</a>
                              <div class="dropdown-menu rounded-0">
@@ -63,10 +62,11 @@
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Faaliyetler</a>
                              <div class="dropdown-menu rounded-0">
-{{--                                 <a href="{{route('etkinlik')}}" class="dropdown-item">Etkinlik Takvimi </a>--}}
+                                 <a href="{{route('etkinlik')}}" class="dropdown-item">Etkinlik Takvimi</a>
                                  @foreach($faaliyet as $key=>$value)
                                  <a href="{{route('faaliyet',$value)}}" class="dropdown-item">{{$value->baslik}}</a>
                                      @endforeach
+                                 <a href="{{route('inovasyon',9)}}" class="dropdown-item">İhracat Başarı Ödülleri</a>
 
                              </div>
                          </li>
@@ -79,8 +79,10 @@
 
 
 
+
                              </div>
                          </li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('uyelik')}}">Üyelik</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('iletisim')}}">İletişim</a></li>
                     </ul>
                 </div>
@@ -91,7 +93,7 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-12 col-md-auto">
-                        İstanbul Demir ve Demir Dışı Metaller İhracatçılar Birliği
+                        İstanbul Demir ve Demir Dışı Metaller İhracatçıları Birliği
                     </div>
                     <div class="col-12 col-md-auto text-center text-md-right">
                         <ul class="list-inline m-0">
@@ -107,11 +109,11 @@
     <!-- social start -->
     <div class="left-social">
         <ul class="list-unstyled mb-0">
-            <li class="mb-2"><a href="#"><img src="{{ asset('assets/images/twitter.svg') }}" alt="..." /></a></li>
-            <li class="mb-2"><a href="#"><img src="{{ asset('assets/images/facebook.svg') }}" alt="..." /></a></li>
-            <li class="mb-2"><a href="#"><img src="{{ asset('assets/images/instagram.svg') }}" alt="..." /></a></li>
-            <li class="mb-2"><a href="#"><img src="{{ asset('assets/images/linked.svg') }}" alt="..." /></a></li>
-            <li><a href="#"><img src="{{ asset('assets/images/youtube.svg') }}" alt="..." /></a></li>
+            <li class="mb-2"><a href="https://twitter.com/iddmibtr"><img src="{{ asset('assets/images/twitter.svg') }}" alt="..." /></a></li>
+            <li class="mb-2"><a href="https://www.facebook.com/iddmib/"><img src="{{ asset('assets/images/facebook.svg') }}" alt="..." /></a></li>
+            <li class="mb-2"><a href="https://www.instagram.com/iddmib/"><img src="{{ asset('assets/images/instagram.svg') }}" alt="..." /></a></li>
+            <li class="mb-2"><a href="https://www.linkedin.com/company/iddmib/"><img src="{{ asset('assets/images/linked.svg') }}" alt="..." /></a></li>
+            <li><a href="https://www.youtube.com/channel/UCtm4OO9pVLzCXUjKk75cK8A"><img src="{{ asset('assets/images/youtube.svg') }}" alt="..." /></a></li>
         </ul>
     </div>
     <!-- social end -->
@@ -130,8 +132,8 @@
                         <a href="{{route('idarikadro')}}" class="btn btn-outline-secondary mb-2 mr-2">İdari Kadro</a>
 {{--                        <a href="{{route('raporlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Raporlar</a>--}}
 {{--                        <a href="{{route('sunumlar')}}" class="btn btn-outline-secondary mb-2 mr-2">Sunumlar</a>--}}
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">Üyelik</a> <br />
-                        <a href="{{route('ihracatrota')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Rotası</a>
+                        <a href="{{route('uyelik')}}" class="btn btn-outline-secondary mb-2 mr-2">Üyelik</a> <br />
+                        <a href="{{route('ihracatrota')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Radarı</a>
                         <a href="{{route('devletdestek')}}" class="btn btn-outline-secondary mb-2 mr-2">Devlet Destekleri</a>
                         <a href="{{route('ihracatrapor')}}" class="btn btn-outline-secondary mb-2 mr-2">İhracat Raporları</a>
 {{--                        <a href="{{route('faydalilinkler')}}" class="btn btn-outline-secondary mb-2 mr-2">Faydalı Linkler</a> <br />--}}
@@ -148,8 +150,8 @@
                             <a href="{{route('inovasyon',$value)}}"  class="btn btn-outline-secondary mb-2 mr-2">{{$value->baslik}}</a>
                         @endforeach
                         <a href="{{route('iletisim')}}" class="btn btn-outline-secondary mb-2 mr-2">İletişim</a>
-                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İDDMİB Basın Kiti</a>
-                        <a href="{{route('iletisim')}}#sss" class="btn btn-outline-secondary mb-2 mr-2">Sıkça Sorulan Sorular</a>
+{{--                        <a href="#" class="btn btn-outline-secondary mb-2 mr-2">İDDMİB Basın Kiti</a>--}}
+{{--                        <a href="{{route('iletisim')}}#sss" class="btn btn-outline-secondary mb-2 mr-2">Sıkça Sorulan Sorular</a>--}}
                     </div>
                 </div>
             </div>
@@ -159,11 +161,11 @@
                 <div class="row">
                     <div class="col-md-9">
                         <ul class="social list-inline">
-                            <li class="list-inline-item"><a href="#"><img src="{{ asset('assets/images/twitter.svg') }}" alt="..." /></a></li>
-                            <li class="list-inline-item"><a href="#"><img src="{{ asset('assets/images/facebook.svg') }}" alt="..." /></a></li>
-                            <li class="list-inline-item"><a href="#"><img src="{{ asset('assets/images/instagram.svg') }}" alt="..." /></a></li>
-                            <li class="list-inline-item"><a href="#"><img src="{{ asset('assets/images/linked.svg') }}" alt="..." /></a></li>
-                            <li class="list-inline-item"><a href="#"><img src="{{ asset('assets/images/youtube.svg') }}" alt="..." /></a></li>
+                            <li class="list-inline-item"><a href="https://twitter.com/iddmibtr"><img src="{{ asset('assets/images/twitter.svg') }}" alt="..." /></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/iddmib/"><img src="{{ asset('assets/images/facebook.svg') }}" alt="..." /></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com/iddmib/"><img src="{{ asset('assets/images/instagram.svg') }}" alt="..." /></a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/company/iddmib/"><img src="{{ asset('assets/images/linked.svg') }}" alt="..." /></a></li>
+                            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCtm4OO9pVLzCXUjKk75cK8A"><img src="{{ asset('assets/images/youtube.svg') }}" alt="..." /></a></li>
                         </ul>
                         <ul class="list-inline list-dots">
                             <li class="list-inline-item"><a class="text-dark" href="#">Copyright © 2020,</a></li>

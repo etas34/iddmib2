@@ -30,7 +30,7 @@ class MainController extends Controller
         $duyuru = Duyuru::all();
         $haber = Haber::all();
         $sektor = Sektor::where('durum',1)->where('id','!=',999)->get();
-        $ihracat = Ihracat::all();
+        $ihracat = Ihracat::where('anasayfa','1')->get();
         $faliyet = Faliyet::all();
         $ihracatRakam = IhracatRakam::first();
         $etkinlik = Etkinlik::all();
@@ -59,13 +59,13 @@ class MainController extends Controller
 
         $ihracatrakam = IhracatRakam::where('sektor_id', $sektor->id)
             ->first();
-        $etkinlik = Etkinlik::where('sektor_id', $sektor->id)
+        $etkinlik = Etkinlik::whereIn('sektor_id', [$sektor->id,999])
             ->get();
 //        $faaliyet = Faliyet::where('sektor_id', $sektor->id)
 //            ->get();
         $ihracat = Ihracat::where('sektor_id', $sektor->id)
             ->get();
-        $haber = Haber::where('sektor_id', $sektor->id)
+        $haber = Haber::whereIn('sektor_id', [$sektor->id,999])
             ->get();
         $kadro = Kadro::where('sektor_id','like',"%".$sektor->id."%" )
             ->get();
@@ -83,7 +83,7 @@ class MainController extends Controller
     public function hakkimizda()
     {
         $hakkimizda = Hakkimizda::first();
-        $sektor = Sektor::where('durum', 1)
+        $sektor = Sektor::where('durum', 1)->where('id','!=',999)
             ->get();
         return view('frontend.hakkimizda', compact('sektor', 'hakkimizda'));
     }
@@ -163,6 +163,10 @@ class MainController extends Controller
         return view('frontend.ihracatrota',$compact);
     }
 
+    public function uyelik()
+    {
+        return view('frontend.uyelik');
+    }
     public function devletdestek()
     {
         $devletdestek = Devletdestegi::first();
@@ -172,7 +176,7 @@ class MainController extends Controller
 
     public function ihracatrapor()
     {
-        $ir = Ihracat::orderBy('created_at', 'DESC')
+        $ir = Ihracat::where('sektor_id',999)->orderBy('created_at', 'DESC')
             ->get();
         $ir_first = $ir
             ->first();

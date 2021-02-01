@@ -93,7 +93,13 @@
                             </div>
                             <!-- /.row -->
 
+                        <div class="form-check col-12">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="1" name="anasayfa" @if($ihracat->anasayfa==1)checked @endif>
+                            <label class="form-check-label" for="exampleCheck1"><strong>Anasayfada Göster</strong></label>
+                        </div>
+
                     </div>
+
                     <!-- /.card-body -->
 
                     <div class="card-footer">

@@ -58,6 +58,11 @@ class IhracatController extends Controller
         }
         $ihracat->baslik = $request->baslik;
         $ihracat->sektor_id = $request->sektor_id;
+        if ($request->anasayfa)
+            $ihracat->anasayfa = $request->anasayfa;
+        else
+            $ihracat->anasayfa = 0;
+
         $saved = $ihracat->save();
 
         if ($saved)
@@ -118,6 +123,10 @@ class IhracatController extends Controller
         }
         $ihracat->baslik = $request->baslik;
         $ihracat->sektor_id = $request->sektor_id;
+        if ($request->anasayfa)
+            $ihracat->anasayfa = $request->anasayfa;
+        else
+            $ihracat->anasayfa = 0;
         $saved = $ihracat->save();
 
         if ($saved)

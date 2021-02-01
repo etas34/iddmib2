@@ -1,7 +1,7 @@
 body {
 	font-family: 'Public Sans', sans-serif;
     font-size: 1.1rem;
-	background-color:#F5F5F5;
+	background-color: #ffffff;
 }
 
 /* globals start */
@@ -31,7 +31,8 @@ body {
 
 /* hero start */
 .hero {
-	padding:70px 0;
+	padding-bottom:5px;
+	padding-top:30px;
 	background-image:url(images/herobg.svg);
 	background-position:center;
 	background-size:cover;

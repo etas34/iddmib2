@@ -43,37 +43,27 @@
                                 </select>
                             </div>
 
-                            <div class="form-group col-md-4">
-                                <label>Gün </label>
-
-
-                                <select name="gun" class="form-control">
-                                    @for($i = 1; $i <= 31 ; $i++ )
-                                        <option @if($tarih[0] == $i) selected @endif value="{{$i}}">{{ $i}}</option>
-                                    @endfor
-                                </select>
+                            <div class="form-group  col-md-6">
+                                <label>Başlangıç Tarihi</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input type="text" required name="tarih" value="{{\DateTime::createFromFormat("Y-m-d", $etkinlik->tarih)->format("d/m/Y")}}" class="form-control float-right tarih" >
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label>Ay </label>
 
-                                <select name="ay" class="form-control">
-                                    @foreach($ay2 as $key=>$value)
-                                        <option @if($tarih[1] == $key) selected
-                                                @endif value="{{$key}}">{{ $value}}</option>
-                                    @endforeach
-                                </select>
 
+                            <div class="form-group  col-md-6">
+                                <label>Bitiş Tarihi</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input type="text" required name="tarih2" value="{{\DateTime::createFromFormat("Y-m-d", $etkinlik->tarih2)->format("d/m/Y")}}" class="form-control float-right tarih" >
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label>Yıl </label>
 
-
-                                <select name="yil" class="form-control">
-                                    @for($i = 2010; $i <= \Carbon\Carbon::now()->year + 100; $i++ )
-                                        <option @if($tarih[0] == $i) selected @endif value="{{$i}}">{{ $i}}</option>
-                                    @endfor
-                                </select>
-                            </div>
 
                         </div>
 
@@ -138,44 +128,45 @@
 
 
     @push('scripts')
-        <script>
-            var _URL2 = window.URL || window.webkitURL;
-            $("#foto").change(function (e) {
-                var file, img;
-                if ((file = this.files[0])) {
-                    img = new Image();
-                    var objectUrl = _URL2.createObjectURL(file);
-                    img.onload = function () {
+            <script>
+                $('.tarih').daterangepicker({
+                    singleDatePicker: true,
+                    "locale": {
+                        "format": "DD/MM/YYYY",
+                        "separator": " - ",
+                        "applyLabel": "Uygula",
+                        "cancelLabel": "Vazgeç",
+                        "fromLabel": "Dan",
+                        "toLabel": "a",
+                        "customRangeLabel": "Seç",
+                        "daysOfWeek": [
+                            "Pt",
+                            "Sl",
+                            "Çr",
+                            "Pr",
+                            "Cm",
+                            "Ct",
+                            "Pz"
+                        ],
+                        "monthNames": [
+                            "Ocak",
+                            "Şubat",
+                            "Mart",
+                            "Nisan",
+                            "Mayıs",
+                            "Haziran",
+                            "Temmuz",
+                            "Ağustos",
+                            "Eylül",
+                            "Ekim",
+                            "Kasım",
+                            "Aralık"
+                        ],
+                        "firstDay": 1
+                    }
 
-                        if (this.width != 2506 && this.height != 1692) {
-
-                            $('#error_foto').html('<label class="text-danger">Lütfen 2506 X 1692 boyutlarında yükleyiniz</label>');
-                            $('#foto').addClass('has-error');
-                            $('#edit').attr('disabled', true);
-                        } else {
-
-                            $('#error_foto').html('<label class="text-success"></label>');
-                            $('#foto').removeClass('has-error');
-                            $('#edit').attr('disabled', false);
-
-                        }
-
-
-                        _URL2.revokeObjectURL(objectUrl);
-                    };
-                    img.src = objectUrl;
-                }
-
-            })
-            $(function () {
-                @foreach($langs as $key=>$lang)
-                $("#summernote_{{{$key}}}").summernote({
-                    height: 300
                 })
-                @endforeach
-            })
-
-        </script>
+            </script>
 
     @endpush
 </x-admin-app>

@@ -29,7 +29,7 @@
                         {!! $inovasyon->metin !!}
 
 
-                    @if($inovasyon->id!=9 && $inovasyon->id!=10)
+                    @if($inovasyon->id!=9 && $inovasyon->id!=10 && $inovasyon->id!=5)
                     <a target="_blank" href="{{$inovasyon->link}}" class="text-decoration-none text-light d-flex justify-content-between bg-red p-3 text-light w-100">
                         <div class="d-flex  align-items-center">
 {{--                            <img src="{{asset('assets/images/doc-light.svg')}}" class="mr-3" width="46" alt="..." />--}}

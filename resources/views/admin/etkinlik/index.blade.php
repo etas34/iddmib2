@@ -21,7 +21,8 @@
                             <th>Etkinlik Adı</th>
                             <th>Kategori</th>
                             <th>Sektor Adı</th>
-                            <th>Tarih</th>
+                            <th>Başlangıç Tarihi</th>
+                            <th>Bitiş Tarihi</th>
                             <th>Düzenle</th>
                             <th>Sil</th>
 
@@ -35,9 +36,8 @@
                             <td>{{$value->baslik}}</td>
                             <td>{{config('constants.kategori.'.$value->kategori_id)}}</td>
                             <td>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</td>
-                            <td>{{$value->tarih}}</td>
-
-
+                            <td>{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d/m/Y")}}</td>
+                            <td>{{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d/m/Y")}}</td>
 
                             <td><a href="{{route('admin.etkinlik.edit',$value)}}"><span class="badge bg-warning p-2">Düzenle</span></a></td>
                             <td><a href="{{route('admin.etkinlik.destroy',$value)}}" onclick="return confirm('Kaydı silmek istediğinize emin misiniz?')"><span class="badge bg-danger p-2">Sil</span></a></td>

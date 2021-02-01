@@ -20,6 +20,7 @@ class CreateEtkinliksTable extends Migration
             $table->text('baslik');
             $table->text('alt_baslik');
             $table->date('tarih');
+            $table->date('tarih2');
 
             $table->timestamps();
         });

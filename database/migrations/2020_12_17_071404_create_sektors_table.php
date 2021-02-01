@@ -25,7 +25,8 @@ class CreateSektorsTable extends Migration
             $table->string('sektor_link');
             $table->string('gtip_pdf');
             $table->string('tanitim_pdf');
-            $table->string('image');
+            $table->string('ana_resim');
+            $table->string('detay_resim');
             $table->tinyInteger('durum')->default(1);
             $table->timestamps();
         });

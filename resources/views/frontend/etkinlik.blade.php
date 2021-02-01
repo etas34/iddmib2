@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex flex-wrap">
-                    <h4>Rum intio veribus core adis exerum, vel el mollabo...</h4>
+                    <h4>Güncel etkinliklerimizi keşfedin!</h4>
 
 {{--                    <button class="btn btn-link text-dark ml-auto text-decoration-none">--}}
 {{--                        Daha fazla bilgi <img class="ml-2" src="{{asset('assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />--}}
@@ -51,7 +51,7 @@
                 @foreach($etkinlik as $key=>$value)
                 <div class="col-12 mb-3 mix {{'sektor_'.$value->sektor_id}} {{'kategori_'.$value->kategori_id}}">
                     <div class="card rounded-lg">
-                        <div class="card-header text-danger bg-transparent">{{$value->tarih}}</div>
+                        <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d/m/Y")}}-{{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d/m/Y")}}</div>
                         <div class="card-body">
                             <h4>{{$value->baslik}}
                                 <br>

@@ -14,8 +14,6 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('adminlte/plugins/daterangepicker/daterangepicker.css') }}">
-
 
 
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/summernote/summernote-bs4.min.css') }}">
@@ -31,12 +29,13 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/daterangepicker/daterangepicker.css') }}">
 
-{{--    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">--}}
 
 
 
-    <link rel="stylesheet" href="{{asset('adminlte/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('adminlte/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}">--}}
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
@@ -145,12 +144,10 @@
 
 <script src="{{asset('adminlte/plugins/moment/moment-with-locales.min.js')}}"></script>
 
-<script src="{{asset('adminlte/plugins/daterangepicker/daterangepicker.js')}}"></script>
 
+{{--<script src="{{asset('adminlte/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>--}}
 
-<script src="{{asset('adminlte/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
-
-
+<script src="{{asset('adminlte/plugins/moment/moment.min.js')}}"></script>
 
 <!-- Bootstrap 4 -->
 <script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -178,6 +175,8 @@
 <script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
 
 
+<!-- date-range-picker -->
+<script src="{{asset('adminlte/plugins/daterangepicker/daterangepicker.js')}}"></script>
 
 {{--<script src="{{asset('adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>--}}
 
@@ -196,6 +195,28 @@
     @endif
 </script>
 <script>
+
+    // jQuery plugin to prevent double submission of forms
+    jQuery.fn.preventDoubleSubmission = function() {
+        $(this).on('submit',function(e){
+            var $form = $(this);
+
+            if ($form.data('submitted') === true) {
+                // Previously submitted - don't submit again
+                e.preventDefault();
+            } else {
+                // Mark it so that the next submit can be ignored
+                $form.data('submitted', true);
+            }
+        });
+
+        // Keep chainability
+        return this;
+    };
+
+    //double click engelleme
+    $('form').preventDoubleSubmission();
+
     $(function () {
 
 

@@ -18,6 +18,7 @@ class CreateIhracatsTable extends Migration
             $table->integer('sektor_id');
             $table->text('baslik');
             $table->string('pdf');
+            $table->tinyInteger('anasayfa')->default(0);
             $table->timestamps();
         });
     }

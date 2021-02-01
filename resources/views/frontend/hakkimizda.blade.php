@@ -42,9 +42,9 @@
                 <div class="row row-cols-sm-2 row-cols-md-3 text-center text-sm-left">
                     @foreach($sektor as $key=>$value)
                         <div class="col-12 mb-3">
-                            <a href="#"><img class="img-fluid mb-3"src="{{asset("storage/images/sektor_images/$value->image")}}"  alt="..." /></a>
-                            <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->baslik}}</a></h4>
-                            <h5><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h5>
+                            <a href="{{route('sektordetail',$value)}}"><img class="img-fluid mb-3"src="{{asset("storage/images/sektor_images/$value->ana_resim")}}"  alt="..." /></a>
+                            <h4><a class="text-dark font-weight-bold text-decoration-none" href="{{route('sektordetail',$value)}}">{{$value->baslik}}</a></h4>
+{{--                            <h5><a class="text-secondary text-decoration-none" href="#">{{$value->alt_baslik}}</a></h5>--}}
                         </div>
                     @endforeach
                 </div>

@@ -23,10 +23,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <img  width="100%"  src="{{asset("storage/images/sektor_images/$sektor->image")}}" alt="..." class="mb-4" />
-                <h3 class="text-danger font-weight-bold mt-3">{{$sektor->baslik}} Sektörü</h3>
+                <img  width="100%"  src="{{asset("storage/images/sektor_images/$sektor->detay_resim")}}" alt="..." class="mb-4" />
+                <h3 class="text-danger font-weight-bold mt-3">{{$sektor->metin_baslik}}</h3>
 
-                <div class="mt-3">
+                <div class="my-3">
                     {!! $sektor->aciklama !!}
                 </div>
             </div>
@@ -74,21 +74,23 @@
                 <div class="col-12">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
+
                             @foreach($etkinlik as $key=>$value)
                                 <div class="swiper-slide">
                                     <div class="card">
-                                        <div class="card-header text-danger bg-transparent">{{$value->tarih}}</div>
+                                        <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d/m/Y")}}-{{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d/m/Y")}}</div>
                                         <div class="card-body">
-                                            <h5>{{ $value->baslik }}</h5>
+                                            <h5>{{$value->baslik}}</h5>
                                         </div>
                                         <div class="card-footer bg-transparent border-top-0">
-                                            {{$value->alt_baslik}} &nbsp;
+                                            {{$value->alt_baslik}}
                                         </div>
                                         <div class="card-footer bg-transparent border-top-0 text-secondary d-flex justify-content-between">
                                             <span>{{\App\Models\Sektor::find($value->sektor_id)->baslik}}</span>
                                             <span>{{config('constants.kategori.'.$value->kategori_id)}}</span>
                                         </div>
                                     </div>
+
                                 </div>
                             @endforeach
 
@@ -101,14 +103,14 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="text-danger">Tüm {{$sektor->baslik}} Etkinliklerini Göster</a>
+                    <a class="text-danger"  href="{{route('etkinlik')}}">Tüm etkinliklerini göster</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- threeslide end -->
-    @if($sektor->id!=5 && $sektor->id!=6)
     <hr class="mb-5" />
+    <!-- threeslide end -->
+    @if($sektor->id!=5 && $sektor->id!=6 && $sektor->id!=8)
     <div class="container mb-5">
         <div class="row">
             <div class="col-12">
@@ -173,7 +175,7 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12">
-                    <h3 class="text-danger font-weight-bold">{{$sektor->baslik}} Sektöründen Haberler</h3>
+                    <h3 class="text-danger font-weight-bold">Sektörel Haberler ve Duyurular</h3>
                 </div>
             </div>
             <div class="row mb-3">
@@ -209,39 +211,39 @@
 
     <hr class="mb-5" />
 
-    <div class="container mb-5">
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="text-danger font-weight-bold">{{$sektor->baslik}}  GTİP Listesi ve Tanıtım</h3>
-            </div>
-        </div>
+{{--    <div class="container mb-5">--}}
+{{--        <div class="row mb-4">--}}
+{{--            <div class="col-12">--}}
+{{--                <h3 class="text-danger font-weight-bold">{{$sektor->baslik}}  GTİP Listesi ve Tanıtım</h3>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <div class="row text-center justify-content-center">
-            <div class="col-12 col-md-12">
-                <div class="row">
-                    <div class="col-12 col-sm-6 mb-3 mb-sm-0">
+{{--        <div class="row text-center justify-content-center">--}}
+{{--            <div class="col-12 col-md-12">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-12 col-sm-6 mb-3 mb-sm-0">--}}
 
-                        <div class="card py-5 px-2">
-                            <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}   <br />
-                                GTİP Listesi
-                            </h4>
-                            <h5><a class="text-dark text-decoration-none"   href="{{asset("storage/files/gtip_pdf/$sektor->gtip_pdf")}}">Pdf İndir (8 Mb)</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 mb-3 mb-sm-0">
-                        <div class="card py-5 px-2">
-                            <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}   <br />
-                                Tanıtım Broşürü
-                            </h4>
-                            <h5><a class="text-dark text-decoration-none" href="{{asset("storage/files/tanitim_pdf/$sektor->tanitim_pdf")}}">Pdf İndir (8 Mb)</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--                        <div class="card py-5 px-2">--}}
+{{--                            <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}   <br />--}}
+{{--                                GTİP Listesi--}}
+{{--                            </h4>--}}
+{{--                            <h5><a class="text-dark text-decoration-none"   href="{{asset("storage/files/gtip_pdf/$sektor->gtip_pdf")}}">Pdf İndir (8 Mb)</a></h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-12 col-sm-6 mb-3 mb-sm-0">--}}
+{{--                        <div class="card py-5 px-2">--}}
+{{--                            <h4 class="text-dark font-weight-bold"> {{$sektor->baslik}}   <br />--}}
+{{--                                Tanıtım Broşürü--}}
+{{--                            </h4>--}}
+{{--                            <h5><a class="text-dark text-decoration-none" href="{{asset("storage/files/tanitim_pdf/$sektor->tanitim_pdf")}}">Pdf İndir (8 Mb)</a></h5>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
-    <hr class="mb-5" />
+{{--    <hr class="mb-5" />--}}
     <!-- sectors start -->
     <div class="sectors mb-5">
         <div class="container">
@@ -257,7 +259,7 @@
                 <div class="col-12 mb-3">
                     <a href="#"><img class="img-fluid mb-3" src="{{asset("storage/images/kadro_images/$value->resim")}}" alt="..." /></a>
                     <h4><a class="text-dark font-weight-bold text-decoration-none" href="#">{{$value->ad_soyad}}</a></h4>
-                    <p><a class="text-secondary text-decoration-none" href="#">{{$sektor->baslik}} Sektör Şubesi <br />
+                    <p><a class="text-secondary text-decoration-none" href="#">{{$sektor->baslik}} Sektörü <br />
                             {{$value->unvan}}
                     <div class="w-100"></div>
                             {{$value->tel}} <br />

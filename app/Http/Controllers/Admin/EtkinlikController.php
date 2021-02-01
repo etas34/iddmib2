@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Etkinlik;
 use App\Http\Controllers\Controller;
 use App\Models\Sektor;
+use DateTime;
 use Illuminate\Http\Request;
 
 class EtkinlikController extends Controller
@@ -41,7 +42,8 @@ class EtkinlikController extends Controller
     {
         $etkinlik = new Etkinlik();
         $etkinlik->kategori_id = $request->kategori_id;
-        $etkinlik->tarih = $request->yil . "-" . $request->ay ."-". $request->gun;
+        $etkinlik->tarih = DateTime::createFromFormat("d/m/Y", $request->tarih);
+        $etkinlik->tarih2 = DateTime::createFromFormat("d/m/Y", $request->tarih2);
         $etkinlik->baslik = $request->baslik;
         $etkinlik->sektor_id = $request->sektor_id ;
         $etkinlik->alt_baslik = '';
@@ -88,7 +90,8 @@ class EtkinlikController extends Controller
     public function update(Request $request, Etkinlik $etkinlik)
     {
         $etkinlik->kategori_id = $request->kategori_id;
-        $etkinlik->tarih = $request->yil . "-" . $request->ay ."-". $request->gun;
+        $etkinlik->tarih = DateTime::createFromFormat("d/m/Y", $request->tarih);
+        $etkinlik->tarih2 = DateTime::createFromFormat("d/m/Y", $request->tarih2);
         $etkinlik->baslik = $request->baslik;
         $etkinlik->sektor_id = $request->sektor_id ;
         $etkinlik->alt_baslik ='';
