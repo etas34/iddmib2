@@ -33,7 +33,7 @@ class MainController extends Controller
         $ihracat = Ihracat::where('anasayfa','1')->get();
         $faliyet = Faliyet::all();
         $ihracatRakam = IhracatRakam::first();
-        $etkinlik = Etkinlik::orderBy('tarih','asc');
+        $etkinlik = Etkinlik::orderBy('tarih','desc')->get();
         $inovasyon = Inovasyon::all();
         $faliyetRapor = FaliyetRapor::all();
         $baskan = BaskaninMesaji::first();
