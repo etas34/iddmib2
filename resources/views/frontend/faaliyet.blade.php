@@ -65,7 +65,7 @@
                                 @foreach($etkinlik as $key=>$value)
                                     <div class="swiper-slide">
                                         <div class="card">
-                                            <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d/m/Y")}}-{{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d/m/Y")}}</div>
+                                            <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d.m.Y")}} - {{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d.m.Y")}}</div>
                                             <div class="card-body">
                                                 <h5>{{$value->baslik}}</h5>
                                             </div>

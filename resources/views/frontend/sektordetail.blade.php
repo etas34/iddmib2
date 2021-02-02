@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row text-center text-sm-left">
                 <div class="col-12 col-sm-4 d-flex flex-column mb-3 mb-sm-0">
-                    <h2>İhracat <br /> Rakamları</h2>
+                    <h2>Demir ve Demir Dışı <br /> Metaller Sektör <br /> İhracatı</h2>
                     <div class="mt-auto">
                         <p>Son Güncelleme Tarihi</p>
 
@@ -78,7 +78,7 @@
                             @foreach($etkinlik as $key=>$value)
                                 <div class="swiper-slide">
                                     <div class="card">
-                                        <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d/m/Y")}}-{{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d/m/Y")}}</div>
+                                        <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d.m.Y")}} - {{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d.m.Y")}}</div>
                                         <div class="card-body">
                                             <h5>{{$value->baslik}}</h5>
                                         </div>

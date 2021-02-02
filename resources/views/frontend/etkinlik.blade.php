@@ -51,7 +51,7 @@
                 @foreach($etkinlik as $key=>$value)
                 <div class="col-12 mb-3 mix {{'sektor_'.$value->sektor_id}} {{'kategori_'.$value->kategori_id}}">
                     <div class="card rounded-lg">
-                        <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d/m/Y")}}-{{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d/m/Y")}}</div>
+                        <div class="card-header text-danger bg-transparent">{{\DateTime::createFromFormat("Y-m-d", $value->tarih)->format("d.m.Y")}} - {{\DateTime::createFromFormat("Y-m-d", $value->tarih2)->format("d.m.Y")}}</div>
                         <div class="card-body">
                             <h4>{{$value->baslik}}
                                 <br>
