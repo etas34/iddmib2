@@ -60,6 +60,7 @@ class MainController extends Controller
         $ihracatrakam = IhracatRakam::where('sektor_id', $sektor->id)
             ->first();
         $etkinlik = Etkinlik::whereIn('sektor_id', [$sektor->id,999])
+            ->orderBy('tarih','asc')
             ->get();
 //        $faaliyet = Faliyet::where('sektor_id', $sektor->id)
 //            ->get();
