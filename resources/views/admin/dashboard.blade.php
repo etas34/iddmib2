@@ -30,7 +30,7 @@
                         <div class="icon">
                             <i class="fas fa-newspaper"></i>
                         </div>
-                        <a href="{{route('admin.duyuru.index')}}" class="small-box-footer">Git <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{route('admin.duyuru.index')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -45,7 +45,7 @@
                         <div class="icon">
                             <i class="fas fa-map-signs"></i>
                         </div>
-                        <a href="{{route('admin.sektor.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{route('admin.sektor.index')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -61,7 +61,7 @@
                             <i class="fas fa-check"></i>
 
                         </div>
-                        <a href="{{route('admin.duyuru.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{route('admin.duyuru.index')}}" class="small-box-footer">Listele<i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -76,7 +76,7 @@
                         <div class="icon">
                             <i class="fas fa-clipboard-check"></i>
                         </div>
-                        <a href="{{route('admin.etkinlik.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{route('admin.etkinlik.index')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

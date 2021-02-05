@@ -19,8 +19,8 @@ $(document).ready(function(){
                 el: '.swiper-pagination',
             },
             navigation: {
-                nextEl: '.notice-left',
-                prevEl: '.notice-right',
+                nextEl: '.notice-right',
+                prevEl: '.notice-left',
             },
             breakpoints: {
                 // when window width is >= 320px

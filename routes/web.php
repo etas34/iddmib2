@@ -38,6 +38,7 @@ Route::get('/reset', function () {
 });
 
 
+
 Route::get('lang/{locale}', [HomeController::class, 'setlocale'])->name('setlocale');
 Route::group(['middleware' => 'setlocale'], function () {
 

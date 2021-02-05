@@ -27,13 +27,13 @@ class MainController extends Controller
     public function index()
     {
         $slider = Slider::first();
-        $duyuru = Duyuru::all();
+        $duyuru = Duyuru::orderByRaw('ISNULL(sira), sira ASC')->get();
         $haber = Haber::all();
         $sektor = Sektor::where('durum',1)->where('id','!=',999)->get();
         $ihracat = Ihracat::where('anasayfa','1')->get();
         $faliyet = Faliyet::all();
         $ihracatRakam = IhracatRakam::first();
-        $etkinlik = Etkinlik::orderBy('tarih','asc')->get();
+        $etkinlik = Etkinlik::orderBy('tarih','desc')->get();
         $inovasyon = Inovasyon::all();
         $faliyetRapor = FaliyetRapor::all();
         $baskan = BaskaninMesaji::first();
@@ -60,7 +60,7 @@ class MainController extends Controller
         $ihracatrakam = IhracatRakam::where('sektor_id', $sektor->id)
             ->first();
         $etkinlik = Etkinlik::whereIn('sektor_id', [$sektor->id,999])
-            ->orderBy('tarih','asc')
+            ->orderBy('tarih','desc')
             ->get();
 //        $faaliyet = Faliyet::where('sektor_id', $sektor->id)
 //            ->get();
@@ -193,7 +193,7 @@ class MainController extends Controller
 
     public function etkinlik()
     {
-        $etkinlik = Etkinlik::all();
+        $etkinlik = Etkinlik::orderBy('tarih','desc')->get();
         $sektor = Sektor::where('durum',1)
             ->get();
         $compact = compact('etkinlik','sektor');
