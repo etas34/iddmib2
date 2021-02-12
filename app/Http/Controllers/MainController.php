@@ -141,7 +141,7 @@ class MainController extends Controller
 
         return view('frontend.raporlar', $compact);
     }
-
+//
     public function sunumlar()
     {
         $sunum= Sunum::orderBy('created_at', 'DESC')
