@@ -28,7 +28,7 @@ class MainController extends Controller
     {
         $slider = Slider::first();
         $duyuru = Duyuru::orderByRaw('ISNULL(sira), sira ASC')->get();
-        $haber = Haber::all();
+        $haber = Haber::orderBy('tarih','desc')->get();
         $sektor = Sektor::where('durum',1)->where('id','!=',999)->get();
         $ihracat = Ihracat::where('anasayfa','1')->get();
         $faliyet = Faliyet::all();
@@ -67,6 +67,7 @@ class MainController extends Controller
         $ihracat = Ihracat::where('sektor_id', $sektor->id)
             ->get();
         $haber = Haber::whereIn('sektor_id', [$sektor->id,999])
+            ->orderBy('tarih','desc')
             ->get();
         $kadro = Kadro::where('sektor_id','like',"%".$sektor->id."%" )
             ->get();
@@ -223,7 +224,7 @@ class MainController extends Controller
     }
     public function haberler()
     {
-        $haber = Haber::all();
+        $haber = Haber::orderBy('tarih','desc')->get();
         $compact = compact('haber');
         return view('frontend.haberler',$compact);
     }
