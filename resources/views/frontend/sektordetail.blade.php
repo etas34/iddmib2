@@ -202,7 +202,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                  <a class="text-danger">Tüm haberleri göster</a>
+                  <a href="{{route('haberler')}}" class="text-danger">Tüm haberleri göster</a>
                 </div>
             </div>
         </div>
