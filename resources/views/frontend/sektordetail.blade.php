@@ -186,7 +186,7 @@
 
                             <div class="swiper-slide">
                                 <a href="{{route('haber',$value)}}"><img class="img-fluid mb-3" src="{{asset("storage/images/haber_images/$value->ana_resim")}}" alt="..." /></a>
-                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="{{route('haber',$value)}}">{{$value->created_at ?? ''}}</a></h5>
+                                <h5 class="text-secondary"><a class="text-dark text-decoration-none" href="{{route('haber',$value)}}">{{$value->tarih ?? ''}}</a></h5>
                                 <h5><a class="text-dark text-decoration-none" href="{{route('haber',$value)}}">{{$value->baslik}}</a></h5>
                             </div>
 
